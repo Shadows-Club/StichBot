@@ -13,12 +13,12 @@ const require = createRequire(__dirname);
 const { name, description, author, version } = require(join(__dirname, './package.json'));
 const { say } = cfonts;
 const rl = createInterface(process.stdin, process.stdout);
-say('Morchiyara\nbot', {
+say('Morchi\nbot', {
 font: 'chrome',
 align: 'center',
 gradient: ['red', 'magenta']
 });
-say(`Developed by Cristian Escobar`, {
+say(`Developed by Dev.Criss_vX`, {
 font: 'console',
 align: 'center',
 gradient: ['red', 'magenta']
