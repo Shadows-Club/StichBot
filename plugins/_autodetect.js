@@ -8,19 +8,19 @@ let usuario = `@${m.sender.split`@`[0]}`
 let pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || 'https://files.catbox.moe/xr2m6u.jpg'  
 
 let nombre, foto, edit, newlink, status, admingp, noadmingp, aceptar
-nombre = `*_🐈 ${usuario} HA CAMBIADO EL NOMBRE DEL GRUPO_*.`
+nombre = `*💫 ${usuario} HA CAMBIADO EL NOMBRE DEL GRUPO*.`
 
-foto = `*🐈 _${usuario} HA CAMBIADO LA IMAGEN DEL GRUPO._*`
+foto = `*💫 ${usuario} HA CAMBIADO LA IMAGEN DEL GRUPO._*`
 
-edit = `*${usuario}*\n*_AH PERMITIDO QUE ${m.messageStubParameters[0] == 'on' ? 'SOLO ADMINS' : 'TODOS'} PUEDAN CONFIGURAR EL GRUPO_*`
+edit = `*${usuario}*\n*AH PERMITIDO QUE ${m.messageStubParameters[0] == 'on' ? 'SOLO ADMINS' : 'TODOS'} PUEDAN CONFIGURAR EL GRUPO*`
 
 newlink = `*El enlace del grupo ha sido restablecido*`
 
-status = `*_😸 EL GRUPO AH SIDO ${m.messageStubParameters[0] == 'on' ? 'CERRADO 🔒' : '`ABIERTO 🔓'}_*\n*_POR ${usuario}_*\n\n*_🧡 AHORA ${m.messageStubParameters[0] == 'on' ? 'SOLO ADMINS' : 'TODOS'} PUEDEN ENVIAR MENSAJE_*`
+status = `*🐼 EL GRUPO AH SIDO ${m.messageStubParameters[0] == 'on' ? 'CERRADO 🔒' : '`ABIERTO 🔓'}_*\n*POR ${usuario}*\n\n*🥱 AHORA ${m.messageStubParameters[0] == 'on' ? 'ESTAN CALLADOS NEGROS' : 'SIGAN EN LO SUYO PENDEJOS'}*`
 
-admingp = `*😸 @${m.messageStubParameters[0].split`@`[0]} Ahora es admin del grupo*`
+admingp = `*💫 @${m.messageStubParameters[0].split`@`[0]} Ahora es admin del grupo*`
 
-noadmingp =  `*🐱 @${m.messageStubParameters[0].split`@`[0]} Deja de ser admin en este grupo*`
+noadmingp =  `*🥱 @${m.messageStubParameters[0].split`@`[0]} Deja de ser admin en este grupo*`
 
 aceptar = `*¡Ha llegado un nuevo participante al grupo!*\n\n◦ ✐ Grupo: *${groupMetadata.subject}*\n\n> ◦ ⚘ Bienvenido/a: @${m.messageStubParameters[0].split('@')[0]}\n\n> ◦ ✦ Aceptado por:
  @${m.sender.split('@')[0]}` 
