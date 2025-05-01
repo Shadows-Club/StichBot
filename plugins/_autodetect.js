@@ -5,12 +5,12 @@ if (!m.messageStubType || !m.isGroup) return
 const fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net"}  
 let chat = global.db.data.chats[m.chat]
 let usuario = `@${m.sender.split`@`[0]}`
-let pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || 'https://files.catbox.moe/xr2m6u.jpg'  
+let pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || 'https://files.catbox.moe/uogbz0.jpg'  
 
 let nombre, foto, edit, newlink, status, admingp, noadmingp, aceptar
-nombre = `*💫 ${usuario} HA CAMBIADO EL NOMBRE DEL GRUPO*.`
+nombre = `*💫 ${usuario} HA CAMBIADO EL NOMBRE DEL GRUPO*`
 
-foto = `*💫 ${usuario} HA CAMBIADO LA IMAGEN DEL GRUPO._*`
+foto = `*💫 ${usuario} HA CAMBIADO LA IMAGEN DEL GRUPO*`
 
 edit = `*${usuario}*\n*AH PERMITIDO QUE ${m.messageStubParameters[0] == 'on' ? 'SOLO ADMINS' : 'TODOS'} PUEDAN CONFIGURAR EL GRUPO*`
 
