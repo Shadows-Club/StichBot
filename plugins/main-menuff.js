@@ -17,22 +17,18 @@ const handler = async (m, {conn, usedPrefix, text, isPrems}) => {
 
 \`\`\`${fechaHora}\`\`\`
 `.trim();
-/*
-    conn.sendMessage(m.chat, { image: { url: img }, caption: str, mentions: [m.sender] }, { quoted: fkontak });
-
-await conn.sendMessage(m.chat, { react: { text: '🐼', key: m.key } });*/
 
       await conn.sendMessage(m.chat, {
             video: { url: videoUrl },
             caption: str,
             mentions: [m.sender],
             gifPlayback: true
-        }, { quoted: m, rcanal })
+        }, { quoted: global.rcanal })
 
 //await conn.sendMessage(m.chat, { react: { text: '😇', key: m.key } });
 
   } catch (e) {
-    conn.reply(m.chat,'*🍂 Error al enviar el video.*\n\n${e}', m);
+    conn.reply(m.chat,`*🍂 Error al enviar el video.*\n${e}`, m);
   }
 };
 
