@@ -18,6 +18,19 @@ const handler = async (m, {conn, usedPrefix, text, isPrems}) => {
 \`\`\`${fechaHora}\`\`\`
 `.trim();
 
+    await conn.sendMessage(m.chat, {
+      video: { url: videoUrl },
+      caption: str,
+      mentions: [m.sender],
+      gifPlayback: true,
+      contextInfo: global.rcanal.contextInfo  // Aquí se pasa directamente el contextInfo
+    });
+  } catch (e) {
+    conn.reply(m.chat, `*🍂 Error al enviar el video.*\n${e}`, m);
+  }
+};
+
+/*
       await conn.sendMessage(m.chat, {
             video: { url: videoUrl },
             caption: str,
@@ -30,7 +43,7 @@ const handler = async (m, {conn, usedPrefix, text, isPrems}) => {
   } catch (e) {
     conn.reply(m.chat,`*🍂 Error al enviar el video.*\n${e}`, m);
   }
-};
+};*/
 
 handler.command = /^(xyz)$/i;
 handler.fail = null;
