@@ -28,11 +28,11 @@ await conn.sendMessage(m.chat, { react: { text: '🐼', key: m.key } });*/
 //await conn.sendMessage(m.chat, { react: { text: '😇', key: m.key } });
 
   } catch {
-    conn.reply(m.chat,'*[ ℹ️ ] Error al enviar el video.*\n\n${e}', m);
+    conn.reply(m.chat,'*🍂 Error al enviar el video.*\n\n${e}', m);
   }
 };
 
-handler.command = /^(menuff|comandosff)$/i;
+handler.command = /^(xyz)$/i;
 handler.fail = null;
 
 export default handler;
