@@ -26,7 +26,7 @@ let handler = async (m, { conn, usedPrefix, text, args, command }) => {
                 title: 'Hola soy el Creador de JotaBot',
                 body: 'Dev.Criss 🇦🇱'
                 thumbnailUrl: 'https://files.catbox.moe/8an9fs.jpg',
-                sourceUrl: 'https://wa.me/51927238856?text=Vengo+Del+Comando+.owner',
+                sourceUrl: 'https://wa.me/51927238856?text=¡Hola!,+Vengo+por+los+precios+del+bot.',
                 mediaType: 1,
                 renderLargerThumbnail: true
             }
