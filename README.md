@@ -2,7 +2,7 @@
  <p align="center">Dev.Criss 🇦🇱</p>
 </p>
 
-![img](https://files.catbox.moe/uogbz0.jpg)
+![img](https://files.catbox.moe/853hf2.jpg)
 
 [![GROUP OFFICIAL](https://img.shields.io/badge/WhatsApp%20grupo-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/GqKwwoV2JJaJDP2SL7SddX) [![GROUP OFFICIAL](https://img.shields.io/badge/WhatsApp%20channel-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://whatsapp.com/channel/0029VaJxgcB0bIdvuOwKTM2Y)
 
