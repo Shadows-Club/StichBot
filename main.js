@@ -297,7 +297,7 @@ return await connectionUpdate(authFile);
 
 const bots = await Promise.all(botPromises);
 global.conns = bots.filter(Boolean);
-console.log(chalk.bold.greenBright(`🐼 Todos los Sub-Bots se conectaron con éxito.`))
+console.log(chalk.bold.greenBright(`🤍 Todos los Sub-Bots se conectaron con éxito.`))
 }
 
 (async () => {
@@ -307,7 +307,7 @@ const mainBotAuthFile = 'JotaSession';
 try {
 const mainBot = await connectionUpdate(mainBotAuthFile);
 global.conns.push(mainBot);
-console.log(chalk.bold.greenBright(`🐼 Jota Bot MD conectado correctamente.`))
+console.log(chalk.bold.greenBright(`🤍 Jota Bot MD conectado correctamente.`))
 
 await connectSubBots();
 } catch (error) {
@@ -495,4 +495,28 @@ console.log(chalk.bold.cyanBright(`\n╭» 🟢 MULTIMEDIA 🟢\n│→ ARCHIVOS
 setInterval(async () => {
 if (stopped === 'close' || !conn || !conn.user) return
 await purgeOldFiles()
-console.log(chalk.bold.cyanBright(`\n╭» 🟠 ARCHIVOS 🟠\n│→ ARCHIVO
+console.log(chalk.bold.cyanBright(`\n╭» 🟠 ARCHIVOS 🟠\n│→ ARCHIVOS RESIDUALES ELIMINADAS\n╰― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― 🗑️♻️`))}, 1000 * 60 * 10)
+
+_quickTest().then(() => conn.logger.info(chalk.bold(`🤍  H E C H O\n`.trim()))).catch(console.error)
+
+let file = fileURLToPath(import.meta.url)
+watchFile(file, () => {
+unwatchFile(file)
+console.log(chalk.bold.greenBright("Actualizado"))
+import(`${file}?update=${Date.now()}`)
+})
+
+async function isValidPhoneNumber(number) {
+try {
+number = number.replace(/\s+/g, '')
+// Si el número empieza con '+521' o '+52 1', quitar el '1'
+if (number.startsWith('+521')) {
+number = number.replace('+521', '+52'); // Cambiar +521 a +52
+} else if (number.startsWith('+52') && number[4] === '1') {
+number = number.replace('+52 1', '+52'); // Cambiar +52 1 a +52
+}
+const parsedNumber = phoneUtil.parseAndKeepRawInput(number)
+return phoneUtil.isValidNumber(parsedNumber)
+} catch (error) {
+return false
+}}
