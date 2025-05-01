@@ -27,11 +27,11 @@ await conn.sendMessage(m.chat, { react: { text: '🐼', key: m.key } });*/
             caption: str,
             mentions: [m.sender],
             gifPlayback: true
-        }, { quoted: rcanal })
+        }, { quoted: m, rcanal })
 
 //await conn.sendMessage(m.chat, { react: { text: '😇', key: m.key } });
 
-  } catch {
+  } catch (e) {
     conn.reply(m.chat,'*🍂 Error al enviar el video.*\n\n${e}', m);
   }
 };
