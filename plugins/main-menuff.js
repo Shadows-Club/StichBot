@@ -27,7 +27,7 @@ await conn.sendMessage(m.chat, { react: { text: '🐼', key: m.key } });*/
             caption: str,
             mentions: [m.sender],
             gifPlayback: true
-        }, { quoted: fkontak })
+        }, { quoted: rcanal })
 
 //await conn.sendMessage(m.chat, { react: { text: '😇', key: m.key } });
 
