@@ -249,7 +249,7 @@ if (opcion == '1' || methodCodeQR) {
 console.log(chalk.bold.yellow(`\n💚 ESCANEA EL CÓDIGO QR EXPIRA EN 45 SEGUNDOS`))}
 }
 if (connection == 'open') {
-console.log(chalk.bold.greenBright(`\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒\n│\n│ ✅ Se ha conectado exitosamente.\n│\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒`))}
+console.log(chalk.bold.greenBright(`\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒\n│\n│ ✅ Se ha conectado exitosamente.\n│\n❒⸺⸺⸺⸺【• JOTA-BOT •】⸺⸺⸺⸺❒`))}
 let reason = new Boom(lastDisconnect?.error)?.output?.statusCode
 if (connection === 'close') {
 if (reason === DisconnectReason.badSession) {
@@ -280,7 +280,7 @@ process.on('uncaughtException', console.error);
 async function connectSubBots() {
 const subBotDirectory = './JotaJadiBot';
 if (!existsSync(subBotDirectory)) {
-console.log('🤍 Jota Bot MD no tiene Sub-Bots vinculados.');
+console.log('☁️ Jota Bot MD no tiene Sub-Bots vinculados.');
 return;
 }
 
@@ -297,7 +297,7 @@ return await connectionUpdate(authFile);
 
 const bots = await Promise.all(botPromises);
 global.conns = bots.filter(Boolean);
-console.log(chalk.bold.greenBright(`🤍 Todos los Sub-Bots se conectaron con éxito.`))
+console.log(chalk.bold.greenBright(`🐼 Todos los Sub-Bots se conectaron con éxito.`))
 }
 
 (async () => {
@@ -307,7 +307,7 @@ const mainBotAuthFile = 'JotaSession';
 try {
 const mainBot = await connectionUpdate(mainBotAuthFile);
 global.conns.push(mainBot);
-console.log(chalk.bold.greenBright(`🤍 Jota Bot MD conectado correctamente.`))
+console.log(chalk.bold.greenBright(`🐼 Jota Bot MD conectado correctamente.`))
 
 await connectSubBots();
 } catch (error) {
