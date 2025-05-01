@@ -36,11 +36,11 @@ global.creador = 'Wa.me/51927238856'
 global.botreal = `${(conn.user.jid == global.conn.user.jid ? 'Oficial' : 'Sub-Bot')}`
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
 global.asistencia = 'Wa.me/51927238856'
-global.namech = 'Morchi Bot'
-global.namechannel2 = 'ꨴ ☁꣺ꤪ꤬꤯ꨬꨶ ̷̸̲̼̈́ Mᴏᴏɴ Fᴏʀᴄᴇ Ƭᴇᴀᴍ 彡'
-global.namegrupo = 'Morchi'
-global.namecomu = 'Morchi'
-global.namecomu2 = 'Morchi'
+global.namech = 'Jota Bot'
+global.namechannel2 = 'ꘓꘓ   ໒☀️ؑ   𝖲ᥙᥒ𝖿͟ᥣ͟ᥲ𝗋ᥱࣲ  𝖳ᥱᥲ𝗆 彡'
+global.namegrupo = 'JotaBot'
+global.namecomu = 'NovaSpark'
+global.namecomu2 = 'Jota'
 
 //REACCIONES 
 global.rwait = '🕒'
@@ -48,11 +48,11 @@ global.done = '✅'
 global.error = '✖️'
 
 //EMOJIS PREDETERMINADOS
-global.emoji = '🧡'
-global.emoji2 = '😼'
-global.emoji3 = '😸'
-global.emoji4 = '😺'
-global.emoji5 = '🐈'
+global.emoji = '🐼'
+global.emoji2 = '👺'
+global.emoji3 = '💫'
+global.emoji4 = '🫧'
+global.emoji5 = '☁️'
 global.emojis = [emoji, emoji2, emoji3, emoji4, emoji5].getRandom()
 
 //EMOJIS INFORMATIVOS
@@ -61,13 +61,13 @@ global.mistake = '❌'
 global.info = 'ℹ️'
 
 //MENSAJE DE ESPERA 
-global.wait = '*[ ⏳ ] Aguarde un momento...*';
+global.wait = '*⏳ Aguarde un momento...*';
 
 //ENLACES
 var grupo = 'https://chat.whatsapp.com/FCS6htvAmlT7nq006lxU4I'  
-var github = 'https://github.com/CrxstianEscobar/MorchiBot' 
-var web = 'https://morchi-bot.vercel.app/' 
-let instagram = 'https://www.instagram.com/morchi_yara'
+var github = 'https://github.com/NovaSpark-Community/JotaBot' 
+var web = 'https://jota-bot.vercel.app/' 
+let instagram = 'https://www.instagram.com/dev.criss_vx'
 
 global.redes = [grupo, github, web, instagram].getRandom()
 
@@ -102,7 +102,7 @@ switch(hour) {
         hour = 'Lɪɴᴅᴏ Dɪᴀ 🌤'; 
         break;
     case 14: case 15: case 16: case 17:
-        hour = 'Lɪɴᴅᴀ Tᴀʀᴅᴇ xD'; 
+        hour = 'Lɪɴᴅᴀ Tᴀʀᴅᴇ 🌇'; 
         break;
     case 18: case 19: case 20: case 21: case 22: case 23:
         hour = 'Lɪɴᴅᴀ Nᴏᴄʜᴇ 🌃'; 
@@ -131,30 +131,30 @@ global.taguser = '@' + m.sender.split("@s.whatsapp.net")
 var more = String.fromCharCode(8206)
 global.readMore = more.repeat(850)
 
-global.authsticker = `Morchi Bot by MF`;
+global.authsticker = `ꘓꘓ Jota Bot`;
 
-global.packsticker = `Mᴏᴏɴ Fᴏʀᴄᴇ Ƭᴇᴀᴍ`
+global.packsticker = `ꘓꘓ  𝖲ᥙᥒ𝖿͟ᥣ͟ᥲ𝗋ᥱࣲ 𝖳ᥱᥲ𝗆  彡`
 
 //FAKES
 global.fkontak = { key: { participants:"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 
-global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363318267632676@newsletter', newsletterName: "˚₊·͟͟͟͟͟͟͞͞͞͞͞͞𝑴𝒐𝒐𝒏 𝑭𝒐𝒓𝒄𝒆 - 𝑻𝒆𝒂𝒎 ೃ࿔₊•", serverMessageId: -1 }
+global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363318267632676@newsletter', newsletterName: "˚₊·͟͟͟͟͟͟͞͞͞͞͞͞Sunflare - Team ೃ࿔₊•", serverMessageId: -1 }
 }}, { quoted: m }
 
 //ID CANALES
 global.idchannel = '120363357231409846@newsletter'
 global.canalIdM = ["120363357231409846@newsletter", "120363357231409846@newsletter", "120363357231409846@newsletter"]
-global.canalNombreM = ["⏤͟͟͞͞Morchiyara", "Morchi", "⏤͟͟͞͞☆ MORCHIYARA BOT MD"]
+global.canalNombreM = ["⏤͟͟͞͞JotaBot", "Jota", "⏤͟͟͞͞☆ JOTA BOT MD"]
 global.channelRD = await getRandomChannel()
 // global.estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "3876577197-120363302285079181@g.us" } : {}) }, message: { orderMessage: { itemCount : -999999, status: 1, surface : 1, message: `${packname}`, orderTitle: 'Bang', thumbnail: icons, sellerJid: '0@s.whatsapp.net'}}}
 
 global.icono = [
-'https://files.catbox.moe/9xgyvd.jpg',
-'https://files.catbox.moe/oxjynm.jpg',
-'https://files.catbox.moe/l4saw1.jpg',
-'https://files.catbox.moe/8bywlp.jpg',
-'https://files.catbox.moe/9xgyvd.jpg',
-'https://files.catbox.moe/y15v80.jpg',
+'https://files.catbox.moe/w3zmi3.jpg',
+'https://files.catbox.moe/2i4z53.jpg',
+'https://files.catbox.moe/853hf2.jpg',
+'https://files.catbox.moe/1cdqt2.jpg',
+'https://files.catbox.moe/uogbz0.jpg',
+'https://files.catbox.moe/szj9o8.jpg',
 ].getRandom()
 
 global.urls = [
