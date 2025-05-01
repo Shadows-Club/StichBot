@@ -28,7 +28,7 @@ let noprem = `
 *💫 Exᴘ* ${exp || 0}
 *🐈 Rango:* ${role}
 
-> By MorchiyaraBot
+> By Jota Bot - MD
 `.trim()
 let prem = `╭─⪩ 𓆩 𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐏𝐑𝐄𝐌𝐈𝐔𝐌 𓆪
 │⧼👤⧽ *Usᴜᴀʀɪᴏ:* ${username}
