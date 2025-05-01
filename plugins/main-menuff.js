@@ -23,7 +23,7 @@ const handler = async (m, {conn, usedPrefix, text, isPrems}) => {
             caption: str,
             mentions: [m.sender],
             gifPlayback: true
-        }, { quoted: fkontak })
+        }, { quoted: rcanal })
 
 //await conn.sendMessage(m.chat, { react: { text: '😇', key: m.key } });
 
