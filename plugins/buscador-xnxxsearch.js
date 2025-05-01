@@ -2,10 +2,10 @@ import fetch from "node-fetch"
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!db.data.chats[m.chat].nsfw && m.isGroup) {
-    return m.reply('*🧡 El contenido nsfw está desactivado para este chat.*\n> ᥙsᥱ *enable nsfw* ⍴ᥲrᥲ ᥲᥴ𝗍і᥎ᥲrᥣ᥆.');
+    return m.reply('*🐼 El contenido nsfw está desactivado para este chat.*\n> ᥙsᥱ *enable nsfw* ⍴ᥲrᥲ ᥲᥴ𝗍і᥎ᥲrᥣ᥆.');
     }
 
-  if (!text) throw m.reply(`*🐈 Ingresa el texto de lo que quieres buscar en Xnxx*`)
+  if (!text) throw m.reply(`*🫧 Ingresa el texto de lo que quieres buscar en Xnxx*`)
   let response = await fetch(`https://api.agatz.xyz/api/xnxx?message=${text}`)
   let res = await response.json()
 
@@ -25,7 +25,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     contextInfo: {
       externalAdReply: {
         title: `Xnxx Videos`,
-        body: `Morchi Bot`,
+        body: `Jota Bot`,
         thumbnailUrl: "https://pomf2.lain.la/f/kro5qrjk.jpg",
         sourceUrl: "https://xxnx.com",
         mediaType: 1,
