@@ -12,14 +12,14 @@ let handler = async function (m, { conn, text, args, usedPrefix, command }) {
     let perfil = await conn.profilePictureUrl(whe, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg')
 
     if (user.registered === true) {
-        return m.reply(`*🧡 Ya te encuentras registrado.*\n\n*¿Quieres volver a registrarte?*\n\n*Use este comando para eliminar su registro*\n*\`${usedPrefix}unreg\`*`)
+        return m.reply(`*🫧 Ya te encuentras registrado.*\n\n*¿Quieres volver a registrarte?*\n\n*Use este comando para eliminar su registro*\n*\`${usedPrefix}unreg\`*`)
     }
 
     if (!Reg.test(text)) return m.reply(`*🐈 Ingresa tu nombre y edad para registrarte en mi base de datos.*`)
 
     let [_, name, splitter, age] = text.match(Reg)
-    if (!name) return m.reply('*🐱 El nombre no puede estar vacío pendejo.*')
-    if (!age) return m.reply('*🐱 La edad no puede estar vacía.*')
+    if (!name) return m.reply('*💫 El nombre no puede estar vacío pendejo.*')
+    if (!age) return m.reply('*💫 La edad no puede estar vacía.*')
     if (name.length >= 100) return m.reply('*⚠️ El nombre es demasiado largo.*')
 
     age = parseInt(age)
@@ -43,7 +43,7 @@ let handler = async function (m, { conn, text, args, usedPrefix, command }) {
     }
 
     let sn = createHash('md5').update(m.sender).digest('hex')
-    let regbot = `*REGISTRO - MORCHIYARA*\n\n`
+    let regbot = `*REGISTRO - JOTABOT*\n\n`
     regbot += `- *Nombre:* ${name}\n`
     regbot += `- *Edad:* ${age} años\n\n`
     regbot += `*RECOMPENSAS*\n\n`
@@ -57,7 +57,7 @@ let handler = async function (m, { conn, text, args, usedPrefix, command }) {
         text: regbot,
         contextInfo: {
             externalAdReply: {
-                title: '⊱『🧡𝆺𝅥 𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗔𝗗𝗢(𝗔) 𝆹𝅥🧡』⊰',
+                title: '⊱『🐼𝆺𝅥 𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗔𝗗𝗢(𝗔) 𝆹𝅥🐼』⊰',
                 body: dev,
                 thumbnailUrl: 'https://files.catbox.moe/frbjf1.jpg',
                 sourceUrl: 'https://whatsapp.com/channel/0029VauTE8AHltY1muYir31n',
