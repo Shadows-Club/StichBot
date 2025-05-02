@@ -9,8 +9,7 @@ const handler = async (m, { conn }) => {
   if (!canLevelUp(user.level, user.exp, global.multiplier)) {
     const { min, xp, max } = xpRange(user.level, global.multiplier);
     const message = `
-*🏰 Gremio de Aventureros*
-*¡Bienvenido, ${usertag}!*
+*👤 ¡Hola, ${usertag}!*
 
 - *Nivel actual:* ${user.level}
 - *Rango actual:* ${user.role}
