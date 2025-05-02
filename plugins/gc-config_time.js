@@ -15,7 +15,7 @@ const handler = async (m, {conn, isAdmin, isOwner, args, usedPrefix, command}) =
   }[(args[0] || '')];
   if (isClose === undefined) {
           const caption = `
-*🐱 Ingresa una opción válida seguido del número de horas.*
+*${emoji3} Ingresa una opción válida seguido del número de horas.*
 
 *💡 Ejemplo:*
 ${usedPrefix + command} *open 1*
@@ -33,7 +33,7 @@ ${usedPrefix + command} *close 1*
   if (args[1]) {
          setTimeout(async () => {
       await conn.groupSettingUpdate(m.chat, `${isClose == 'announcement' ? 'not_announcement' : 'announcement'}`).then(async (_)=>{
-                    conn.reply(m.chat, `${isClose == 'not_announcement' ? '*🐈 Función activada con éxito*' : '*🐈 Función finalizada el grupo se abrió con éxito*'}!`);
+                    conn.reply(m.chat, `${isClose == 'not_announcement' ? '*☁️ Función activada con éxito*' : '*☁️ Función finalizada el grupo se abrió con éxito*'}!`);
             });
     }, timeoutset);
   }
