@@ -9,17 +9,17 @@ let handler = async function (m, { conn, text, args, usedPrefix, command }) {
     let name2 = conn.getName(m.sender)
     let whe = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.sender
 
-    let perfil = await conn.profilePictureUrl(whe, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg')
+    let perfil = await conn.profilePictureUrl(whe, 'image').catch(_ => 'https://files.catbox.moe/uogbz0.jpg')
 
     if (user.registered === true) {
-        return m.reply(`*🫧 Ya te encuentras registrado.*\n\n*¿Quieres volver a registrarte?*\n\n*Use este comando para eliminar su registro*\n*\`${usedPrefix}unreg\`*`)
+        return m.reply(`*${emojis} Ya te encuentras registrado.*\n\n*¿Quieres volver a registrarte?*\n\n*Use este comando para eliminar su registro*\n*\`${usedPrefix}unreg\`*`)
     }
 
-    if (!Reg.test(text)) return m.reply(`*🐈 Ingresa tu nombre y edad para registrarte en mi base de datos.*`)
+    if (!Reg.test(text)) return m.reply(`*${emoji3} Ingresa tu nombre y edad para registrarte en mi base de datos.*`)
 
     let [_, name, splitter, age] = text.match(Reg)
-    if (!name) return m.reply('*💫 El nombre no puede estar vacío pendejo.*')
-    if (!age) return m.reply('*💫 La edad no puede estar vacía.*')
+    if (!name) return m.reply(`*${emoji2} El nombre no puede estar vacío pendejo.*`)
+    if (!age) return m.reply('*${emoji2} La edad no puede estar vacía.*')
     if (name.length >= 100) return m.reply('*⚠️ El nombre es demasiado largo.*')
 
     age = parseInt(age)
@@ -43,23 +43,22 @@ let handler = async function (m, { conn, text, args, usedPrefix, command }) {
     }
 
     let sn = createHash('md5').update(m.sender).digest('hex')
-    let regbot = `*REGISTRO - JOTABOT*\n\n`
+    let regbot = `*Registro - ${botname}*\n\n`
     regbot += `- *Nombre:* ${name}\n`
     regbot += `- *Edad:* ${age} años\n\n`
-    regbot += `*RECOMPENSAS*\n\n`
+    regbot += `*Entregado:*\n\n`
     regbot += `💎 15 Diamantes\n`
     regbot += `💫 245 Exp\n`
-    regbot += `🎫 12 Tokens\n\n`
-    regbot += `> Coloca *.profile* para ver tu perfil.\n> Verifica tu registro aquí 👇🏻`
+    regbot += `> Coloca *.profile* para ver tu perfil.\n\n> ${dev}`
 
     await m.react('💌')
     await conn.sendMessage(m.chat, {
         text: regbot,
         contextInfo: {
             externalAdReply: {
-                title: '⊱『🐼𝆺𝅥 𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗔𝗗𝗢(𝗔) 𝆹𝅥🐼』⊰',
+                title: '⊱『✅𝆺𝅥 𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗔𝗗𝗢(𝗔) 𝆹𝅥✅』⊰',
                 body: dev,
-                thumbnailUrl: 'https://files.catbox.moe/frbjf1.jpg',
+                thumbnailUrl: 'https://files.catbox.moe/uogbz0.jpg',
                 sourceUrl: 'https://whatsapp.com/channel/0029VauTE8AHltY1muYir31n',
                 mediaType: 1,
                 showAdAttribution: true,
