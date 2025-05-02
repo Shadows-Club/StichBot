@@ -5,6 +5,9 @@ const handler = async (m, {conn, usedPrefix, text, isPrems}) => {
   try {
     await m.react ('🐼');
 
+    const _uptime = process.uptime() * 1000;
+    const uptime = clockString(_uptime);
+
     const videoUrl = 'https://files.catbox.moe/js58k4.mp4'
     const more = String.fromCharCode(8206);
     const readMore = more.repeat(850);
