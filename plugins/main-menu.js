@@ -300,7 +300,7 @@ ${readMore}
 /*
       await conn.sendMessage(m.chat, {
             video: { url: videoUrl },
-            caption: str,
+            caption: text,
             mentions: [m.sender],
             gifPlayback: true
         }, { quoted: rcanal })
