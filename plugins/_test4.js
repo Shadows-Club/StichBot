@@ -296,7 +296,7 @@ await conn.sendMessage(m.chat, {
 }
 handler.help = ['menu']
 handler.tags = ['main']
-handler.command = /^(all|\?)$/i
+handler.command = /^(all)$/i
 handler.register = true
 handler.exp = 3
 
