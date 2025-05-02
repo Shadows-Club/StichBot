@@ -289,8 +289,8 @@ ${readMore}
       video: { url: videoUrl },
       caption: text,
       gifPlayback: true,
-      contextInfo: global.rcanal.contextInfo,
-      mentionedJit: [m.sender],
+      mentions: [m.sender]
+      contextInfo: global.rcanal.contextInfo
     });
   } catch (e) {
     conn.reply(m.chat, `*🍂 Error al enviar el video.*\n${e}`, m);
