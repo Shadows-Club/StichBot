@@ -142,25 +142,26 @@ ${readMore}
 │🛠️ ${usedPrefix}nuevadescchannel
 ╰──•
 
-↷✦; \`GROUPS\` ❞ 🌿︵᷼ 
-⠞🌿੭‎ ${usedPrefix}add *número*
-⠞🌿੭‎ ${usedPrefix}grupo *abrir / cerrar*
-⠞🌿੭‎ ${usedPrefix}grouptime *tiempo*
-⠞🌿੭‎ ${usedPrefix}notify *texto*
-⠞🌿੭‎ Aviso *texto*
-⠞🌿੭‎ Admins *texto*
-⠞🌿੭‎ ${usedPrefix}todos *texto*
-⠞🌿੭‎ ${usedPrefix}setwelcome *texto*
-⠞🌿੭‎ ${usedPrefix}groupdesc *texto*
-⠞🌿੭‎ ${usedPrefix}setbye *texto*
-⠞🌿੭‎ ${usedPrefix}promote *@tag*
-⠞🌿੭‎ ${usedPrefix}demote *@tag*
-⠞🌿੭‎ ${usedPrefix}kick *@tag*
-⠞🌿੭‎ ${usedPrefix}mute *@tag*
-⠞🌿੭‎ ${usedPrefix}inactivos *opción*
-⠞🌿੭‎ ${usedPrefix}tagnum *prefix*
-⠞🌿੭‎ ${usedPrefix}link
-⠞🌿੭‎ ${usedPrefix}fantasmas
+╭──•「 *Groups* 」🌿
+│🌿 ${usedPrefix}add *número*
+│🌿 ${usedPrefix}grupo *abrir / cerrar*
+│🌿 ${usedPrefix}grouptime *tiempo*
+│🌿 ${usedPrefix}notify *texto*
+│🌿 Aviso *texto*
+│🌿 Admins *texto*
+│🌿 ${usedPrefix}todos *texto*
+│🌿 ${usedPrefix}setwelcome *texto*
+│🌿 ${usedPrefix}groupdesc *texto*
+│🌿 ${usedPrefix}setbye *texto*
+│🌿 ${usedPrefix}promote *@tag*
+│🌿 ${usedPrefix}demote *@tag*
+│🌿 ${usedPrefix}kick *@tag*
+│🌿 ${usedPrefix}mute *@tag*
+│🌿 ${usedPrefix}inactivos *opción*
+│🌿 ${usedPrefix}tagnum *prefix*
+│🌿 ${usedPrefix}link
+│🌿 ${usedPrefix}fantasmas
+╰──•
 
 ↷✦; \`EFFECTS\` ❞ 🍃︵᷼ 
 ⠞🍃੭‎ ${usedPrefix}bass *vid*
