@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 import fs from 'fs';
 var handler = async (m, { conn }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://files.catbox.moe/8bywlp.jpg')
+let pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://files.catbox.moe/uogbz0.jpg')
 
 let { premium, level, description, diamantes, exp, lastclaim, registered, regTime, age, role } = global.db.data.users[m.sender];
 
@@ -12,7 +12,7 @@ description = description || 'Sin descripción';
 
 let username = conn.getName(who)
 let noprem = `
-*_PERFIL DEL USUARIO_*
+*PERFIL DEL USUARIO*
 
 👤 *Nombre:* ${username}
 🏷️ *Tag:* @${who.replace(/@.+/, '')}
@@ -28,7 +28,7 @@ let noprem = `
 *💫 Exᴘ* ${exp || 0}
 *🐈 Rango:* ${role}
 
-> By Jota Bot - MD
+> By ${botname}
 `.trim()
 let prem = `╭─⪩ 𓆩 𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐏𝐑𝐄𝐌𝐈𝐔𝐌 𓆪
 │⧼👤⧽ *Usᴜᴀʀɪᴏ:* ${username}
