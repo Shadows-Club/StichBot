@@ -287,10 +287,10 @@ ${readMore}
 
     await conn.sendMessage(m.chat, {
       video: { url: videoUrl },
-      caption: str,
-      mentionedJit: [m.sender],
+      caption: text,
       gifPlayback: true,
-      contextInfo: global.rcanal.contextInfo  // Aquí se pasa directamente el contextInfo
+      contextInfo: global.rcanal.contextInfo,
+      mentionedJit: [m.sender],
     });
   } catch (e) {
     conn.reply(m.chat, `*🍂 Error al enviar el video.*\n${e}`, m);
