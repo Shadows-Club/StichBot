@@ -32,7 +32,7 @@ const handler = async (m, {
 }) => {
     if (!text) {
         return conn.sendMessage(m.chat, {
-            text: '*${emojis} Agrega un texto para hacer el sticker brat.*',
+            text: `*${emojis} Agrega un texto para hacer el sticker brat.*`,
         }, {
             quoted: m
         });
