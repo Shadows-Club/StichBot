@@ -3,7 +3,6 @@ import fetch from 'node-fetch';
 const handler = async (m, {conn, usedPrefix, text, isPrems}) => {
 
   try {
-    const canalx = 'https://whatsapp.com/channel/0029VauTE8AHltY1muYir31n'
     //const img = './media/menus/Menu2.jpg';
     const videoUrl = 'https://files.catbox.moe/siww4z.mp4'
     const more = String.fromCharCode(8206);
@@ -55,7 +54,8 @@ await conn.sendMessage(m.chat, { react: { text: '🎮', key: m.key } });*/
             caption: str,
             mentions: [m.sender],
             gifPlayback: true
-        }, { quoted: canalx })
+            contextInfo: global.rcanal.contextInfo
+})
 
 //await conn.sendMessage(m.chat, { react: { text: '😇', key: m.key } });
 
