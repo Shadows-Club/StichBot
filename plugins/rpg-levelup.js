@@ -53,7 +53,7 @@ if (user.level >= MAX_LEVEL) {
 - *Nuevo nivel:* ${user.level}
 - *Rango actual:* ${user.role}
 
-> Sigue interactuando con *JotaBot*`.trim();
+> Sigue interactuando con *${botname}*`.trim();
     try {
       const levelUpImage = await levelup(levelUpMessage, user.level);
       conn.sendFile(m.chat, levelUpImage, 'Menu.jpg', levelUpDetails, m);
