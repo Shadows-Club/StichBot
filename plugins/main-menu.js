@@ -18,7 +18,7 @@ const handler = async (m, {conn, usedPrefix, text, isPrems}) => {
     let totalreg = Object.keys(global.db.data.users).length
     let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
 
-    const text = `ㅤㅤ   ꒰꛱ ͜ ꛱|꛱ ꛱͜ |꛱ ꛱͜ |꛱ ͜ ꛱|꛱ ͜ |୨🫧୧꛱|꛱ ꛱͜ |꛱ ꛱͜ |꛱ ͜ ꛱|꛱ ꛱͜ |꛱ ͜ ꒱
+    const str = `ㅤㅤ   ꒰꛱ ͜ ꛱|꛱ ꛱͜ |꛱ ꛱͜ |꛱ ͜ ꛱|꛱ ͜ |୨🫧୧꛱|꛱ ꛱͜ |꛱ ꛱͜ |꛱ ͜ ꛱|꛱ ꛱͜ |꛱ ͜ ꒱
 Ꮺ *H𐐫l⍺᳟ ࣪ ᦷᩘ ${taguser}*
 *Bienvenido/a*  ࣪  ⿻   al   ࣭  ෨
 ࣭   ✿  *menú  de  JotaBot*  𓈒𓏸      ☁︎    
@@ -300,7 +300,7 @@ ${readMore}
 /*
       await conn.sendMessage(m.chat, {
             video: { url: videoUrl },
-            caption: text,
+            caption: str,
             mentions: [m.sender],
             gifPlayback: true
         }, { quoted: rcanal })
