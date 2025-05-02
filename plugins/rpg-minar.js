@@ -8,7 +8,7 @@ let time = global.db.data.users[m.sender].lastmiming + 600000
 if (new Date - global.db.data.users[m.sender].lastmiming < 600000) return conn.reply(m.chat, `Debes esperar *${msToTime(time - new Date())}* para volver a minar`, m, )
 
 let hasil = Math.floor(Math.random() * 1000)
-let info = `🐈 *Te has adentrando en lo profundo de las cuevas*
+let info = `${emoji2} *Te has adentrando en lo profundo de las cuevas*
 
 > Obtuviste:
 
