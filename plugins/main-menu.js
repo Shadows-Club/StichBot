@@ -163,116 +163,125 @@ ${readMore}
 │🌿 ${usedPrefix}fantasmas
 ╰──•
 
-↷✦; \`EFFECTS\` ❞ 🍃︵᷼ 
-⠞🍃੭‎ ${usedPrefix}bass *vid*
-⠞🍃੭‎ ${usedPrefix}blown *vid*
-⠞🍃੭‎ ${usedPrefix}deep *vid*
-⠞🍃੭‎ ${usedPrefix}earrape *vid*
-⠞🍃੭‎ ${usedPrefix}fast *vid*
-⠞🍃੭‎ ${usedPrefix}smooth *vid*
-⠞🍃੭‎ ${usedPrefix}tupai *vid*
-⠞🍃੭‎ ${usedPrefix}nightcore *vid*
-⠞🍃੭‎ ${usedPrefix}reverse *vid*
-⠞🍃੭‎ ${usedPrefix}robot *vid*
-⠞🍃੭‎ ${usedPrefix}slow *vid*
-⠞🍃੭‎ ${usedPrefix}squirrel *vid*
-⠞🍃੭‎ ${usedPrefix}chipmunk *vid*
-⠞🍃੭‎ ${usedPrefix}reverb *vid*
-⠞🍃੭‎ ${usedPrefix}chorus *vid*
-⠞🍃੭‎ ${usedPrefix}flanger *vid*
-⠞🍃੭‎ ${usedPrefix}distortion *vid*
-⠞🍃੭‎ ${usedPrefix}pitch *vid*
-⠞🍃੭‎ ${usedPrefix}highpass *vid*
-⠞🍃੭‎ ${usedPrefix}lowpass *vid*
-⠞🍃੭‎ ${usedPrefix}underwater *vid*
+╭──•「 *Efects* 」🥞
+│🥞 ${usedPrefix}bass *vid*
+│🥞 ${usedPrefix}blown *vid*
+│🥞 ${usedPrefix}deep *vid*
+│🥞 ${usedPrefix}earrape *vid*
+│🥞 ${usedPrefix}fast *vid*
+│🥞 ${usedPrefix}smooth *vid*
+│🥞 ${usedPrefix}tupai *vid*
+│🥞 ${usedPrefix}nightcore *vid*
+│🥞 ${usedPrefix}reverse *vid*
+│🥞 ${usedPrefix}robot *vid*
+│🥞 ${usedPrefix}slow *vid*
+│🥞 ${usedPrefix}squirrel *vid*
+│🥞 ${usedPrefix}chipmunk *vid*
+│🥞 ${usedPrefix}reverb *vid*
+│🥞 ${usedPrefix}chorus *vid*
+│🥞 ${usedPrefix}flanger *vid*
+│🥞 ${usedPrefix}distortion *vid*
+│🥞 ${usedPrefix}pitch *vid*
+│🥞 ${usedPrefix}highpass *vid*
+│🥞 ${usedPrefix}lowpass *vid*
+│🥞 ${usedPrefix}underwater *vid*
+╰──•
 
-↷✦; \`FUN\` ❞ 🥥︵᷼ 
-⠞🥥੭‎ ${usedPrefix}gay *@tag*
-⠞🥥੭‎ ${usedPrefix}lesbiana *@tag*
-⠞🥥੭‎ ${usedPrefix}pajero *@tag*
-⠞🥥੭‎ ${usedPrefix}pajera *@tag*
-⠞🥥੭‎ ${usedPrefix}puto *@tag*
-⠞🥥੭‎ ${usedPrefix}puta *@tag*
-⠞🥥੭‎ ${usedPrefix}manco *@tag*
-⠞🥥੭‎ ${usedPrefix}manca *@tag*
-⠞🥥੭‎ ${usedPrefix}rata *@tag*
-⠞🥥੭‎ ${usedPrefix}prostituto *@tag*
-⠞🥥੭‎ ${usedPrefix}prostituta *@tag*
-⠞🥥੭‎ ${usedPrefix}doxear *@tag*
-⠞🥥੭‎ ${usedPrefix}jalamela *@tag*
-⠞🥥੭‎ ${usedPrefix}simi *texto*
-⠞🥥੭‎ ${usedPrefix}pregunta *texto*
-⠞🥥੭‎ ${usedPrefix}genio *texto*
-⠞🥥੭‎ ${usedPrefix}top
-⠞🥥੭‎ ${usedPrefix}sorteo
-⠞🥥੭‎ ${usedPrefix}piropo
-⠞🥥੭‎ ${usedPrefix}chiste
-⠞🥥੭‎ ${usedPrefix}facto
-⠞🥥੭‎ ${usedPrefix}verdad
-⠞🥥੭‎ ${usedPrefix}pareja
-⠞🥥੭‎ ${usedPrefix}parejas
-⠞🥥੭‎ ${usedPrefix}love
-⠞🥥੭‎ ${usedPrefix}personalidad
+╭──•「 *Fun* 」🍁
+│🍁 ${usedPrefix}gay *@tag*
+│🍁 ${usedPrefix}lesbiana *@tag*
+│🍁 ${usedPrefix}pajero *@tag*
+│🍁 ${usedPrefix}pajera *@tag*
+│🍁 ${usedPrefix}puto *@tag*
+│🍁 ${usedPrefix}puta *@tag*
+│🍁 ${usedPrefix}manco *@tag*
+│🍁 ${usedPrefix}manca *@tag*
+│🍁 ${usedPrefix}rata *@tag*
+│🍁 ${usedPrefix}prostituto *@tag*
+│🍁 ${usedPrefix}prostituta *@tag*
+│🍁 ${usedPrefix}doxear *@tag*
+│🍁 ${usedPrefix}jalamela *@tag*
+│🍁 ${usedPrefix}simi *texto*
+│🍁 ${usedPrefix}pregunta *texto*
+│🍁 ${usedPrefix}genio *texto*
+│🍁 ${usedPrefix}top
+│🍁 ${usedPrefix}sorteo
+│🍁 ${usedPrefix}piropo
+│🍁 ${usedPrefix}chiste
+│🍁 ${usedPrefix}facto
+│🍁 ${usedPrefix}verdad
+│🍁 ${usedPrefix}pareja
+│🍁 ${usedPrefix}parejas
+│🍁 ${usedPrefix}love
+│🍁 ${usedPrefix}personalidad
+╰──•
 
-↷✦; \`GAME\` ❞ 🎋︵᷼ 
-⠞🎋੭‎ ${usedPrefix}pregunta *texto*
-⠞🎋੭‎ ${usedPrefix}ttt *texto*
-⠞🎋੭‎ ${usedPrefix}ptt *opción*
-⠞🎋੭‎ ${usedPrefix}delttt
-⠞🎋੭‎ ${usedPrefix}acertijo
+╭──•「 *Game* 」🕹️
+│🕹️ ${usedPrefix}pregunta *texto*
+│🕹️ ${usedPrefix}ttt *texto*
+│🕹️ ${usedPrefix}ptt *opción*
+│🕹️ ${usedPrefix}delttt
+│🕹️ ${usedPrefix}acertijo
+╰──•
 
-↷✦; \`ANIME\` ❞ 🌾︵᷼ 
-⠞🌾੭‎ ${usedPrefix}messi
-⠞🌾੭‎ ${usedPrefix}cr7
+╭──•「 *Anime* 」💫
+│💫 ${usedPrefix}messi
+│💫 ${usedPrefix}cr7
+╰──•
 
-↷✦; \`GIFS NSFW\` ❞ 🔥︵᷼ 
-⠞🔥੭‎ ${usedPrefix}violar *@tag*
-⠞🔥੭‎ ${usedPrefix}follar *@tag*
-⠞🔥੭‎ ${usedPrefix}anal *@tag*
-⠞🔥੭‎ ${usedPrefix}coger *@tag*
-⠞🔥੭‎ ${usedPrefix}coger2 *@tag*
-⠞🔥੭‎ ${usedPrefix}penetrar *@tag*
-⠞🔥੭‎ ${usedPrefix}sexo *@tag*
-⠞🔥੭‎ ${usedPrefix}rusa *@tag*
-⠞🔥੭‎ ${usedPrefix}sixnine *@tag*
-⠞🔥੭‎ ${usedPrefix}pies *@tag*
-⠞🔥੭‎ ${usedPrefix}mamada *@tag*
-⠞🔥੭‎ ${usedPrefix}lickpussy *@tag*
-⠞🔥੭‎ ${usedPrefix}grabboobs *@tag*
-⠞🔥੭‎ ${usedPrefix}suckboobs *@tag*
-⠞🔥੭‎ ${usedPrefix}cum *@tag*
-⠞🔥੭‎ ${usedPrefix}fap *@tag*
-⠞🔥੭‎ ${usedPrefix}manosear *@tag*
-⠞🔥੭‎ ${usedPrefix}lesbianas *@tag*
+╭──•「 *Nsfw* 」🔥
+│🔥 ${usedPrefix}violar *@tag*
+│🔥 ${usedPrefix}follar *@tag*
+│🔥 ${usedPrefix}anal *@tag*
+│🔥 ${usedPrefix}coger *@tag*
+│🔥 ${usedPrefix}coger2 *@tag*
+│🔥 ${usedPrefix}penetrar *@tag*
+│🔥 ${usedPrefix}sexo *@tag*
+│🔥 ${usedPrefix}rusa *@tag*
+│🔥 ${usedPrefix}sixnine *@tag*
+│🔥 ${usedPrefix}pies *@tag*
+│🔥 ${usedPrefix}mamada *@tag*
+│🔥 ${usedPrefix}lickpussy *@tag*
+│🔥 ${usedPrefix}grabboobs *@tag*
+│🔥 ${usedPrefix}suckboobs *@tag*
+│🔥 ${usedPrefix}cum *@tag*
+│🔥 ${usedPrefix}fap *@tag*
+│🔥 ${usedPrefix}manosear *@tag*
+│🔥 ${usedPrefix}lesbianas *@tag*
+╰──•
 
-↷✦; \`STICKERS\` ❞ 🦋︵᷼ 
-⠞🦋੭‎ ${usedPrefix}sticker *img*
-⠞🦋੭‎ ${usedPrefix}sticker *vid*
-⠞🦋੭‎ ${usedPrefix}brat *texto*
-⠞🦋੭‎ ${usedPrefix}qc *texto*
-⠞🦋੭‎ ${usedPrefix}dado
+╭──•「 *Stickers* 」🍮
+│🍮 ${usedPrefix}sticker *img*
+│🍮 ${usedPrefix}sticker *vid*
+│🍮 ${usedPrefix}brat *texto*
+│🍮 ${usedPrefix}qc *texto*
+│🍮 ${usedPrefix}dado
+╰──•
 
-↷✦; \`RPG\` ❞ 💸︵᷼ 
-⠞💸੭‎ ${usedPrefix}minar
-⠞💸੭‎ ${usedPrefix}cofre
-⠞💸੭ ${usedPrefix}slut
-⠞💸੭ ${usedPrefix}nivel
-⠞💸੭ ${usedPrefix}ruleta
+╭──•「 *Rpg* 」💸
+│💸 ${usedPrefix}minar
+│💸 ${usedPrefix}cofre
+│💸 ${usedPrefix}slut
+│💸 ${usedPrefix}nivel
+│💸 ${usedPrefix}ruleta
+╰──•
 
-↷✦; \`REGISTRO\` ❞ ☁️︵᷼ 
-⠞☁️੭ ${usedPrefix}perfil
-⠞☁️੭ ${usedPrefix}reg
-⠞☁️੭ ${usedPrefix}unreg
+╭──•「 *Registro* 」🐼
+│🐼 ${usedPrefix}perfil
+│🐼 ${usedPrefix}reg
+│🐼 ${usedPrefix}unreg
+╰──•
 
-↷✦; \`OWNER\` ❞ 👑︵᷼ 
-⠞👑੭ ${usedPrefix}salir
-⠞👑੭ ${usedPrefix}update
-⠞👑੭ ${usedPrefix}blocklist
-⠞👑੭ ${usedPrefix}grouplist
-⠞👑੭ ${usedPrefix}restart
-⠞👑੭ ${usedPrefix}join
-⠞👑੭ ${usedPrefix}chetar
-⠞👑੭ ${usedPrefix}unbanuser`.trim();
+╭──•「 *Owner* 」👑
+│👑 ${usedPrefix}salir
+│👑 ${usedPrefix}update
+│👑 ${usedPrefix}blocklist
+│👑 ${usedPrefix}grouplist
+│👑 ${usedPrefix}restart
+│👑 ${usedPrefix}join
+│👑 ${usedPrefix}chetar
+│👑 ${usedPrefix}unbanuser
+╰──•`.trim();
 
     await conn.sendMessage(m.chat, {
       video: { url: videoUrl },
