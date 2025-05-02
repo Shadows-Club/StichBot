@@ -13,12 +13,15 @@ const handler = async (m, {conn, usedPrefix, text, isPrems}) => {
     let totalreg = Object.keys(global.db.data.users).length
     let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
 
-    const str = `︵᷼     ⿻ *Mᴏʀᴄʜɪ* ࣪   ࣭  ࣪ *WA BOT* ࣭  🐈  ࣪   ࣭
-✿ *Hᴏʟᴀ ${taguser}*\n*${saludo}*
+    const str = `ㅤㅤ꒰꛱ ͜ ꛱|꛱ ꛱͜ |꛱ ꛱͜ |꛱ ͜ ꛱|꛱ ͜ |୨🫧୧꛱|꛱ ꛱͜ |꛱ ꛱͜ |꛱ ͜ ꛱|꛱ ꛱͜ |꛱ ͜ ꒱
+*H𐐫l⍺᳟ ࣪ ᦷᩘ${taguser}*
+*Bienvenido/a*  ࣪  ⿻   al   ࣭  ෨
+࣭   ✿  *menú  de  Jota*  𓈒𓏸      ☁︎    
+﹏͜͡ *${saludo}* ﹏͜͡
 
-> ꒰꛱ ͜Desarrollado por *Cristian Escobar* +51927238856
+> ꒰꛱ ͜Desarrollado por *Dev.Criss* +51927238856
 
-*𓈒𓏸🌴 \`Bot Name:\`* ${botname}
+*𓈒𓏸🌹 \`Bot Name:\`* ${botname}
 *𓈒𓏸🌵 \`Activo:\`* ${uptime}
 *𓈒𓏸🍃 \`Usuarios:\`* ${totalreg}
 *𓈒𓏸🌿 \`Versión:\`* 1.0.0
