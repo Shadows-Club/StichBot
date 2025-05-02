@@ -1,8 +1,8 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     try {
         text = text.trim();
-        if (!text) return m.reply('*😸 Ingrese el error que desea reportar.*');
-        if (text.length < 10) return m.reply('*😾 Especifique bien el error, mínimo 10 caracteres.*');
+        if (!text) return m.reply(`*${emojis} Ingrese el error que desea reportar.*`);
+        if (text.length < 10) return m.reply(`*${emojis} Especifique bien el error, mínimo 10 caracteres.*`);
         if (text.length > 1000) return m.reply('*⚠️  Máximo 1000 caracteres para enviar el error.*');
 
         const sender = m.sender.split('@')[0];
