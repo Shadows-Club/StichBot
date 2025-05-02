@@ -1,134 +1,146 @@
 import fetch from 'node-fetch';
 
-const handler = async (m, { conn, usedPrefix, isPrems }) => {
-  try {
-    await m.react('🧡');
+const handler = async (m, {conn, usedPrefix, text, isPrems}) => {
 
-    let img = 'https://files.catbox.moe/rh2b7r.jpg';
-    let insta = 'https://instagram.com/usxr.crxxs';
+  try {
+    await m.react ('🐼');
 
     const _uptime = process.uptime() * 1000;
     const uptime = clockString(_uptime);
 
-    const user = global.db.data.users[m.sender];
-    const { money, joincount, exp, limit, level, role } = user;
+    const videoUrl = 'https://files.catbox.moe/js58k4.mp4'
+    const more = String.fromCharCode(8206);
+    const readMore = more.repeat(850);
+    const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
 
     let totalreg = Object.keys(global.db.data.users).length
     let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
 
-    const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
+    const str = `ㅤㅤ   ꒰꛱ ͜ ꛱|꛱ ꛱͜ |꛱ ꛱͜ |꛱ ͜ ꛱|꛱ ͜ |୨🫧୧꛱|꛱ ꛱͜ |꛱ ꛱͜ |꛱ ͜ ꛱|꛱ ꛱͜ |꛱ ͜ ꒱
+Ꮺ *H𐐫l⍺᳟ ࣪ ᦷᩘ${taguser}*
+*Bienvenido/a*  ࣪  ⿻   al   ࣭  ෨
+࣭   ✿  *menú  de  JotaBot*  𓈒𓏸      ☁︎    
+﹏͜͡ *${saludo}* ﹏͜͡
 
-    const text = `
-︵᷼     ⿻ *Mᴏʀᴄʜɪ* ࣪   ࣭  ࣪ *WA BOT* ࣭  🐈  ࣪   ࣭
-✿ *Hᴏʟᴀ ${taguser}*\n*${saludo}*
+> ꒰꛱ ͜Desarrollado por *Dev.Criss* +51927238856
 
-> ꒰꛱ ͜Desarrollado por *Cristian Escobar* +51927238856
+*𓈒𓏸🌹 \`Bot Name:\`* ${botname}
+*𓈒𓏸🍮 \`Activo:\`* ${uptime}
+*𓈒𓏸🥞 \`Usuarios:\`* ${totalreg}
+*𓈒𓏸🍟 \`Versión:\`* 1.0.0
 
-*𓈒𓏸🌴 \`Bot Name:\`* ${botname}
-*𓈒𓏸🌵 \`Activo:\`* ${uptime}
-*𓈒𓏸🍃 \`Usuarios:\`* ${totalreg}
-*𓈒𓏸🌿 \`Versión:\`* 1.0.0
-
-> 😸 Si encuentra un comando con errores no dudes en reportarlo con el Creador
+> 🍭 Si encuentra un comando con errores no dudes en reportarlo con el Creador
 ${readMore}
-↷✦; *\`MENÚS\`* ❞ 🌷︵᷼ 
-⠞🌷੭‎ ${usedPrefix}menunsfw
-⠞🌷੭‎ ${usedPrefix}menuowner
-⠞🌷੭‎ ${usedPrefix}menulogos
 
-↷✦; \`INFO BOT\` ❞ 🍄︵᷼  
-⠞🍄੭‎ ${usedPrefix}totalf
-⠞🍄੭‎ ${usedPrefix}grupos
-⠞🍄੭‎ ${usedPrefix}sugerir
-⠞🍄੭‎ ${usedPrefix}report
-⠞🍄੭‎ ${usedPrefix}owner
-⠞🍄੭‎ ${usedPrefix}ping
-⠞🍄੭‎ ${usedPrefix}uptime
-⠞🍄੭‎ ${usedPrefix}horario
-⠞🍄੭‎ ${usedPrefix}precios
+ㅤㅤ *乂 ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs 乂*
 
-↷✦; \`CONFIG\` ❞ 🪻︵᷼ 
-⠞🪻੭‎ ${usedPrefix}enable *opción*
-⠞🪻੭‎ ${usedPrefix}disable *opción*
-⠞🪻੭‎ ${usedPrefix}on *opción*
-⠞🪻੭‎ ${usedPrefix}off *opción*
-⠞🪻੭‎ ${usedPrefix}manual
+╭──•「 *Menús* 」🤍
+│🤍${usedPrefix}menunsfw
+│🤍 ${usedPrefix}menuowner
+│🤍 ${usedPrefix}menulogos
+╰──•
 
-↷✦; \`DOWNLOAD\` ❞ 🪷︵᷼ 
-⠞🪷੭‎ ${usedPrefix}play *texto*
-⠞🪷੭‎ ${usedPrefix}ytmp4doc *texto*
-⠞🪷੭‎ ${usedPrefix}ytmp3doc *texto*
-⠞🪷੭‎ ${usedPrefix}apk *texto*
-⠞🪷੭‎ ${usedPrefix}pinterest *texto*
-⠞🪷੭‎ ${usedPrefix}pinvid *url*
-⠞🪷੭‎ ${usedPrefix}ytv *url*
-⠞🪷੭‎ ${usedPrefix}ytmp3 *url*
-⠞🪷੭‎ ${usedPrefix}tiktok *url*
-⠞🪷੭‎ ${usedPrefix}instagram *url*
-⠞🪷੭‎ ${usedPrefix}facebook *url*
-⠞🪷੭‎ ${usedPrefix}mediafire *url*
-⠞🪷੭‎ ${usedPrefix}mega *url*
-⠞🪷੭‎ ${usedPrefix}playstore *url*
-⠞🪷੭‎ ${usedPrefix}xnxxdl *url*
-⠞🪷੭‎ ${usedPrefix}xvideosdl *url*
+╭──•「 *Info* 」☁️
+│☁️ ${usedPrefix}totalf
+│☁️ ${usedPrefix}grupos
+│☁️ ${usedPrefix}sugerir
+│☁️ ${usedPrefix}report
+│☁️ ${usedPrefix}owner
+│☁️ ${usedPrefix}ping
+│☁️ ${usedPrefix}uptime
+│☁️‎ ${usedPrefix}horario
+│☁️‎ ${usedPrefix}precios
+╰──•
 
-↷✦; \`SEARCH\` ❞ 🍮︵᷼ 
-⠞🍮੭‎ ${usedPrefix}aplaysearch *texto*
-⠞🍮੭‎ ${usedPrefix}ttsearch *texto*
-⠞🍮੭‎ ${usedPrefix}ttsearch2 *texto*
-⠞🍮੭‎ ${usedPrefix}ytsearch *texto*
-⠞🍮੭‎ ${usedPrefix}spotifysearch *texto*
-⠞🍮੭‎ ${usedPrefix}playstoresearch *texto*
-⠞🍮੭‎ ${usedPrefix}xnxxsearch *texto*
-⠞🍮੭‎ ${usedPrefix}xvsearch *texto*
-⠞🍮੭‎ ${usedPrefix}gnula *texto*
-⠞🍮੭‎ ${usedPrefix}mercadolibre *texto*
+╭──•「 *Config* 」⚙️
+│⚙️ ${usedPrefix}enable *opción*
+│⚙️ ${usedPrefix}disable *opción*
+│⚙️ ${usedPrefix}on *opción*
+│⚙️ ${usedPrefix}off *opción*
+│⚙️ ${usedPrefix}manual
+╰──•
 
-↷✦; \`LISTAS\` ❞ 📜︵᷼ 
-⠞📜੭‎ ${usedPrefix}v4fem *hr + p*
-⠞📜੭‎ ${usedPrefix}v4masc *hr + p*
-⠞📜੭‎ ${usedPrefix}v4mixto *hr + p*
-⠞📜੭‎ ${usedPrefix}v6fem *hr + p*
-⠞📜੭‎ ${usedPrefix}v6masc *hr + p*
-⠞📜੭‎ ${usedPrefix}v6mixto *hr + p*
+╭──•「 *Download* 」🫧
+│🫧 ${usedPrefix}play *texto*
+│🫧 ${usedPrefix}ytmp4doc *texto*
+│🫧 ${usedPrefix}ytmp3doc *texto*
+│🫧 ${usedPrefix}apk *texto*
+│🫧 ${usedPrefix}pinterest *texto*
+│🫧 ${usedPrefix}pinvid *url*
+│🫧 ${usedPrefix}ytv *url*
+│🫧 ${usedPrefix}ytmp3 *url*
+│🫧 ${usedPrefix}tiktok *url*
+│🫧 ${usedPrefix}instagram *url*
+│🫧 ${usedPrefix}facebook *url*
+│🫧 ${usedPrefix}mediafire *url*
+│🫧 ${usedPrefix}mega *url*
+│🫧 ${usedPrefix}playstore *url*
+│🫧 ${usedPrefix}xnxxdl *url*
+│🫧 ${usedPrefix}xvideosdl *url*
+╰──•
 
-↷✦; \`FRASES\` ❞ 🌻︵᷼ 
-⠞🌻੭‎ ${usedPrefix}piropo
-⠞🌻੭‎ ${usedPrefix}consejo
-⠞🌻੭‎ ${usedPrefix}fraseromantica
+╭──•「 *Search* 」🍵
+│🍵 ${usedPrefix}aplaysearch *texto*
+│🍵 ${usedPrefix}ttsearch *texto*
+│🍵 ${usedPrefix}ttsearch2 *texto*
+│🍵 ${usedPrefix}ytsearch *texto*
+│🍵 ${usedPrefix}spotifysearch *texto*
+│🍵 ${usedPrefix}playstoresearch *texto*
+│🍵 ${usedPrefix}xnxxsearch *texto*
+│🍵 ${usedPrefix}xvsearch *texto*
+│🍵 ${usedPrefix}gnula *texto*
+│🍵 ${usedPrefix}mercadolibre *texto*
+╰──•
 
-↷✦; \`CONVERTERS\` ❞ 🧸︵᷼ 
-⠞🧸੭‎ ${usedPrefix}tourl *img*
-⠞🧸੭‎ ${usedPrefix}tourl *aud*
-⠞🧸੭‎ ${usedPrefix}toptt *aud*
-⠞🧸੭‎ ${usedPrefix}toptt *vid*
-⠞🧸੭‎ ${usedPrefix}tourl *vid*
-⠞🧸੭‎ ${usedPrefix}tomp3 *vid*
-⠞🧸੭‎ ${usedPrefix}toimg *sticker*
+╭──•「 *Menús* 」📜
+│📜 ${usedPrefix}v4fem *hr + p*
+│📜 ${usedPrefix}v4masc *hr + p*
+│📜 ${usedPrefix}v4mixto *hr + p*
+│📜 ${usedPrefix}v6fem *hr + p*
+│📜 ${usedPrefix}v6masc *hr + p*
+│📜 ${usedPrefix}v6mixto *hr + p*
+╰──•
 
-↷✦; \`TOOLS\` ❞ 🛠️︵᷼ 
-⠞🛠️੭‎ ${usedPrefix}clima *texto*
-⠞🛠️੭‎ ${usedPrefix}readmore *texto*
-⠞🛠️੭‎ ${usedPrefix}read *texto*
-⠞🛠️੭‎ ${usedPrefix}fake *texto + user + texto*
-⠞🛠️੭‎ ${usedPrefix}traducir *idioma + texto*
-⠞🛠️੭‎ ${usedPrefix}hd *img*
-⠞🛠️੭‎ ${usedPrefix}whatmusic *aud*
-⠞🛠️੭‎ ${usedPrefix}whatmusic *vid*
-⠞🛠️੭‎ ${usedPrefix}flag *país*
-⠞🛠️੭‎ ${usedPrefix}inspect *link*
-⠞🛠️੭‎ ${usedPrefix}inspeccionar *link*
-⠞🛠️੭‎ ${usedPrefix}nuevafotochannel
-⠞🛠️੭‎ ${usedPrefix}nosilenciarcanal
-⠞🛠️੭‎ ${usedPrefix}silenciarcanal
-⠞🛠️੭‎ ${usedPrefix}seguircanal
-⠞🛠️੭‎ ${usedPrefix}avisoschannel
-⠞🛠️੭‎ ${usedPrefix}resiviravisos
-⠞🛠️੭‎ ${usedPrefix}eliminarfotochannel
-⠞🛠️੭‎ ${usedPrefix}reactioneschannel
-⠞🛠️੭‎ ${usedPrefix}reaccioneschannel
-⠞🛠️੭‎ ${usedPrefix}nuevonombrecanal
-⠞🛠️੭‎ ${usedPrefix}nuevadescchannel
+╭──•「 *Frases* 」💞
+│💞 ${usedPrefix}piropo
+│💞 ${usedPrefix}consejo
+│💞 ${usedPrefix}fraseromantica
+╰──•
+
+╭──•「 *Converters* 」🌷
+│🌷 ${usedPrefix}tourl *img*
+│🌷 ${usedPrefix}tourl *aud*
+│🌷 ${usedPrefix}toptt *aud*
+│🌷 ${usedPrefix}toptt *vid*
+│🌷 ${usedPrefix}tourl *vid*
+│🌷 ${usedPrefix}tomp3 *vid*
+│🌷 ${usedPrefix}toimg *sticker*
+╰──•
+
+╭──•「 *Tools* 」🛠️
+│🛠️ ${usedPrefix}clima *texto*
+│🛠️ ${usedPrefix}readmore *texto*
+│🛠️ ${usedPrefix}read *texto*
+│🛠️ ${usedPrefix}fake *texto + user + texto*
+│🛠️ ${usedPrefix}traducir *idioma + texto*
+│🛠️ ${usedPrefix}hd *img*
+│🛠️ ${usedPrefix}whatmusic *aud*
+│🛠️ ${usedPrefix}whatmusic *vid*
+│🛠️ ${usedPrefix}flag *país*
+│🛠️ ${usedPrefix}inspect *link*
+│🛠️ ${usedPrefix}inspeccionar *link*
+│🛠️ ${usedPrefix}nuevafotochannel
+│🛠️ ${usedPrefix}nosilenciarcanal
+│🛠️ ${usedPrefix}silenciarcanal
+│🛠️ ${usedPrefix}seguircanal
+│🛠️ ${usedPrefix}avisoschannel
+│🛠️ ${usedPrefix}resiviravisos
+│🛠️ ${usedPrefix}eliminarfotochannel
+│🛠️ ${usedPrefix}reactioneschannel
+│🛠️ ${usedPrefix}reaccioneschannel
+│🛠️ ${usedPrefix}nuevonombrecanal
+│🛠️ ${usedPrefix}nuevadescchannel
+╰──•
 
 ↷✦; \`GROUPS\` ❞ 🌿︵᷼ 
 ⠞🌿੭‎ ${usedPrefix}add *número*
@@ -261,35 +273,38 @@ ${readMore}
 ⠞👑੭ ${usedPrefix}chetar
 ⠞👑੭ ${usedPrefix}unbanuser`.trim();
 
-    conn.sendMessage(m.chat, {
-      text: text,
-      contextInfo: {
-        mentionedJid: conn.parseMention(text),
-        isForwarded: true,
-        forwardingScore: 999,
-        externalAdReply: {
-          title: `${await conn.getName(m.sender)}, Thank for using Morchiyara, you can follow me on Instagram by clicking here`,
-          body: 'Im Dev Criss',
-          thumbnail: await (await fetch(img)).buffer(),
-          sourceUrl: insta,
-          mediaType: 1,
-          renderLargerThumbnail: true
-        }
-      }
-    }, { quoted: fkontak });
-
+    await conn.sendMessage(m.chat, {
+      video: { url: videoUrl },
+      caption: str,
+      mentions: [m.sender],
+      gifPlayback: true,
+      contextInfo: global.rcanal.contextInfo  // Aquí se pasa directamente el contextInfo
+    });
   } catch (e) {
-    conn.reply(m.chat, '❎ Error en el comando. Inténtalo más tarde.', m);
+    conn.reply(m.chat, `*🍂 Error al enviar el video.*\n${e}`, m);
   }
 };
+
+/*
+      await conn.sendMessage(m.chat, {
+            video: { url: videoUrl },
+            caption: str,
+            mentions: [m.sender],
+            gifPlayback: true
+        }, { quoted: rcanal })
+
+//await conn.sendMessage(m.chat, { react: { text: '😇', key: m.key } });
+
+  } catch (e) {
+    conn.reply(m.chat,`*🍂 Error al enviar el video.*\n${e}`, m);
+  }
+};*/
 
 handler.command = /^(menu|menú|memu|memú|help|info|comandos|2help|menu1.2|ayuda|commands|commandos|cmd)$/i;
 handler.fail = null;
 
 export default handler;
 
-const more = String.fromCharCode(8206)
-const readMore = more.repeat(4001)
 function clockString(ms) {
   const h = isNaN(ms) ? '--' : Math.floor(ms / 3600000);
   const m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
