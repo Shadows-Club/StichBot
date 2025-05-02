@@ -1,5 +1,5 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-let txt = `*🐈 Ejemplo de uso:*\n\n> ${usedPrefix + command} ¿Quién soy? *@user* Eres mi perrita 🫦`
+let txt = `*${emojis} Ejemplo de uso:*\n\n> ${usedPrefix + command} ¿Quién soy? *@user* Eres mi perrita 🫦`
 if (!text) return m.reply(txt)
 let cm = copy(m)
 let who
