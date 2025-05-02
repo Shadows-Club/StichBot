@@ -2,7 +2,7 @@ import translate from '@vitalets/google-translate-api';
 import fetch from 'node-fetch';
 
 const handler = async (m, { args, usedPrefix, command }) => {
-  const msg = `*🐈 Proporciona el idioma seguido el texto para traducirlo.*\n\n*💡 Ejemplo:* ${usedPrefix + command} es Hello`;
+  const msg = `*${emojis} Proporciona el idioma seguido el texto para traducirlo.*\n*💡 Ejemplo:* ${usedPrefix + command} es Hello`;
 
   if (!args || !args[0]) return m.reply(msg);
 
