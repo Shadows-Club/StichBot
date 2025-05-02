@@ -254,10 +254,8 @@ let totalf = Object.values(global.plugins).reduce((total, plugin) => {
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
   let img = [ 
-    'https://i.ibb.co/YDGYRhx/file.jpg',
-    'https://i.ibb.co/T0qNJ1f/file.jpg',
-    'https://i.ibb.co/gdxsw9Y/file.jpg',
-    'https://i.ibb.co/wpJJcG0/file.jpg'
+    'https://files.catbox.moe/1cdqt2.jpg',
+    'https://files.catbox.moe/1cdqt2.jpg'
   ].getRandom()
 
     await m.react('🤍')
@@ -298,7 +296,7 @@ handler.help = ['menu']
 handler.tags = ['main']
 handler.command = /^(all)$/i
 handler.register = true
-handler.exp = 3
+//handler.exp = 3
 
 export default handler
 
