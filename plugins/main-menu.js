@@ -11,8 +11,8 @@ const handler = async (m, {conn, usedPrefix, text, isPrems}) => {
     const videoUrl = 'https://files.catbox.moe/js58k4.mp4'
     const more = String.fromCharCode(8206);
     const readMore = more.repeat(850);
-    const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
-
+    //const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
+    const taguser = '@' + m.sender.split('@')[0];
     let totalreg = Object.keys(global.db.data.users).length
     let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
 
