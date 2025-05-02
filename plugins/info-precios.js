@@ -6,5 +6,5 @@ text: `🍒 ¡Bienvenido! ${taguser}\n\n¿Deseas tener Bot Permanente o Personal
 mentions: [m.sender]
 }, { quoted: fkontak });
 };
-handler.command = ['precios', 'comprar', 'adquirir'];
+handler.command = ['precios2', 'comprar2', 'adquirir2', 'personalizado'];
 export default handler;
