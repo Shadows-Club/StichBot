@@ -16,9 +16,11 @@ if (!isAdmin) return conn.reply(m.chat, `${emojis} Solo los administradores pued
 
 let user;
 if (m.quoted) {
-user = m.quoted.sender;
+  user = m.quoted.sender;
+} else if (m.mentionedJid && m.mentionedJid.length) {
+  user = m.mentionedJid[0];
 } else {
-return conn.reply(m.chat, `${emojis} Responde al mensaje del usuario que quieres mutear.`, m);
+  return conn.reply(m.chat, `${emojis} Responde al mensaje *o menciona* al usuario que quieres mutear.`, m);
 }
 
 const ownerBot = global.owner[0][0] + '@s.whatsapp.net';
