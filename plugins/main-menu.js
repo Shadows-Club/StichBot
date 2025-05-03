@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 const handler = async (m, {conn, usedPrefix, text, isPrems}) => {
 
   try {
-    await m.react ('emojis');
+    await m.react ('🐼');
     const _uptime = process.uptime() * 1000;
     const uptime = clockString(_uptime);
     const videoUrl = 'https://files.catbox.moe/js58k4.mp4'
