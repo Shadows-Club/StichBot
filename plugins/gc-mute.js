@@ -7,8 +7,10 @@ let handler = async (m, { conn, usedPrefix, command, isAdmin, isBotAdmin }) => {
     let user;
     if (m.quoted) {
         user = m.quoted.sender;
+    } else if (m.mentionedJidList.length > 0) {
+        user = m.mentionedJidList[0];  // Toma el primer usuario mencionado
     } else {
-        return conn.reply(m.chat, '🍭 Responde al mensaje del usuario que quieres mutear.', m);
+        return conn.reply(m.chat, '🍭 Responde al mensaje o menciona al usuario que quieres mutear.', m);
     }
 
     const ownerBot = global.owner[0][0] + '@s.whatsapp.net';
