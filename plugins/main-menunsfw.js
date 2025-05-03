@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+/*import fetch from 'node-fetch';
 
 const handler = async (m, {conn, usedPrefix, text, isPrems}) => {
 
@@ -78,7 +78,7 @@ Bɪᴇɴᴠᴇɴɪᴅᴏ ᴀʟ ᴍᴇɴᴜ *ɴsғᴡ* 🔞
 
 > © mᥱᥒᥙ *ᥒs𝖿ᥕ* ᑲᥡ  ᥴrіss.᥎᥊`.trim();
 
-    conn.sendMessage(m.chat, { image: { url: imgUrl }, caption: str, mentions: [m.sender] }, { quoted: fkontak });
+    conn.sendMessage(m.chat, { image: { url: imgUrl }, caption: str, mentions: [m.sender], , isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, newsletterName: channelRD.name, serverMessageId: -1, }, { quoted: m });
 
 await conn.sendMessage(m.chat, { react: { text: '🔥', key: m.key } });
 
@@ -88,6 +88,60 @@ await conn.sendMessage(m.chat, { react: { text: '🔥', key: m.key } });
 };
 
 handler.help = ['menunsfw']
+handler.command = /^(menunsfw|comandosnsfw|menuhorny|hornymenu|labiblia|menu18|menu+18|menucaliente|menuporno|pornomenu|menuxxx)$/i;
+handler.fail = null;
+
+export default handler;
+
+*/
+
+import fetch from 'node-fetch';
+
+const handler = async (m, {conn, usedPrefix, text, isPrems}) => {
+  try {
+    const imgUrl = 'https://files.catbox.moe/dmazrr.jpg';
+    const more = String.fromCharCode(8206);
+    const readMore = more.repeat(850);
+    const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
+
+    const str = `👋🏻 ¡Hᴏʟᴀ! ${taguser}
+Bɪᴇɴᴠᴇɴɪᴅᴏ ᴀʟ ᴍᴇɴᴜ *ɴsғᴡ* 🔞
+
+\`\`\`${fechaHora}\`\`\`
+
+𓂂𓏸  𐅹੭੭   *\`SEARCH\`* 🪱 ᦡᦡ
+... (el resto de tu menú)
+
+> © mᥱᥒᥙ *ᥒs𝖿ᥕ* ᑲᥡ  ᥴrіss.᥎᥊`.trim();
+
+    // Definir el canal de noticias (por ejemplo, un canal con ID y nombre)
+    const channelRD = { id: '12345@s.whatsapp.net', name: 'Canal NSFW' }; // Definir correctamente el canal
+
+    // Enviar el mensaje con la información del canal
+    await conn.sendMessage(m.chat, { 
+      image: { url: imgUrl }, 
+      caption: str, 
+      mentions: [m.sender], 
+      isForwarded: true,
+      forwardedNewsletterMessageInfo: {
+        newsletterJid: channelRD.id,
+        newsletterName: channelRD.name,
+        serverMessageId: -1 // Este valor puede variar según lo que necesites
+      }
+    });
+
+    // Reacción al mensaje
+    await conn.sendMessage(m.chat, { 
+      react: { text: '🔥', key: m.key } 
+    });
+
+  } catch (e) {
+    // Capturar y mostrar el error
+    conn.reply(m.chat, `*[ ℹ️ ] Error al enviar el menú.*\n\n> ${e.message}`, m);
+  }
+};
+
+handler.help = ['menunsfw'];
 handler.command = /^(menunsfw|comandosnsfw|menuhorny|hornymenu|labiblia|menu18|menu+18|menucaliente|menuporno|pornomenu|menuxxx)$/i;
 handler.fail = null;
 
