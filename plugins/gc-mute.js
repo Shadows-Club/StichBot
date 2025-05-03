@@ -54,7 +54,7 @@ let mutedUsers = new Set();
 
 let handler = async (m, { conn, usedPrefix, command, isAdmin, isBotAdmin }) => {
     if (!isBotAdmin) return conn.reply(m.chat, `${emojis} El bot necesita ser administrador.', m);
-    if (!isAdmin) return conn.reply(m.chat, `${emojis} Solo los administradores pueden usar este comando.', m);
+    if (!isAdmin) return conn.reply(m.chat, `${emojis} Solo los administradores pueden usar este comando.`, m);
 
     let user;
     if (m.quoted) {
