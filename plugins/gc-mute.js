@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 
 let handler = async (m, { conn, command, isAdmin, isBotAdmin }) => {
-    const emojis = '🚫';
+
     const chatId = m.chat;
 
     if (!isBotAdmin) return conn.reply(chatId, `${emojis} El bot necesita ser administrador.`, m);
