@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+/*import fetch from 'node-fetch';
 
 const handler = async (m, { conn, command, text, isAdmin, participants }) => {
     const userId = m.mentionedJid && m.mentionedJid[0] 
@@ -47,5 +47,52 @@ handler.command = ['mute', 'unmute'];
 handler.admin = true;
 handler.botAdmin = true;
 handler.rowner = true;
+
+export default handler;*/
+
+let mutedUsers = new Set();
+
+let handler = async (m, { conn, usedPrefix, command, isAdmin, isBotAdmin }) => {
+    if (!isBotAdmin) return conn.reply(m.chat, `${emojis} El bot necesita ser administrador.', m);
+    if (!isAdmin) return conn.reply(m.chat, `${emojis} Solo los administradores pueden usar este comando.', m);
+
+    let user;
+    if (m.quoted) {
+        user = m.quoted.sender;
+    } else {
+        return conn.reply(m.chat, `${emojis} Responde al mensaje del usuario que quieres mutear.`, m);
+    }
+
+    const ownerBot = global.owner[0][0] + '@s.whatsapp.net';
+
+    if (user === ownerBot) {
+        return conn.reply(m.chat, '${emojis} No puedo mutar al propietario del bot.', m);
+    }
+
+    if (command === "mute") {
+        mutedUsers.add(user);
+        conn.reply(m.chat, `✅ *Usuario muteado:* @${user.split('@')[0]}`, m, { mentions: [user] });
+    } else if (command === "unmute") {
+        mutedUsers.delete(user);
+        conn.reply(m.chat, `✅ *Usuario desmuteado:* @${user.split('@')[0]}`, m, { mentions: [user] });
+    }
+};
+
+handler.before = async (m, { conn }) => {
+    if (mutedUsers.has(m.sender) && m.mtype !== 'stickerMessage') {
+        try {
+            await conn.sendMessage(m.chat, { delete: m.key });
+        } catch (e) {
+            console.error(e);
+        }
+    }
+};
+
+handler.help = ['mute', 'unmute'];
+handler.tags = ['grupo'];
+handler.command = /^(mute|unmute)$/i;
+handler.group = true;
+handler.admin = true;
+handler.botAdmin = true;
 
 export default handler;
