@@ -289,7 +289,7 @@ ${readMore}
   } catch (e) {
     conn.reply(m.chat,`*❌ Error al enviar el menú.*\n${e}`, m);
   }
-};*/
+};
 
 handler.command = /^(menu|menú|memu|memú|help|info|comandos|2help|menu1.2|ayuda|commands|commandos|cmd)$/i;
 handler.fail = null;
