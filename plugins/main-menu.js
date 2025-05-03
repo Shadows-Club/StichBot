@@ -14,7 +14,7 @@ const handler = async (m, {conn, usedPrefix, text, isPrems}) => {
     let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
 
     const str = `ㅤㅤ   ꒰꛱ ͜ ꛱|꛱ ꛱͜ |꛱ ꛱͜ |꛱ ͜ ꛱|꛱ ͜ |୨🫧୧꛱|꛱ ꛱͜ |꛱ ꛱͜ |꛱ ͜ ꛱|꛱ ꛱͜ |꛱ ͜ ꒱
-Ꮺ *H𐐫l⍺᳟ ࣪ ᦷᩘ ${taguser}*
+Ꮺ *H𐐫l⍺᳟ ࣪ ᦷᩘ${taguser}*
 *Bienvenido/a*  ࣪  ⿻   al   ࣭  ෨
 ࣭   ✿  *menú  de  JotaBot*  𓈒𓏸      ☁︎    
 ﹏͜͡ *${saludo}* ﹏͜͡
