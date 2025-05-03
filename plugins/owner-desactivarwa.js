@@ -86,6 +86,6 @@ let handler = async (m, { conn }) => {
 
 handler.help = ["precios"];
 handler.tags = ["info"];
-handler.command = /^(precios2)$/i;
+handler.command = /^(preciosx)$/i;
 
 export default handler;
