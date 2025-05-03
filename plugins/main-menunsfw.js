@@ -110,12 +110,12 @@ Bɪᴇɴᴠᴇɴɪᴅᴏ ᴀʟ ᴍᴇɴᴜ *ɴsғᴡ* 🔞
 \`\`\`${fechaHora}\`\`\`
 
 𓂂𓏸  𐅹੭੭   *\`SEARCH\`* 🪱 ᦡᦡ
-... (el resto de tu menú)
+... (TEST)
 
 > © mᥱᥒᥙ *ᥒs𝖿ᥕ* ᑲᥡ  ᥴrіss.᥎᥊`.trim();
 
     // Definir el canal de noticias (por ejemplo, un canal con ID y nombre)
-    const channelRD = { id: '12345@s.whatsapp.net', name: 'Canal NSFW' }; // Definir correctamente el canal
+    const channelRD = { id: '120363357231409846@newsletter', name: 'Shadow Ultra MD' }; // Definir correctamente el canal
 
     // Enviar el mensaje con la información del canal
     await conn.sendMessage(m.chat, { 
