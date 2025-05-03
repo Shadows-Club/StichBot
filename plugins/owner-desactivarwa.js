@@ -5,7 +5,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     const buttons = [
         {
             buttonId: `.owner`,
-            buttonText: { displayText: "Ver más Marías" },
+            buttonText: { displayText: "Comprar 🛍️" },
             type: 1
         }
     ];
@@ -14,7 +14,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
         m.chat,
         {
             image: { url: maria },
-            caption: "*MARIA 🫦*",
+            caption: "*JOTA BOT*",
             buttons: buttons,
             viewOnce: true
         },
@@ -22,8 +22,8 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     );
 };
 
-handler.help = ["señoritamaria"];
-handler.tags = ["negra"];
-handler.command = /^(mariatest)$/i;
+handler.help = ["precios"];
+handler.tags = ["info"];
+handler.command = /^(precios)$/i;
 
 export default handler;
