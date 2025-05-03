@@ -4,17 +4,12 @@ const handler = async (m, {conn, usedPrefix, text, isPrems}) => {
 
   try {
     await m.react ('🐼');
-
     const _uptime = process.uptime() * 1000;
     const uptime = clockString(_uptime);
-
     const videoUrl = 'https://files.catbox.moe/js58k4.mp4'
-
     const more = String.fromCharCode(8206);
     const readMore = more.repeat(850);
-
     const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
-    //const taguser = '@' + m.sender.split('@')[0];
     let totalreg = Object.keys(global.db.data.users).length
     let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
 
@@ -285,30 +280,15 @@ ${readMore}
 │👑 ${usedPrefix}unbanuser
 ╰──•`.trim();
 
-    await conn.sendMessage(m.chat, {
-      video: { url: videoUrl },
-      caption: text,
-      gifPlayback: true,
-      mentions: [m.sender]
-      contextInfo: global.rcanal.contextInfo
-    });
-  } catch (e) {
-    conn.reply(m.chat, `*🍂 Error al enviar el video.*\n${e}`, m);
-  }
-};
-
-/*
       await conn.sendMessage(m.chat, {
             video: { url: videoUrl },
             caption: str,
             mentions: [m.sender],
             gifPlayback: true
-        }, { quoted: rcanal })
-
-//await conn.sendMessage(m.chat, { react: { text: '😇', key: m.key } });
+        }, { quoted: fkontak })
 
   } catch (e) {
-    conn.reply(m.chat,`*🍂 Error al enviar el video.*\n${e}`, m);
+    conn.reply(m.chat,`*❌ Error al enviar el menú.*\n${e}`, m);
   }
 };*/
 
