@@ -22,10 +22,15 @@ if (m.quoted) {
 } else {
   return conn.reply(m.chat, `${emojis} Responde al mensaje *o menciona* al usuario que quieres mutear.`, m);
 }
-
+/*
 const ownerBot = global.owner[0][0] + '@s.whatsapp.net';
 if (user === ownerBot) {
 return conn.reply(m.chat, `${emojis} No puedo mutear al propietario del bot.`, m);
+}*/
+const ownerBot = global.owner.map(owner => owner[0] + '@s.whatsapp.net');
+
+if (ownerBot.includes(user)) {
+  return conn.reply(m.chat, `${emojis} No puedo mutear al propietario del bot.`, m);
 }
 
 if (command === "mute") {
