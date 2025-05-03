@@ -28,7 +28,6 @@ const handler = async (m, {conn, usedPrefix, text, isPrems}) => {
 
 > 🍭 Si encuentra un comando con errores no dudes en reportarlo con el Creador
 ${readMore}
-
 ㅤㅤ *乂 ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs 乂*
 
 ╭──•「 *Menús* 」🤍
