@@ -1,10 +1,9 @@
 const handler = async (m, { text, conn, args, usedPrefix, command }) => {
 
     if (args.length < 2) {  
-        conn.reply(m.chat, `*🧡 Proporciona una hora seguido el país y una modalidad.*
-*Usa AR para Argentina y PE para Perú.*
-
-*💡 Ejemplo:* .${command} 20 pe Vv2`, m);
+        conn.reply(m.chat, `*${emojis} Proporciona una hora seguido el país y una modalidad.*
+*Usa MX para México y CO para Colombia.*
+*💡 Ejemplo:* .${command} 20 co Vv2`, m);
         return;
     }
 
@@ -20,20 +19,20 @@ const handler = async (m, { text, conn, args, usedPrefix, command }) => {
     const pais = args[1].toUpperCase();  
 
     const diferenciasHorarias = {  
-        CL: 2,  // UTC-4  
-        AR: 2,  // UTC-3  
+        CO: 0,  // UTC-5  
+        MX: 1,  // UTC-6  
         PE: 0,  // UTC-5  
     };  
 
     if (!(pais in diferenciasHorarias)) {  
-        conn.reply(m.chat, '*🧡 País no válido. Usa AR para Argentina, PE para Perú.*', m);  
+        conn.reply(m.chat, `*${emojis} País no válido. Usa MX para México, CO para Colombia.*`, m);  
         return;  
     }  
 
     const diferenciaHoraria = diferenciasHorarias[pais];  
     const formatTime = (date) => date.toLocaleTimeString('es', { hour12: false, hour: '2-digit', minute: '2-digit' });  
 
-    const horasEnPais = { CL: '', AR: '', PE: '' };  
+    const horasEnPais = { CO: '', MX: '', PE: '' };  
 
     for (const key in diferenciasHorarias) {  
         const horaActual = new Date();  
@@ -102,8 +101,8 @@ const handler = async (m, { text, conn, args, usedPrefix, command }) => {
 
     const message = `ㅤㅤㅤ *\`${titulo}\`*
 
-🕹꒱ *ʀᴇɢʟᴀs:* ${modalidad}
-⏰꒱ *ʜᴏʀᴀ:* ${horasEnPais.PE} 🇵🇪 ${horasEnPais.AR} 🇦🇷
+🕹꒱ *ᴍᴏᴅᴀʟɪᴅᴀᴅ:* ${modalidad}
+⏰꒱ *ʜᴏʀᴀ:* ${horasEnPais.MX} 🇲🇽 ${horasEnPais.CO} 🇨🇴
 
 ㅤ \`${players}\`
 
@@ -113,7 +112,7 @@ ${iconos.map(icono => `${icono}˚ `).join('\n')}
 
 ${iconos2.map(icono => `${icono}˚ `).join('\n')}
 
-> © Moon Force - Adapted `.trim();
+> © Sunflare - Adapted `.trim();
 
     conn.sendMessage(m.chat, { text: message }, { quoted: m });
 };
