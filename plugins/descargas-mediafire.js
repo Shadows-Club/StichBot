@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     try {
         if (!text) {
-            throw `*🐈 Ingresa un link de MediaFire.*`;
+            throw `*${emojis} Ingresa un link de MediaFire.*`;
         }
 
         // Validación de enlace de MediaFire
