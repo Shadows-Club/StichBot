@@ -4,7 +4,7 @@ import cheerio from 'cheerio';
 
 const handler = async (m, { conn, args, command, usedPrefix }) => {
     if (!db.data.chats[m.chat].nsfw && m.isGroup) {
-    return m.reply('*🧡 El contenido nsfw está desactivado para este chat.*\n> ᥙsᥱ *enable nsfw* ⍴ᥲrᥲ ᥲᥴ𝗍і᥎ᥲrᥣ᥆.');
+    return m.reply('*🐼 El contenido nsfw está desactivado para este chat.*\n> ᥙsᥱ *enable nsfw* ⍴ᥲrᥲ ᥲᥴ𝗍і᥎ᥲrᥣ᥆.');
     }
     if (!args[0]) {
         return conn.reply(m.chat, `*🐈 Por favor, ingrese la búsqueda que desea realizar en XVideos.*`, m);
