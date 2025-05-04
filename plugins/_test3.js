@@ -128,44 +128,19 @@ la Reglas de este modo "no hay reglas. todos sin sin limites, humor, diversión,
     }
 }
 
-if (/^infohost|hosting$/i.test(m.text)) {
- await conn.sendMessage(m.chat, { text: txt,
-contextInfo:{
-forwardingScore: 9999999,
-isForwarded: false, 
-"externalAdReply": {
-"showAdAttribution": true,
-"containsAutoReply": true,
-title: `🤖 𝐒𝐊𝐘𝐏𝐋𝐔𝐒-𝐇𝐎𝐒𝐓 🤖`,
-body: `✅ Hosting de Calidad`,
-"previewType": "PHOTO",
-thumbnailUrl: 'https://qu.ax/wXciz.jpg', 
-sourceUrl: nna}}}, { quoted: m})
-} 
-
 if (/^todo bien$/i.test(m.text) ) { //sin prefijo
 conn.reply(m.chat, `𝑩𝒊𝒆𝒏 𝒄𝒂𝒑𝒐 😎 𝒚 𝒕𝒖`, m) }
 
 if (/^e$/i.test(m.text) ) { //sem prefixo
 conn.reply(m.chat, `𝑸𝒖𝒆 𝒃𝒖𝒆𝒏𝒐 𝒔𝒂𝒃𝒆𝒓 𝒍𝒂 𝒍𝒆𝒕𝒓𝒂 𝒆`, m)}
 
-if (/^@5492266466080|@56964787183|@5492266613038$/i.test(m.text) ) {
-conn.reply(m.chat, `*_[ ⚠ ️] No etiquetes a mi creador, si tiene alguna consulta o dudas, hablarle el pv solo por tema del bot_*`, m) }
+if (/^@573155227977|@5492266613038$/i.test(m.text) ) {
+conn.reply(m.chat, `*_[ ⚠ ️] No etiquetes al gei ese*`, m) }
 
-/*if (/^Mande porno|porno|paja$/i.test(m.text) ) { //sem prefixo
+if (/^Mande porno|porno|paja$/i.test(m.text) ) { //sem prefixo
 let teks = `${pickRandom([` 𝑨𝒔𝒊́ 𝒒𝒖𝒆 𝒒𝒖𝒊𝒆𝒓𝒂 𝒉𝒂𝒈𝒂 𝒑𝒖𝒕𝒊𝒕𝒐 🧐`, `_uff mire un pajero_`, `_pagame y paso mi pack😏🥵_`, `_que_`, `_que quiere pija dice 🤣`, `_pasa el pack de tu hermana😏_`, `_mire un gilipolla_`, `_siuuu sexo sexo sexo😈_`, '_callarte putito_'])}`.trim()
 conn.reply(m.chat, teks, m, { mentions: { mentionedJid: [m.sender] }})
-}*/
-
-if (/^reglas|normas|Reglas$/i.test(m.text) ) {
-conn.reply(m.chat, `\`⚠️ 𝙍𝙀𝙂𝙇𝘼𝙎 ⚠️\`
-
-* 𝐏𝐫𝐨𝐡𝐢𝐛𝐢𝐝𝐨 𝐥𝐥𝐚𝐦𝐚𝐫 𝐚𝐥 𝐁𝐨𝐭
-* 𝐏𝐫𝐨𝐡𝐢𝐛𝐢𝐝𝐨 𝐒𝐩𝐚𝐦 𝐚𝐥 𝐁𝐨𝐭
-* 𝐍𝐨 𝐚𝐠𝐫𝐞𝐠𝐚𝐫 𝐚𝐥 𝐁𝐨𝐭
-* 𝐑𝐞𝐬𝐩𝐞𝐭𝐚 𝐥𝐨𝐬 𝐭𝐞𝐫𝐦𝐢𝐧𝐨𝐬 𝐲 𝐜𝐨𝐧𝐝𝐢𝐜𝐢𝐨𝐧𝐞𝐬
-
->「 ${wm} 」`, m)}
+}
 
 if (/^Quiero un bot|como obtengo un bot? |Quiero un bot? |quiero un bot|solicitó bot|solicito bot|Necesito un bot|necesito un bot$/i.test(m.text) ) {
 conn.reply(m.chat,  `\`⚡ ¿Quieres un bot para tu grupo?\`
@@ -192,7 +167,7 @@ https://paypal.me/OficialGD
 
 Una vez realizado el pago, puedes enviar un comprobante de envío del dinero (captura de pantalla) para que pueda agregar el bot a tu grupo.
 https://chat.whatsapp.com/FDRfhecUGrCEQswkg8FUYz
-${fb}
+
 
 \`⚡ ¿El bot estará activo 24/7?\`
 > _*Sí, nuestro bot está alojado en un servidor de pago para mantenerlo activo 24/7 (por eso también solicitamos donaciones para mantenerlo en funcionamiento) 💞.*_
