@@ -5,7 +5,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     return m.reply('*🐼 El contenido nsfw está desactivado para este chat.*\n> ᥙsᥱ *enable nsfw* ⍴ᥲrᥲ ᥲᥴ𝗍і᥎ᥲrᥣ᥆.');
     }
 
-  if (!text) throw m.reply(`*🫧 Ingresa el texto de lo que quieres buscar en Xnxx*`)
+  if (!text) throw m.reply(`*${emojis} Ingresa el texto de lo que quieres buscar en Xnxx*`)
   let response = await fetch(`https://api.agatz.xyz/api/xnxx?message=${text}`)
   let res = await response.json()
 
