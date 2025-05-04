@@ -7,7 +7,7 @@ const handler = async (m, { conn, args, command, usedPrefix }) => {
     return m.reply('*🐼 El contenido nsfw está desactivado para este chat.*\n> ᥙsᥱ *enable nsfw* ⍴ᥲrᥲ ᥲᥴ𝗍і᥎ᥲrᥣ᥆.');
     }
     if (!args[0]) {
-        return conn.reply(m.chat, `*🐈 Por favor, ingrese la búsqueda que desea realizar en XVideos.*`, m);
+        return conn.reply(m.chat, `*${emojis} Por favor, ingrese la búsqueda que desea realizar en XVideos.*`, m);
     }
 
     try {
@@ -16,7 +16,7 @@ const handler = async (m, { conn, args, command, usedPrefix }) => {
             return conn.reply(m.chat, `*⚠️ No se encontraron resultados para:*\n${args.join(' ')}`, m);
         }
 
-        let responseMessage = `*[ 🔎 ] Resultados de la búsqueda para:* *${args.join(' ')}*\n\n`;
+        let responseMessage = `*🔎 Resultados de la búsqueda para:* *${args.join(' ')}*\n\n`;
         results.forEach((video, index) => {
             responseMessage += `☁️ *Título:* ${video.title}\n`;
             responseMessage += `🕒 *Duración:* ${video.duration}\n`;
