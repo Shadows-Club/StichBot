@@ -1,14 +1,13 @@
-
 const handler = async (m, { text, conn, args, usedPrefix, command }) => {
 
     if (args.length < 2) {  
         conn.reply(m.chat, `*${emojis} Proporciona una hora seguido el país y una modalidad.*
-*Usa MX para México, CO para Colombia o PE para Perú.*
-*💡 Ejemplo:* .${command} 20 co Vv2`, m);
+*Usa MX para México y CO para Colombia.*
+*💡 Ejemplo:* .${command} 20 pe Vv2`, m);
         return;
     }
 
-    // Validación de formato 24 horas
+    // Nueva validación para formato de 24 horas
     const horaRegex = /^([01]?[0-9]|2[0-3])(:[0-5][0-9])?$/;  
     if (!horaRegex.test(args[0])) {  
         conn.reply(m.chat, '*⏰ Formato de hora incorrecto.*', m);  
@@ -19,33 +18,34 @@ const handler = async (m, { text, conn, args, usedPrefix, command }) => {
 
     const pais = args[1].toUpperCase();  
 
-    const zonasHorarias = {
-        CO: 'America/Bogota',
-        MX: 'America/Mexico_City',
-        PE: 'America/Lima',
-    };
+    const diferenciasHorarias = {  
+        CO: 2,  // UTC-4  
+        MX: 1,  // UTC-3  
+        PE: 0,  // UTC-5  
+    };  
 
-    if (!(pais in zonasHorarias)) {  
-        conn.reply(m.chat, `*${emojis} País no válido. Usa MX, CO o PE.*`, m);  
+    if (!(pais in diferenciasHorarias)) {  
+        conn.reply(m.chat, '*[ ℹ️ ] País no válido. Usa AR para Argentina, PE para Perú.*', m);  
         return;  
     }  
 
-    const horasEnPais = {};
+    const diferenciaHoraria = diferenciasHorarias[pais];  
+    const formatTime = (date) => date.toLocaleTimeString('es', { hour12: false, hour: '2-digit', minute: '2-digit' });  
 
-    // Se usa una fecha fija y se ajusta por zona horaria
-    for (const key in zonasHorarias) {
-        const horaBase = new Date(Date.UTC(2000, 0, 1, hora, minutos));  
-        horasEnPais[key] = horaBase.toLocaleTimeString('es-PE', {
-            timeZone: zonasHorarias[key],
-            hour12: false,
-            hour: '2-digit',
-            minute: '2-digit',
-        });
-    }
+    const horasEnPais = { CO: '', MX: '', PE: '' };  
+
+    for (const key in diferenciasHorarias) {  
+        const horaActual = new Date();  
+        horaActual.setHours(hora, minutos, 0, 0);
+
+        const horaEnPais = new Date(horaActual.getTime() + (3600000 * (diferenciasHorarias[key] - diferenciaHoraria)));  
+        horasEnPais[key] = formatTime(horaEnPais);  
+    }  
 
     const modalidad = args.slice(2).join(' ');  
     m.react('🎮');  
 
+    // Configuración de la modalidad según el comando usado
     let titulo = '';
     let players = [];
     let iconos = [];
@@ -95,14 +95,14 @@ const handler = async (m, { text, conn, args, usedPrefix, command }) => {
             iconos2 = ['🥯', '🥯'];
             break;
         default:
-            conn.reply(m.chat, '*❌ Comando no válido.*', m);
+            conn.reply(m.chat, '*[ ❌ ] Comando no válido.*', m);
             return;
     }
 
     const message = `ㅤㅤㅤ *\`${titulo}\`*
 
-🕹꒱ *ᴍᴏᴅᴀʟɪᴅᴀᴅ:* ${modalidad}
-⏰꒱ *ʜᴏʀᴀ:* ${horasEnPais.MX} 🇲🇽 ${horasEnPais.CO} 🇨🇴
+🕹꒱ *ʀᴇɢʟᴀs:* ${modalidad}
+⏰꒱ *ʜᴏʀᴀ:* ${horasEnPais.PE} 🇵🇪 ${horasEnPais.AR} 🇦🇷
 
 ㅤ \`${players}\`
 
@@ -112,7 +112,7 @@ ${iconos.map(icono => `${icono}˚ `).join('\n')}
 
 ${iconos2.map(icono => `${icono}˚ `).join('\n')}
 
-> © Sunflare - Adapted `.trim();
+> © Տһᥲძᨣᥕ Ɓᨣƚ Uᥣ𝗍rᥲ `.trim();
 
     conn.sendMessage(m.chat, { text: message }, { quoted: m });
 };
