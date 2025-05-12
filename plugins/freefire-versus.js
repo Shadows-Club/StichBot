@@ -21,7 +21,7 @@ const handler = async (m, { text, conn, args, usedPrefix, command }) => {
     const diferenciasHorarias = {  
         CO: 2,  // UTC-4  
         MX: 1,  // UTC-3  
-        PE: 0,  // UTC-5  
+        PE: 2,  // UTC-5  
     };  
 
     if (!(pais in diferenciasHorarias)) {  
