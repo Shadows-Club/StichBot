@@ -25,7 +25,7 @@ const handler = async (m, { text, conn, args, usedPrefix, command }) => {
     };  
 
     if (!(pais in diferenciasHorarias)) {  
-        conn.reply(m.chat, '*[ ℹ️ ] País no válido. Usa AR para Argentina, PE para Perú.*', m);  
+        conn.reply(m.chat, '*❌ País no válido. Usa AR para Argentina, PE para Perú.*', m);  
         return;  
     }  
 
@@ -102,7 +102,7 @@ const handler = async (m, { text, conn, args, usedPrefix, command }) => {
     const message = `ㅤㅤㅤ *\`${titulo}\`*
 
 🕹꒱ *ʀᴇɢʟᴀs:* ${modalidad}
-⏰꒱ *ʜᴏʀᴀ:* ${horasEnPais.PE} 🇵🇪 ${horasEnPais.AR} 🇦🇷
+⏰꒱ *ʜᴏʀᴀ:* ${horasEnPais.MX} 🇲🇽 ${horasEnPais.CO} 🇨🇴
 
 ㅤ \`${players}\`
 
@@ -112,7 +112,7 @@ ${iconos.map(icono => `${icono}˚ `).join('\n')}
 
 ${iconos2.map(icono => `${icono}˚ `).join('\n')}
 
-> © Տһᥲძᨣᥕ Ɓᨣƚ Uᥣ𝗍rᥲ `.trim();
+> © ${dev}`.trim();
 
     conn.sendMessage(m.chat, { text: message }, { quoted: m });
 };
