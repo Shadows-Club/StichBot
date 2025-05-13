@@ -26,55 +26,37 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   ];
 
   let text = '';
-  let buttons = [];
+  let sections = [];
 
   switch ((args[0] || '').toLowerCase()) {
     case 'verdad':
       text = `🟣 *Verdad:*\n${pickRandom(verdades)}`;
-      buttons = [
-        { buttonId: `${usedPrefix + command} verdad`, buttonText: { displayText: '🟣 Otra Verdad' }, type: 1 },
-        { buttonId: `${usedPrefix + command} reto`, buttonText: { displayText: '🔴 Ir a Reto' }, type: 1 }
-      ];
       break;
-
     case 'reto':
       text = `🔴 *Reto:*\n${pickRandom(retos)}`;
-      buttons = [
-        { buttonId: `${usedPrefix + command} reto`, buttonText: { displayText: '🔴 Otro Reto' }, type: 1 },
-        { buttonId: `${usedPrefix + command} verdad`, buttonText: { displayText: '🟣 Ir a Verdad' }, type: 1 }
-      ];
       break;
-
     default:
       text = `🎮 *Juego: Verdad o Reto*\n\nEscoge una opción y juega con tus amigos.\n\n¿Te atreves a revelar un secreto o cumplir un reto divertido?`;
-      buttons = [
-        { buttonId: `${usedPrefix + command} verdad`, buttonText: { displayText: '🟣 Verdad' }, type: 1 },
-        { buttonId: `${usedPrefix + command} reto`, buttonText: { displayText: '🔴 Reto' }, type: 1 }
-      ];
       break;
   }
 
-  const fkontak = {
-    key: {
-      participants: '0@s.whatsapp.net',
-      remoteJid: 'status@broadcast',
-      fromMe: false,
-      id: 'Halo'
-    },
-    message: {
-      contactMessage: {
-        displayName: 'Juegos',
-        vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;Juegos;;;\nFN:Juegos\nTEL;type=CELL;type=VOICE;waid=1234567890:+1 234 567 890\nEND:VCARD`
-      }
-    }
-  };
+  sections = [{
+    title: "Selecciona una opción",
+    rows: [
+      { title: "🟣 Verdad", rowId: `${usedPrefix + command} verdad` },
+      { title: "🔴 Reto", rowId: `${usedPrefix + command} reto` }
+    ]
+  }];
 
-  await conn.sendMessage(m.chat, {
+  const listMessage = {
     text,
     footer: 'Perrita No Yusha • Verdad o Reto',
-    buttons,
-    headerType: 1
-  }, { quoted: fkontak });
+    title: "Verdad o Reto",
+    buttonText: "Selecciona",
+    sections
+  };
+
+  await conn.sendMessage(m.chat, listMessage, { quoted: m });
 };
 
 handler.help = ['verdadoreto'];
