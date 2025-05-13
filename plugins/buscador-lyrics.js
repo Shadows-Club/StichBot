@@ -46,7 +46,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
       break;
 
     default:
-      text = `🎮 *Verdad o Reto*\n\nElige una opción para comenzar.`;
+      text = `🎮 *Juego: Verdad o Reto*\n\nEscoge una opción y juega con tus amigos.\n\n¿Te atreves a revelar un secreto o cumplir un reto divertido?`;
       buttons = [
         { buttonId: `${usedPrefix + command} verdad`, buttonText: { displayText: '🟣 Verdad' }, type: 1 },
         { buttonId: `${usedPrefix + command} reto`, buttonText: { displayText: '🔴 Reto' }, type: 1 }
@@ -54,12 +54,27 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
       break;
   }
 
+  const fkontak = {
+    key: {
+      participants: '0@s.whatsapp.net',
+      remoteJid: 'status@broadcast',
+      fromMe: false,
+      id: 'Halo'
+    },
+    message: {
+      contactMessage: {
+        displayName: 'Juegos',
+        vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;Juegos;;;\nFN:Juegos\nTEL;type=CELL;type=VOICE;waid=1234567890:+1 234 567 890\nEND:VCARD`
+      }
+    }
+  };
+
   await conn.sendMessage(m.chat, {
     text,
     footer: 'Perrita No Yusha • Verdad o Reto',
     buttons,
     headerType: 1
-  }, { quoted: m });
+  }, { quoted: fkontak });
 };
 
 handler.help = ['verdadoreto'];
