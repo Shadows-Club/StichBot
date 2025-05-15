@@ -13,30 +13,32 @@ function pickRandom(list) {
 const handler = async (m, { conn }) => {
   const texto = `*⚄︎.- ${pickRandom(global.verdad)}*`;
 
-const buttons = [
+  const buttons = [
     {
-        buttonId: '.verdad2',
-        buttonText: { displayText: 'Siguiente' },
-        type: 1
+      buttonId: '.verdad2',
+      buttonText: { displayText: 'Siguiente' },
+      type: 1
     }
-];
+  ];
 
-await conn.sendMessage(
+  await conn.sendMessage(
     m.chat,
     {
-        text: texto,
-        buttons: buttons,
-        headerType: 1 // 1 = solo texto
+      text: texto,
+      buttons: buttons,
+      headerType: 1 // 1 = solo texto
     },
     { quoted: m }
-);
+  );
 };
 
 handler.help = ['verdad'];
 handler.tags = ['fun'];
 handler.command = /^verdad2$/i;
+
 export default handler;
 
+// Función auxiliar
 function pickRandom(list) {
   return list[Math.floor(Math.random() * list.length)];
 }
