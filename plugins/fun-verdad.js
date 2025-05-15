@@ -16,6 +16,7 @@ const buttons = [
         {
             text: caption,
             buttons: buttons,
+            footer: 'By Dev.Criss'
         },
         { quoted: m }
     );
