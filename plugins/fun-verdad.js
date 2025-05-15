@@ -225,6 +225,3 @@ global.verdad = [
 '¿Tienes carro?',
 
 ];
-
-Funciona pero no sale la imagen xk?
-
