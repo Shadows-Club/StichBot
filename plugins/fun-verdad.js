@@ -1,7 +1,7 @@
 const handler = async (m, { conn }) => {
 
 const img = 'https://files.catbox.moe/l7s79t.jpg'
-const caption = *⚄︎.- ${pickRandom(global.verdad)}*;
+const caption = `*⚄︎.- ${pickRandom(global.verdad)}*`;
 
     conn.sendMessage(m.chat, { 
         text: caption, 
