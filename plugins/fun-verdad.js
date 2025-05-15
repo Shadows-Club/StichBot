@@ -14,24 +14,22 @@ const handler = async (m, { conn }) => {
   const texto = `*⚄︎.- ${pickRandom(global.verdad)}*`;
 
 const buttons = [
-        {
-            buttonId: `.verdad2`,
-            buttonText: { displayText: "Siguiente" },
-            type: 1
-        }
-    ];
+    {
+        buttonId: '.verdad2',
+        buttonText: { displayText: 'Siguiente' },
+        type: 1
+    }
+];
 
-    await conn.sendMessage(
-        m.chat,
-        {
-            image: { url },
-            caption: "VERDAD ☕",
-            buttons: buttons,
-            viewOnce: true
-        },
-        { quoted: m }
-    );
-};
+await conn.sendMessage(
+    m.chat,
+    {
+        text: '*Verdad*',
+        buttons: buttons,
+        headerType: 1 // 1 = solo texto
+    },
+    { quoted: m }
+);
 
 handler.help = ['verdad'];
 handler.tags = ['fun'];
