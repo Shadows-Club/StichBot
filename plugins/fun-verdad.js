@@ -16,8 +16,6 @@ const caption = *⚄︎.- ${pickRandom(global.verdad)}*;
         viewOnce: true
     }, { quoted: m });
 }
-await m.react('🎲');
-};
 
 handler.help = ['verdad'];
 handler.tags = ['fun'];
