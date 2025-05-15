@@ -13,23 +13,24 @@ function pickRandom(list) {
 const handler = async (m, { conn }) => {
   const texto = `*⚄︎.- ${pickRandom(global.verdad)}*`;
 
-  const buttons = [
-    {
-      buttonId: '#verdad2', // o el comando que desees repetir
-      buttonText: { displayText: 'Otra verdad' },
-      type: 1
-    }
-  ];
+const buttons = [
+        {
+            buttonId: `.verdad2`,
+            buttonText: { displayText: "Siguiente" },
+            type: 1
+        }
+    ];
 
-  await conn.sendMessage(
-    m.chat,
-    {
-      text: texto,
-      buttons: buttons,
-      headerType: 1
-    },
-    { quoted: m }
-  );
+    await conn.sendMessage(
+        m.chat,
+        {
+            image: { url },
+            caption: "VERDAD ☕",
+            buttons: buttons,
+            viewOnce: true
+        },
+        { quoted: m }
+    );
 };
 
 handler.help = ['verdad'];
