@@ -1,4 +1,4 @@
-const handler = async (m, {conn}) => {
+/*const handler = async (m, {conn}) => {
   conn.reply(m.chat, `*⚄︎.- ${pickRandom(global.verdad)}*`, m);
 };
 handler.help = ['verdad'];
@@ -8,6 +8,37 @@ export default handler;
 
 function pickRandom(list) {
   return list[Math.floor(list.length * Math.random())];
+}*/
+
+const handler = async (m, { conn }) => {
+  const texto = `*⚄︎.- ${pickRandom(global.verdad)}*`;
+
+  const buttons = [
+    {
+      buttonId: '#verdad2', // o el comando que desees repetir
+      buttonText: { displayText: 'Otra verdad' },
+      type: 1
+    }
+  ];
+
+  await conn.sendMessage(
+    m.chat,
+    {
+      text: texto,
+      buttons: buttons,
+      headerType: 1
+    },
+    { quoted: m }
+  );
+};
+
+handler.help = ['verdad'];
+handler.tags = ['fun'];
+handler.command = /^verdad2$/i;
+export default handler;
+
+function pickRandom(list) {
+  return list[Math.floor(Math.random() * list.length)];
 }
 
 global.verdad = [
