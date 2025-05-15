@@ -3,25 +3,19 @@ const handler = async (m, { conn }) => {
 const img = 'https://files.catbox.moe/l7s79t.jpg'
 const caption = *⚄︎.- ${pickRandom(global.verdad)}*;
 
-const buttons = [
-{
-buttonId: ".verdad2",
-buttonText: { displayText: "vermas" },
-type: 1
+    conn.sendMessage(m.chat, { 
+        text: caption, 
+        footer: dev, 
+        buttons: [
+            {
+                buttonId: `.verdad2`,
+                buttonText: { displayText: 'Next' },
+                type: 1
+            }
+        ],
+        viewOnce: true
+    }, { quoted: m });
 }
-];
-
-await conn.sendMessage(  
-    m.chat,  
-    {  
-        image: { url:img },  
-        text: caption,  
-        buttons: buttons,  
-        viewOnce: true  
-    },  
-    { quoted: m }  
-);
-
 await m.react('🎲');
 };
 
