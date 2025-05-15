@@ -30,6 +30,7 @@ await conn.sendMessage(
     },
     { quoted: m }
 );
+};
 
 handler.help = ['verdad'];
 handler.tags = ['fun'];
