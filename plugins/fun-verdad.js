@@ -30,6 +30,7 @@ const handler = async (m, { conn }) => {
     },
     { quoted: m }
   );
+await m.react('🎲');
 };
 
 handler.help = ['verdad'];
