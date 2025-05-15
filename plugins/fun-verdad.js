@@ -17,7 +17,6 @@ await conn.sendMessage(
         image: { url:img },  
         text: caption,  
         buttons: buttons,  
-        footer: 'By Dev.Criss';
         viewOnce: true  
     },  
     { quoted: m }  
