@@ -26,8 +26,6 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   ];
 
   let text = '';
-  let sections = [];
-
   switch ((args[0] || '').toLowerCase()) {
     case 'verdad':
       text = `🟣 *Verdad:*\n${pickRandom(verdades)}`;
@@ -40,23 +38,19 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
       break;
   }
 
-  sections = [{
-    title: "Selecciona una opción",
-    rows: [
-      { title: "🟣 Verdad", rowId: `${usedPrefix + command} verdad` },
-      { title: "🔴 Reto", rowId: `${usedPrefix + command} reto` }
-    ]
-  }];
+  const buttons = [
+    { buttonId: `${usedPrefix + command} verdad`, buttonText: { displayText: '🟣 Verdad' }, type: 1 },
+    { buttonId: `${usedPrefix + command} reto`, buttonText: { displayText: '🔴 Reto' }, type: 1 }
+  ];
 
-  const listMessage = {
+  const buttonMessage = {
     text,
     footer: 'Perrita No Yusha • Verdad o Reto',
-    title: "Verdad o Reto",
-    buttonText: "Selecciona",
-    sections
+    buttons,
+    headerType: 1
   };
 
-  await conn.sendMessage(m.chat, listMessage, { quoted: m });
+  await conn.sendMessage(m.chat, buttonMessage, { quoted: m });
 };
 
 handler.help = ['verdadoreto'];
