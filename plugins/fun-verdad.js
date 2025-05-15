@@ -24,7 +24,7 @@ const buttons = [
 await conn.sendMessage(
     m.chat,
     {
-        text: '*Verdad*',
+        text: texto,
         buttons: buttons,
         headerType: 1 // 1 = solo texto
     },
