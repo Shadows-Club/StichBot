@@ -1,25 +1,12 @@
-/*const handler = async (m, {conn}) => {
-  conn.reply(m.chat, `*⚄︎.- ${pickRandom(global.verdad)}*`, m);
-};
-handler.help = ['verdad'];
-handler.tags = ['fun'];
-handler.command = /^verdad2/i;
-export default handler;
-
-function pickRandom(list) {
-  return list[Math.floor(list.length * Math.random())];
-}*/
-
 
 const handler = async (m, { conn }) => {
 
-  const img = 'https://files.catbox.moe/l7s79t.jpg'
   const caption = `*⚄︎.- ${pickRandom(global.verdad)}*`;
 
 const buttons = [
         {
             buttonId: `.verdad2`,
-            buttonText: { displayText: "vermas" },
+            buttonText: { displayText: "Ver mas" },
             type: 1
         }
     ];
@@ -27,10 +14,8 @@ const buttons = [
     await conn.sendMessage(
         m.chat,
         {
-            image: { url:img },
             text: caption,
             buttons: buttons,
-            viewOnce: true
         },
         { quoted: m }
     );
