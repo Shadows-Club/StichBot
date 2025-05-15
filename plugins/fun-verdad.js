@@ -10,26 +10,31 @@ function pickRandom(list) {
   return list[Math.floor(list.length * Math.random())];
 }*/
 
+
 const handler = async (m, { conn }) => {
+
+  const img = 'https://files.catbox.moe/l7s79t.jpg'
   const texto = `*⚄︎.- ${pickRandom(global.verdad)}*`;
 
-  const buttons = [
-    {
-      buttonId: '.verdad2',
-      buttonText: { displayText: 'Siguiente' },
-      type: 1
-    }
-  ];
+const buttons = [
+        {
+            buttonId: `.verdad2`,
+            buttonText: { displayText: "vermas" },
+            type: 1
+        }
+    ];
 
-  await conn.sendMessage(
-    m.chat,
-    {
-      text: texto,
-      buttons: buttons,
-      headerType: 1 // 1 = solo texto
-    },
-    { quoted: m }
-  );
+    await conn.sendMessage(
+        m.chat,
+        {
+            image: img,
+            caption: { texto },
+            buttons: buttons,
+            viewOnce: true
+        },
+        { quoted: m }
+    );
+
 await m.react('🎲');
 };
 
