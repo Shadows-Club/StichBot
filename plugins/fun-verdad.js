@@ -5,7 +5,7 @@ const caption = *⚄︎.- ${pickRandom(global.verdad)}*;
 
 const buttons = [
 {
-buttonId: .verdad2,
+buttonId: ".verdad2",
 buttonText: { displayText: "vermas" },
 type: 1
 }
