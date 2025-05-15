@@ -14,7 +14,7 @@ function pickRandom(list) {
 const handler = async (m, { conn }) => {
 
   const img = 'https://files.catbox.moe/l7s79t.jpg'
-  const texto = `*⚄︎.- ${pickRandom(global.verdad)}*`;
+  const vrd = `*⚄︎.- ${pickRandom(global.verdad)}*`;
 
 const buttons = [
         {
@@ -27,8 +27,8 @@ const buttons = [
     await conn.sendMessage(
         m.chat,
         {
-            image: img,
-            caption: { texto },
+            image: { url:img },
+            caption: vrd,
             buttons: buttons,
             viewOnce: true
         },
