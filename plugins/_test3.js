@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 
 const handler = async (m, { conn, text }) => {
@@ -18,7 +17,7 @@ const handler = async (m, { conn, text }) => {
 *◦ Nombre:* ${user.full_name || 'Desconocido'}
 *◦ Usuario:* @${user.username}
 *◦ Biografía:* ${user.biography || 'Sin biografía'}
-*◦ Publicaciones:* ${user.post_count ?? 'No disponible'}
+*◦ Publicaciones:* ${user.posts ?? 'No disponible'}
 *◦ Seguidores:* ${user.followers ?? 'No disponible'}
 *◦ Siguiendo:* ${user.following ?? 'No disponible'}
 *◦ Privado:* ${user.is_private ? '🔒 Sí' : '🔓 No'}
