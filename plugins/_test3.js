@@ -9,20 +9,24 @@ let handler = async (m, { usedPrefix, command, conn, text }) => {
     const res = await axios.get(`https://api.vreden.my.id/api/igstalk?query=${encodeURIComponent(text)}`);
     const result = res.data?.result;
 
-    if (!result) throw 'No se encontró el usuario o ocurrió un error.';
+    if (!res.data.status || !result || !result.username) throw 'No se encontró el usuario o ocurrió un error.';
 
     const caption = `\`\`\`乂 STALKER - INSTAGRAM\`\`\`\n
-*◦ NOMBRE :* ${result.fullName}
+*◦ NOMBRE :* ${result.fullName || 'Desconocido'}
 *◦ USUARIO :* @${result.username}
 *◦ BIOGRAFÍA :* ${result.biography || 'Sin biografía'}
-*◦ PUBLICACIONES :* ${result.posts}
-*◦ SEGUIDORES :* ${result.followers}
-*◦ SIGUIENDO :* ${result.following}
+*◦ PUBLICACIONES :* ${result.posts ?? 'No disponible'}
+*◦ SEGUIDORES :* ${result.followers ?? 'No disponible'}
+*◦ SIGUIENDO :* ${result.following ?? 'No disponible'}
 *◦ PRIVADO :* ${result.isPrivate ? '🔒 Sí' : '🔓 No'}
 *◦ VERIFICADO :* ${result.isVerified ? '✅ Sí' : '❌ No'}
 `.trim();
 
-    await conn.sendMessage(m.chat, { image: { url: result.profilePic }, caption }, { quoted: m });
+    await conn.sendMessage(m.chat, {
+      image: { url: result.profilePic || 'https://i.imgur.com/3e3u1mL.png' },
+      caption
+    }, { quoted: m });
+
     await m.react('✅');
 
   } catch (err) {
