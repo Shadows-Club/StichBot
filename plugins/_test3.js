@@ -1,7 +1,4 @@
 
-
-export default handler;
-
 import axios from 'axios';
 
 const handler = async (m, { conn, text }) => {
