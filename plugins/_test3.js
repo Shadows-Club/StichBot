@@ -29,7 +29,7 @@ const handler = async (m, { conn, text }) => {
 `.trim();
 
     await conn.sendMessage(m.chat, {
-      image: { url: user.profile_pic || 'https://i.imgur.com/3e3u1mL.png' },
+      image: { url: user.profile_pic || 'https://files.catbox.moe/z9klun.jpg' },
       caption,
     }, { quoted: m });
 
