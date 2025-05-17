@@ -1,13 +1,14 @@
+
+
+export default handler;
+
 import axios from 'axios';
 
-let handler = async (m, { usedPrefix, command, conn, text }) => {
-  if (!text) {
-    return m.reply(`*❌ Por favor, ingresa un nombre de usuario de Instagram.*\n\n*Ejemplo:* ${usedPrefix + command} cristiano`);
-  }
+const handler = async (m, { conn, text }) => {
+  if (!text) return m.reply('Por favor, ingresa un nombre de usuario para buscar.');
 
   try {
-    await m.react('⏳');
-
+    await m.react('👁️');
     const { data } = await axios.get(`https://api.vreden.my.id/api/igstalk?query=${encodeURIComponent(text)}`);
     const user = data?.result;
 
@@ -17,18 +18,18 @@ let handler = async (m, { usedPrefix, command, conn, text }) => {
 
     const caption = `
 \`\`\`乂 INSTAGRAM STALKER\`\`\`
-*◦ Nombre:* ${user.fullName || 'Desconocido'}
+*◦ Nombre:* ${user.full_name || 'Desconocido'}
 *◦ Usuario:* @${user.username}
 *◦ Biografía:* ${user.biography || 'Sin biografía'}
-*◦ Publicaciones:* ${user.posts ?? 'No disponible'}
+*◦ Publicaciones:* ${user.post_count ?? 'No disponible'}
 *◦ Seguidores:* ${user.followers ?? 'No disponible'}
 *◦ Siguiendo:* ${user.following ?? 'No disponible'}
-*◦ Privado:* ${user.isPrivate ? '🔒 Sí' : '🔓 No'}
-*◦ Verificado:* ${user.isVerified ? '✅ Sí' : '❌ No'}
+*◦ Privado:* ${user.is_private ? '🔒 Sí' : '🔓 No'}
+*◦ Verificado:* ${user.is_verified ? '✅ Sí' : '❌ No'}
 `.trim();
 
     await conn.sendMessage(m.chat, {
-      image: { url: user.profilePic || 'https://i.imgur.com/3e3u1mL.png' },
+      image: { url: user.profile_pic || 'https://i.imgur.com/3e3u1mL.png' },
       caption,
     }, { quoted: m });
 
