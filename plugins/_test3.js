@@ -5,11 +5,13 @@ const handler = async (m, { conn, text }) => {
 
   try {
     await m.react('👁️');
-    const { data } = await axios.get(`https://api.vreden.my.id/api/igstalk?query=${encodeURIComponent(text)}`);
+
+    const response = await axios.get(`https://api.vreden.my.id/api/igstalk?query=${encodeURIComponent(text)}`);
+    const data = response.data;
     const user = data?.result;
 
-    if (!data.status || !user || !user.username) {
-      throw 'No se encontró el usuario o la API no respondió correctamente.';
+    if (response.status !== 200 || !data.status || !user || typeof user !== 'object' || !user.username) {
+      throw new Error('No se encontró el usuario o la API no respondió correctamente.');
     }
 
     const caption = `
