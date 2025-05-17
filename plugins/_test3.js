@@ -1,37 +1,42 @@
-import axios from 'axios'
+import axios from 'axios';
 
 let handler = async (m, { usedPrefix, command, conn, text }) => {
-  if (!text) return m.reply(`*❌ Por favor, ingresa un usuario de Instagram para stalkear.*\n> *\`Ejemplo:\`* ${usedPrefix + command} dev.criss_vx`);
+  if (!text) {
+    return m.reply(`*❌ Por favor, ingresa un nombre de usuario de Instagram.*\n\n*Ejemplo:* ${usedPrefix + command} cristiano`);
+  }
 
   try {
     await m.react('⏳');
 
-    const res = await axios.get(`https://api.vreden.my.id/api/igstalk?query=${encodeURIComponent(text)}`);
-    const result = res.data?.result;
+    const { data } = await axios.get(`https://api.vreden.my.id/api/igstalk?query=${encodeURIComponent(text)}`);
+    const user = data?.result;
 
-    if (!res.data.status || !result || !result.username) throw 'No se encontró el usuario o ocurrió un error.';
+    if (!data.status || !user || !user.username) {
+      throw 'No se encontró el usuario o la API no respondió correctamente.';
+    }
 
-    const caption = `\`\`\`乂 STALKER - INSTAGRAM\`\`\`\n
-*◦ NOMBRE :* ${result.fullName || 'Desconocido'}
-*◦ USUARIO :* @${result.username}
-*◦ BIOGRAFÍA :* ${result.biography || 'Sin biografía'}
-*◦ PUBLICACIONES :* ${result.posts ?? 'No disponible'}
-*◦ SEGUIDORES :* ${result.followers ?? 'No disponible'}
-*◦ SIGUIENDO :* ${result.following ?? 'No disponible'}
-*◦ PRIVADO :* ${result.isPrivate ? '🔒 Sí' : '🔓 No'}
-*◦ VERIFICADO :* ${result.isVerified ? '✅ Sí' : '❌ No'}
+    const caption = `
+\`\`\`乂 INSTAGRAM STALKER\`\`\`
+*◦ Nombre:* ${user.fullName || 'Desconocido'}
+*◦ Usuario:* @${user.username}
+*◦ Biografía:* ${user.biography || 'Sin biografía'}
+*◦ Publicaciones:* ${user.posts ?? 'No disponible'}
+*◦ Seguidores:* ${user.followers ?? 'No disponible'}
+*◦ Siguiendo:* ${user.following ?? 'No disponible'}
+*◦ Privado:* ${user.isPrivate ? '🔒 Sí' : '🔓 No'}
+*◦ Verificado:* ${user.isVerified ? '✅ Sí' : '❌ No'}
 `.trim();
 
     await conn.sendMessage(m.chat, {
-      image: { url: result.profilePic || 'https://i.imgur.com/3e3u1mL.png' },
-      caption
+      image: { url: user.profilePic || 'https://i.imgur.com/3e3u1mL.png' },
+      caption,
     }, { quoted: m });
 
     await m.react('✅');
-
   } catch (err) {
     console.error(err);
-    m.reply('*❌ Error: No se encontró el usuario o la API falló. Intenta nuevamente.*');
+    await m.react('❌');
+    m.reply('*❌ Ocurrió un error al obtener los datos. Asegúrate de que el usuario existe o intenta más tarde.*');
   }
 };
 
