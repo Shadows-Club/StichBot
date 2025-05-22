@@ -2,10 +2,10 @@ let handler = async (m, { conn, text, isROwner, isOwner }) => {
 
 if (text) {
 global.db.data.chats[m.chat].sWelcome = text
-conn.reply(m.chat, '*✅ La bienvenida del grupo ha sido configurada*', m)
+conn.reply(m.chat, '*✅ La bienvenida del grupo ha sido configurada*', m, rcanal)
 
 } else {
-    conn.reply(m.chat, `*${emojis} ¡Escribe el mensaje de bienvenida!*\n✎ *Puedes usar:*\n\n- *\`@user\`* (Mención al Usuario)\n- *\`@group\`* (Nombre del Grupo)\n- *\`@desc\`* (Descripción del Grupo)\n\n> ${emojis} Los @ son opcionales`)
+    conn.reply(m.chat, `*${emojis} ¡Escribe el mensaje de bienvenida!*\n✎ *Puedes usar:*\n\n- *\`@user\`* (Mención al Usuario)\n- *\`@group\`* (Nombre del Grupo)\n- *\`@desc\`* (Descripción del Grupo)\n\n> ${emojis} Los @ son opcionales`, m, rcanal)
 }
 }
 handler.help = ['setwelcome @user + texto']
