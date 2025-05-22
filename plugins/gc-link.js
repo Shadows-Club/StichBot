@@ -24,8 +24,8 @@ var handler = async (m, { conn }) => {
 
         const messageContent = {
             interactiveMessage: {
-                body: { text: 'Aquí tienes el enlace del grupo:' },
-                footer: { text: 'Presiona el botón para copiar el enlace' },
+                body: { text: `*Aquí tienes el enlace del grupo:*\nhttps://chat.whatsapp.com/K3w2klfOUfBCAvv6ZWr5sf` },
+                footer: { text: dev },
                 header: {
                     title: 'Enlace de Grupo',
                     hasMediaAttachment: false
