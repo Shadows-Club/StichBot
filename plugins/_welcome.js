@@ -51,7 +51,7 @@ if (chat.welcome && m.messageStubType == 27) {
         .replace(/@desc/g, groupDesc)
     : msgsWelcome[Math.floor(Math.random() * msgsWelcome.length)]
 
-  await conn.sendLuffy(m.chat, txt, sunflare, bienvenida, img, img, channel, fkontak)
+  await conn.sendLuffy(m.chat, txt, sunflare, bienvenida, img, img, channel, fake)
 }
 
 if (chat.welcome && m.messageStubType == 28) {
@@ -69,7 +69,7 @@ if (chat.welcome && m.messageStubType == 28) {
    │☠️ *Acabas de ser escupido por puta planta*
    │💫 *Ni modo, hasta luego...*
    └────────┈ ⳹`    
-    await conn.sendLuffy(m.chat, txt1, sunflare1, ban, img, img, channel)
+    await conn.sendLuffy(m.chat, txt1, sunflare1, ban, img, img, channel, estilo)
   }
 
 if (chat.welcome && m.messageStubType == 32) {
