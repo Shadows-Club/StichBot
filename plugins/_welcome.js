@@ -69,7 +69,7 @@ if (chat.welcome && m.messageStubType == 28) {
    │☠️ *Acabas de ser escupido por puta planta*
    │💫 *Ni modo, hasta luego...*
    └────────┈ ⳹`    
-    await conn.sendLuffy(m.chat, txt1, sunflare1, ban, img, img, insta, channel)
+    await conn.sendLuffy(m.chat, txt1, sunflare1, ban, img, img, channel)
   }
 
 if (chat.welcome && m.messageStubType == 32) {
