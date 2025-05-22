@@ -3,6 +3,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
   let chat = global.db.data.chats[m.chat]
   let user = global.db.data.users[m.sender]
   let bot = global.db.data.settings[conn.user.jid] || {}
+
   let type = (args[0] || '').toLowerCase()
   let isAll = false, isUser = false
   switch (type) {
@@ -18,7 +19,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         global.dfail('admin', m, conn)
         throw false
       }
-      chat.bienvenida = isEnable
+      chat.welcome = isEnable
       break
 
      case 'autoread':
