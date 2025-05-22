@@ -63,7 +63,12 @@ if (chat.welcome && m.messageStubType == 28) {
         .replace(/@user/g, taguser)
         .replace(/@group/g, groupName)
         .replace(/@desc/g, groupDesc)
-    : `*¡Expulsado!*\n෫ࣲׄ֟፝͡${taguser} 👊🏻꒱\n\nᏊ⁠ 𝖴𝗇 𝗇𝖾𝗀𝗋𝗈 𝗆𝖾𝗇𝗈𝗌 𝖾𝗇 𝖾𝗅 𝗀𝗋𝗎𝗉𝗈, 𝗉𝗈𝗋 𝗇𝗈 𝗈𝖻𝖾𝖽𝖾𝖼𝖾𝗋 𝗅𝖺𝗌 𝗋𝖾𝗀𝗅𝖺𝗌.\n ׅ⿻ 𝖮𝗃𝖺𝗅𝖺 𝗒 𝗅𝖺 𝖾𝗅𝗂𝗆𝗂𝗇𝖺𝖼𝗂𝗈𝗇 𝗅𝖾 𝗁𝖺𝗀𝖺 𝗋𝖾𝖿𝗅𝖾𝗑𝗂𝗈𝗇𝖺𝗋 𝗑𝖣\n\n> ${dev}`    
+    : `┌─★ 𝙅𝙊𝙏𝘼 𝘽𝙊𝙏🐼 
+│「 ADIOS 👋 」
+└┬★ 「 ${taguser} 」
+   │☠️ *Acabas de ser escupido por puta planta*
+   │💫 *Ni modo, hasta luego...*
+   └────────┈ ⳹`    
     await conn.sendLuffy(m.chat, txt1, sunflare1, ban, img, img, insta, fkontak)
   }
 
