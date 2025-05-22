@@ -53,11 +53,100 @@ if (chat.welcome && m.messageStubType == 32) {
   const groupName = groupMetadata.subject
   const groupDesc = groupMetadata.desc || 'sin descripción'
 
+  const msgsBye = [
+    `*╭┈┈┈┈┈┈┈┈┈┈┈┈┈≫*
+*┊* *@⁨user⁩*
+*┊𝗧𝗨 𝗔𝗨𝗦𝗘𝗡𝗖𝗜𝗔 𝗙𝗨𝗘 𝗖𝗢𝗠𝗢 𝗨𝗡 𝗤𝗟𝗢,* 
+*┊𝗖𝗢𝗡 𝗢𝗟𝗢𝗥 𝗔 𝗠𝗥𝗗!!* 👿
+*╰┈┈┈┈┈┈┈┈┈┈┈┈┈≫*`,
+    `*╭┈┈┈┈┈┈┈┈┈┈┈┈┈≫*
+*┊* *@user*
+*┊𝗔𝗟𝗚𝗨𝗜𝗘𝗡 𝗠𝗘𝗡𝗢𝗦, 𝗤𝗨𝗜𝗘𝗡 𝗧𝗘 𝗥𝗘𝗖𝗨𝗘𝗥𝗗𝗘* 
+*┊𝗦𝗘𝗥𝗔 𝗣𝗢𝗥 𝗟𝗔𝗦𝗧𝗜𝗠𝗔, 𝗔𝗗𝗜𝗢𝗦!!* 👿
+*╰┈┈┈┈┈┈┈┈┈┈┈┈┈≫*`,
+    `*╭┈┈┈┈┈┈┈┈┈┈┈┈┈≫*
+*┊* *@⁨user*
+*┊𝗧𝗨 𝗗𝗘𝗦𝗣𝗘𝗗𝗜𝗗𝗔 𝗡𝗢𝗦 𝗛𝗔𝗥𝗔 𝗟𝗟𝗢𝗥𝗔𝗥,* 
+*┊𝗗𝗘 𝗟𝗔 𝗩𝗘𝗥𝗚𝗨𝗘𝗡𝗭𝗔 𝗤𝗨𝗘 𝗗𝗔𝗕𝗔𝗦!!* 👿
+*╰┈┈┈┈┈┈┈┈┈┈┈┈┈≫*`,
+    `*╭┈┈┈┈┈┈┈┈┈┈┈┈┈≫*
+*┊* *@⁨user*
+*┊𝗗𝗘𝗝𝗢 𝗗𝗘 𝗢𝗟𝗘𝗥 𝗔 𝗠𝗥𝗗,* 
+*┊𝗛𝗔𝗦𝗧𝗔 𝗤𝗨𝗘 𝗧𝗘 𝗟𝗔𝗥𝗚𝗔𝗦𝗧𝗘!!* 👿
+*╰┈┈┈┈┈┈┈┈┈┈┈┈┈≫*`
+  ]
+
   let bye = chat.sBye
     ? chat.sBye
         .replace(/@user/g, taguser)
         .replace(/@group/g, groupName)
         .replace(/@desc/g, groupDesc)
-    : `*¡Hasta Luego!*\n෫ࣲׄ֟፝͡${taguser} 👋🏻꒱\n\nᏊ⁠˘⁠ ⁠ꈊ⁠ ⁠˘⁠ ⁠Ꮚ 𝖦𝗋𝖺𝖼𝗂𝖺𝗌 𝗉𝗈𝗋 𝖾𝗌𝗍𝖺𝗋 𝖺𝗊𝗎𝗂. 𝖳𝗎 𝗉𝗋𝖾𝗌𝖾𝗇𝖼𝗂𝖺 𝖿𝗎𝖾 𝗎𝗇 𝖾𝗌𝗍𝗈𝗋𝖻𝗈.\n ׅ⿻ 𝖮𝗃𝖺𝗅𝖺 𝗒 𝗌𝖾 𝗅𝗈 𝗏𝗂𝗈𝗅𝖾𝗇 𝗅𝗈𝗌 𝗇𝖾𝗀𝗋𝗈𝗌 𝗉𝗈𝗋 𝖺𝗅𝗍𝖺 𝗉𝗎𝗍𝖺.\n\n> ${dev}`
+    : mensajesBienvenida[Math.floor(Math.random() * mensajesBienvenida.length)]
     await conn.sendLuffy(m.chat, txt1, sunflare2, bye, img, img, insta, fkontak)
   }}
+
+
+/*
+Perfecto, te explico paso a paso qué debes agregar y dónde exactamente para que tu bot envíe mensajes de bienvenida aleatorios cuando alguien entra al grupo (messageStubType == 27). Puedes repetir la lógica para despedidas y expulsados luego.
+
+
+---
+
+1. Ubica esta parte de tu código:
+
+if (chat.welcome && m.messageStubType == 27) {
+  const groupName = groupMetadata.subject
+  const groupDesc = groupMetadata.desc || 'sin descripción'
+
+  let bienvenida = chat.sWelcome
+    ? chat.sWelcome
+        .replace(/@user/g, taguser)
+        .replace(/@group/g, groupName)
+        .replace(/@desc/g, groupDesc)
+    : `*¡Bienvenido(a)!*\n෫ࣲׄ֟፝͡${taguser} ☕꒱\n\nᦷᩘᦷ ...`
+
+
+---
+
+2. Reemplaza esa parte por esto:
+
+if (chat.welcome && m.messageStubType == 27) {
+  const groupName = groupMetadata.subject
+  const groupDesc = groupMetadata.desc || 'sin descripción'
+
+  // Update
+
+  const mensajesBienvenida = [
+    `*¡Bienvenido(a)!*\n෫ࣲׄ֟፝͡@user ☕꒱\n\nᦷᩘᦷ 𝖣𝗂𝗌𝖿𝗋𝗎𝗍𝖺 𝗍𝗎 𝖾𝗌𝗍𝖺𝖽𝗂𝖺.\n> ${insta}`,
+    `@user ha entrado al grupo @group, ahora somos más fuertes.`,
+    `¡Ey @user! Te damos la bienvenida a @group.`,
+    `@user se ha unido, ahora el caos está completo.`,
+    `Bienvenid@ @user, revisa la descripción: @desc`
+  ]
+
+  // Escoge aleatoriamente un mensaje de la lista si no hay personalizado
+  let bienvenida = chat.sWelcome
+    ? chat.sWelcome
+        .replace(/@user/g, taguser)
+        .replace(/@group/g, groupName)
+        .replace(/@desc/g, groupDesc)
+    : mensajesBienvenida[Math.floor(Math.random() * mensajesBienvenida.length)]
+        .replace(/@user/g, taguser)
+        .replace(/@group/g, groupName)
+        .replace(/@desc/g, groupDesc)
+
+  await conn.sendLuffy(m.chat, txt, sunflare, bienvenida, img, img, insta, fkontak)
+}
+
+
+---
+
+3. (Opcional) Para despedidas y expulsados:
+
+Crea un array como mensajesKick y mensajesBye
+
+Repite el mismo patrón en los bloques m.messageStubType == 28 (expulsado) y m.messageStubType == 32 (salida).
+
+
+¿Quieres que te lo adapte también para los otros dos (kick y bye) con los ejemplos incluidos?
+*/
