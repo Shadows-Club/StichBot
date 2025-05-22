@@ -19,9 +19,9 @@ export async function before(m, { conn, participants, groupMetadata }) {
   let txt = `¡Bienvenid@! ${await conn.getName(who)}\nAhora somos ${groupSize} miembros en el grupo.`
   let txt1 = `¡Adiós! ${await conn.getName(who)}\nAhora somos ${groupSize} miembros en el grupo`
   let txt2 = `Se salió ${await conn.getName(who)}\nAhora somos ${groupSize} miembros en el grupo.`
-  let sunflare = `ゲ◜៹ New Member ៹◞ゲ`
-  let sunflare1 = `ゲ◜៹ Kicked Member ៹◞ゲ`
-  let sunflare2 = `ゲ◜៹ Bye Member ៹◞ゲ`
+  let sunflare = `Credits to Sunflare`
+  let sunflare1 = `Credits to NovaSpark`
+  let sunflare2 = `Credits to Dev.Criss`
 
 if (chat.welcome && m.messageStubType == 27) {
   const groupName = groupMetadata.subject
