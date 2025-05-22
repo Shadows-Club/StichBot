@@ -1,70 +1,45 @@
 import fetch from 'node-fetch';
 
-const handler = async (m, {conn, usedPrefix, text, isPrems}) => {
+const handler = async (m, {conn, usedPrefix, text}) => {
 
   try {
-    //const img = './media/menus/Menu2.jpg';
-    const videoUrl = 'https://files.catbox.moe/siww4z.mp4'
-    const more = String.fromCharCode(8206);
-    const readMore = more.repeat(850);
+    await m.react ('🎮');
+    const videoUrl = ''
     const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
 
-    const str = `> 👋🏻 ¡Hola!, ${taguser}
+    const str = `*Hola ${taguser} este es el menú Free Fire*
 
-\`\`\`${fechaHora}\`\`\`
+╭──•「 *Listas* 」📑
+│📑 ${usedPrefix}v4fem
+│📑 ${usedPrefix}v6fem
+│📑 ${usedPrefix}v4masc
+│📑 ${usedPrefix}v6masc
+│📑 ${usedPrefix}v4mixto
+│📑 ${usedPrefix}v6mixto
+╰──•
 
-╭─• *MENÚ FREE FIRE*
-│ 𝘉𝘪𝘦𝘯𝘷𝘦𝘯𝘪𝘥𝘰
-│ 𝘚𝘶𝘮𝘦́𝘳𝘨𝘦𝘵𝘦 𝘦𝘯 𝘦𝘴𝘵𝘢
-│ 𝘢𝘷𝘦𝘯𝘵𝘶𝘳𝘢 𝘥𝘦𝘭 𝘤𝘢𝘵𝘢́𝘭𝘰𝘨𝘰 
-│ 𝘥𝘦 𝘧𝘳𝘦𝘦 𝘧𝘪𝘳𝘦.
-╰─────────────•
-
-╭╼[ *LISTAS DE VS INTERNOS*]
-┃ ⓘ 𝐶𝑜𝑙𝑜𝑐𝑎 𝑙𝑎 ℎ𝑜𝑟𝑎 𝑦 𝑒𝑙 𝑝𝑎𝑖𝑠 𝑠𝑒𝑔𝑢𝑖𝑑𝑜
-┃      𝑎𝑙𝑔𝑢𝑛𝑎 𝑚𝑜𝑑𝑎𝑙𝑖𝑑𝑎𝑑.
-┃🍀➺ .inmasc4
-┃🍀➺ .infem4
-┃🍀➺ .inmixto4
-┃🪻➺ .inmasc6
-┃🪻➺ .infem6
-┃🪻➺ .inmixto6
-╰━━━━━━⋆★⋆━━━━━━⬣
-
-╭╼[ *MAPAS DE FREE FIRE*]
-┃🗼➺ .bermuda
-┃🏝️➺ .purgatorio
-┃🏜️➺ .kalahari
-┃🏗️➺ .nexterra
-┃🏞️➺ .alpes
-╰━━━━━━⋆★⋆━━━━━━⬣
-
-╭╼[ *ENCUESTA*]
-┃⚙️➺ .encuesta
-┃⚙️➺ .sala
-╰━━━━━━⋆★⋆━━━━━━⬣
+╭──•「 *Mapas* 」📑
+│📑 ${usedPrefix}bermuda
+│📑 ${usedPrefix}purgatorio 
+│📑 ${usedPrefix}kalahari
+│📑 ${usedPrefix}nexterra
+│📑 ${usedPrefix}peruvian
+╰──•
 `.trim();
-/*
-    conn.sendMessage(m.chat, { image: { url: img }, caption: str, mentions: [m.sender] }, { quoted: fkontak });
-
-await conn.sendMessage(m.chat, { react: { text: '🎮', key: m.key } });*/
 
       await conn.sendMessage(m.chat, {
             video: { url: videoUrl },
             caption: str,
             mentions: [m.sender],
             gifPlayback: true
-            contextInfo: global.rcanal.contextInfo
-})
+        }, { quoted: fkontak })
 
-//await conn.sendMessage(m.chat, { react: { text: '😇', key: m.key } });
-
-  } catch {
-    conn.reply(m.chat,'*[ ℹ️ ] Error al enviar el video.*\n\n${e}', m);
+  } catch (e) {
+    conn.reply(m.chat,`*❌ Error al enviar el menú.*\n${e}`, m);
   }
 };
 
-handler.command = /^(menuff|comandosff)$/i;
+handler.command = /^(menu|menú|memu|memú|help|info|comandos|2help|menu1.2|ayuda|commands|commandos|cmd)$/i;
 handler.fail = null;
 
 export default handler;
