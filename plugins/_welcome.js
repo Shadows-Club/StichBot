@@ -51,7 +51,7 @@ if (chat.welcome && m.messageStubType == 27) {
         .replace(/@desc/g, groupDesc)
     : msgsWelcome[Math.floor(Math.random() * msgsWelcome.length)]
 
-  await conn.sendLuffy(m.chat, txt, sunflare, bienvenida, img, img, grupo, estilo)
+  await conn.sendLuffy(m.chat, txt, sunflare, bienvenida, img, img, channel, estilo)
 }
 
 if (chat.welcome && m.messageStubType == 28) {
