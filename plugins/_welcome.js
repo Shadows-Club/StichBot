@@ -27,12 +27,33 @@ if (chat.welcome && m.messageStubType == 27) {
   const groupName = groupMetadata.subject
   const groupDesc = groupMetadata.desc || 'sin descripción'
 
+  const msgsWelcome = [
+    `┏─────────────────┐
+「 @user 」
+𝘽𝙄𝙀𝙉𝙑𝙀𝙉𝙄𝘿𝙓 😊
+𝑫𝒊𝒔𝒇𝒓𝒖𝒕𝒂 𝒅𝒆 𝒕𝒖 𝒆𝒔𝒕𝒂𝒅𝒊𝒂 𝒓𝒆𝒄𝒖𝒆𝒓𝒅𝒂 𝒄𝒖𝒎𝒑𝒍𝒊𝒓 𝒍𝒂𝒔 𝒓𝒆𝒈𝒍𝒂𝒔 𝒚 𝒍𝒆𝒆𝒓 l𝒂 𝒅𝒆𝒔𝒄𝒓𝒊𝒑𝒄𝒊𝒐𝒏 ✨
+
+└───── 𝙅𝙊𝙏𝘼 𝘽𝙊𝙏🐼─────┘`,
+    `┏━━━━━━━━━━━━
+┃──〘 *𝗕𝗜𝗘𝗡𝗩𝗘𝗡𝗜𝗗𝗫* 〙───
+┃━━━━━━━━━━━━
+┃ *_🐼 𝗘𝗡𝗧𝗥𝗢   @⁩user_* 
+┃ *_Un gusto tenerte aqui_*
+┃ *_Disfruta tu estadía 😇_*
+┗━━━𝙅𝙊𝙏𝘼 𝘽𝙊𝙏━━━━`
+  ]
+
+
   let bienvenida = chat.sWelcome
     ? chat.sWelcome
         .replace(/@user/g, taguser)
         .replace(/@group/g, groupName)
         .replace(/@desc/g, groupDesc)
-    : `*¡Bienvenido(a)!*\n෫ࣲׄ֟፝͡${taguser} ☕꒱\n\nᦷᩘᦷ   ݂ 𝖣𝗂𝗌𝖿𝗋𝗎𝗍𝖺 𝖽𝖾 𝗍𝗎 𝖾𝗌𝗍𝖺𝖽𝗂𝖺.\n✎ 𝖴𝗌𝖺 *#help* 𝗉𝖺𝗋𝖺 𝗏𝖾𝗋 𝗅𝖺 𝗅𝗂𝗌𝗍𝖺 𝖽𝖾 𝖼𝗈𝗆𝖺𝗇𝖽𝗈𝗌.\n\n> ${dev}`
+    : msgsWelcome[Math.floor(Math.random() * msgsWelcome.length)]
+        .replace(/@user/g, taguser)
+        .replace(/@group/g, groupName)
+        .replace(/@desc/g, groupDesc)
+
   await conn.sendLuffy(m.chat, txt, sunflare, bienvenida, img, img, insta, fkontak)
 }
 
