@@ -4,7 +4,7 @@ const handler = async (m, {conn, usedPrefix, text}) => {
 
   try {
     await m.react ('🎮');
-    const videoUrl = ''
+    const videoUrl = 'https://files.catbox.moe/6ftr4u.mp4'
     const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
 
     const str = `*Hola ${taguser} este es el menú Free Fire*
@@ -18,12 +18,12 @@ const handler = async (m, {conn, usedPrefix, text}) => {
 │📑 ${usedPrefix}v6mixto
 ╰──•
 
-╭──•「 *Mapas* 」📑
-│📑 ${usedPrefix}bermuda
-│📑 ${usedPrefix}purgatorio 
-│📑 ${usedPrefix}kalahari
-│📑 ${usedPrefix}nexterra
-│📑 ${usedPrefix}peruvian
+╭──•「 *Mapas* 」🏞️
+│🏞️ ${usedPrefix}bermuda
+│🏞️ ${usedPrefix}purgatorio 
+│🏞️ ${usedPrefix}kalahari
+│🏞️ ${usedPrefix}nexterra
+│🏞️ ${usedPrefix}peruvian
 ╰──•
 `.trim();
 
@@ -39,7 +39,7 @@ const handler = async (m, {conn, usedPrefix, text}) => {
   }
 };
 
-handler.command = /^(menu|menú|memu|memú|help|info|comandos|2help|menu1.2|ayuda|commands|commandos|cmd)$/i;
+handler.command = /^(menuff|comandosff|ffmenu)$/i;
 handler.fail = null;
 
 export default handler;
