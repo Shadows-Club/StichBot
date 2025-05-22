@@ -37,8 +37,8 @@ global.catalogo = fs.readFileSync('./media/catalogo.jpg')
 
 
 global.repobot = 'https://github.com/NovaSpark-Community/JotaBot'
-global.grupo = 'https://chat.whatsapp.com/FCS6htvAmlT7nq006lxU4I'
-global.comu = 'https://chat.whatsapp.com/Kn1pPVAO08pFRo7qJnKuh6'
+global.grupo = 'https://chat.whatsapp.com/Caj518FwPjHLVmGn48GvhW'
+global.comu = 'https://chat.whatsapp.com/Er5zgBnAW9A8rfGaXGIvhI'
 global.channel = 'https://whatsapp.com/channel/0029VauTE8AHltY1muYir31n'
 global.insta = 'https://www.instagram.com/dev.criss_vx'
 
