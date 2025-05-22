@@ -1,4 +1,4 @@
-/*var handler = async (m, { conn, args }) => {
+var handler = async (m, { conn, args }) => {
 
 let group = m.chat
 let link = 'https://chat.whatsapp.com/' + await conn.groupInviteCode(group)
@@ -12,8 +12,9 @@ handler.command = ['link','linkgroup']
 handler.group = true
 handler.botAdmin = true
 
-export default handler*/
+export default handler
 
+/*
 const { generateWAMessageFromContent } = (await import('@whiskeysockets/baileys')).default;
 const { randomBytes } = await import("crypto");
 
@@ -66,4 +67,4 @@ handler.command = ['link', 'linkgroup'];
 handler.group = true;
 handler.botAdmin = true;
 
-export default handler;
+export default handler;*/
