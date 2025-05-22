@@ -5,7 +5,7 @@ global.db.data.chats[m.chat].sWelcome = text
 conn.reply(m.chat, '*✅ La bienvenida del grupo ha sido configurada*', m)
 
 } else {
-    conn.reply(m.chat, `*${xgc} ¡Escribe el mensaje de bienvenida!*\n✎ *Puedes usar:*\n\n- *\`@user\`* (Mención al Usuario)\n- *\`@group\`* (Nombre del Grupo)\n- *\`@desc\`* (Descripción del Grupo)\n\n> ${emojis} Los @ son opcionales`)
+    conn.reply(m.chat, `*${xgc} ¡Escribe el mensaje de bienvenida!*\n✎ *Puedes usar:*\n\n- *\`@user\`* (Mención al Usuario)\n- *\`@group\`* (Nombre del Grupo)\n- *\`@desc\`* (Descripción del Grupo)\n\n> 👁️ Los @ son opcionales`)
 }
 }
 handler.help = ['setwelcome @user + texto']
