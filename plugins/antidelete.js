@@ -1,24 +1,33 @@
 const tempMessages = {}
 
-// Cargar mensaje guardado
-function loadMessage(jid, id = null) {
-  if (jid && !id) {
-    // Se pasó solo el ID
-    id = jid
-    for (const msgs of Object.values(tempMessages)) {
-      const found = msgs.find(m => m.key?.id === id)
-      if (found) return found
-    }
-  } else {
-    jid = jid?.decodeJid?.()
-    if (!tempMessages[jid]) return null
-    return tempMessages[jid].find(m => m.key.id === id) || null
-  }
-  return null
-}
-
 export default function antideletePlugin(conn) {
-  // Guardar mensajes entrantes si está activo el antidelete
+  // Función para buscar un mensaje guardado
+  function loadMessage(jid, id = null) {
+    if (jid && !id) {
+      id = jid
+      for (const msgs of Object.values(tempMessages)) {
+        const found = msgs.find(m => m.key?.id === id)
+        if (found) return found
+      }
+    } else {
+      jid = (typeof jid === 'string' && jid.includes('@')) ? jid : null
+      if (!tempMessages[jid]) return null
+      return tempMessages[jid].find(m => m.key.id === id) || null
+    }
+    return null
+  }
+
+  // Función para convertir raw msg a objeto con .chat, .sender, .isGroup, etc.
+  function serializeM(msg) {
+    if (!msg) return msg
+    msg.chat = msg.key.remoteJid
+    msg.sender = msg.key.fromMe ? conn.user.jid : (msg.key.participant || msg.participant || msg.key.remoteJid)
+    msg.fromMe = msg.key.fromMe
+    msg.isGroup = msg.chat.endsWith('@g.us')
+    return msg
+  }
+
+  // Escuchar mensajes entrantes
   conn.ev.on('messages.upsert', ({ messages }) => {
     for (const msg of messages) {
       const chatId = msg.key.remoteJid
@@ -36,19 +45,21 @@ export default function antideletePlugin(conn) {
     }
   })
 
-  // Manejar eliminaciones de mensajes
+  // Escuchar eliminaciones de mensajes
   conn.ev.on('messages.update', async updates => {
     for (const update of updates) {
-      if (update.update?.messageStubType !== 0x08) continue // Eliminación
+      console.log('[antiDelete] UPDATE:', update)
+      if (update.update?.messageStubType !== 0x08) continue // 0x08 = mensaje eliminado
 
       const { key } = update
       if (!key || key.fromMe) continue
 
-      const msg = conn.serializeM(loadMessage(key.id))
+      const rawMsg = loadMessage(key.remoteJid, key.id) || loadMessage(key.id)
+      const msg = serializeM(rawMsg)
       if (!msg) continue
 
       const chat = global.db.data.chats[msg.chat] || {}
-      if (!chat.delete || !msg.isGroup) continue
+      if (!chat.delete) continue // si no está activado, omitir
 
       const participant = key.participant || msg.sender
       const antideleteMessage = `╭•┈•〘❌ 𝗔𝗡𝗧𝗜 𝗗𝗘𝗟𝗘𝗧𝗘 ❌〙•┈• ◊
@@ -60,14 +71,14 @@ export default function antideletePlugin(conn) {
 ╰•┈•〘❌ 𝗔𝗡𝗧𝗜 𝗗𝗘𝗟𝗘𝗧𝗘 ❌〙•┈• ◊`.trim()
 
       await conn.sendMessage(msg.chat, { text: antideleteMessage, mentions: [participant] }, { quoted: msg })
-      await conn.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
+      await conn.copyNForward(msg.chat, msg).catch(e => console.log('[antiDelete] Error al reenviar:', e))
 
-      // Eliminar de la caché temporal
+      // Eliminar el mensaje de la caché
       tempMessages[msg.chat] = tempMessages[msg.chat].filter(m => m.key.id !== key.id)
     }
   })
 
-  // Limpieza automática de mensajes antiguos (más de 10 minutos)
+  // Limpieza automática cada 5 minutos
   setInterval(() => {
     const now = Date.now()
     for (const chatId in tempMessages) {
