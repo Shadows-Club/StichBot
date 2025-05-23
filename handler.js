@@ -498,29 +498,6 @@ this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
 } catch (e) {
 console.error(e)
 }}*/
-export async function deleteUpdate(message) {
-    try {
-        const { fromMe, id, participant } = message
-        if (fromMe)
-            return
-        let msg = this.serializeM(this.loadMessage(id))
-        if (!msg)
-            return
-        let chat = global.db.data.chats[msg.chat] || {}
-        if (chat.delete)
-            return
-        this.reply(msg.chat, `
-_@${participant.split`@`[0]} eliminó un mensaje._
-*✧ Para desactivar esta función escribe:*
-*.on delete*
-          
-*✧ Para eliminar los mensajes del bot escribe:*
-*.delete*`, msg)
-        this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
-    } catch (e) {
-        console.error(e)
-    }
-}
 
 global.dfail = (type, m, conn) => {
 
