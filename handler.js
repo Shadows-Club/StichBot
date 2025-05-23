@@ -286,7 +286,7 @@ if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
 let chat = global.db.data.chats[m.chat]
 let user = global.db.data.users[m.sender]
 if (!['owner-unbanchat.js'].includes(name) && chat && chat.isBanned && !isROwner) return // Except this
-if (name != 'owner-unbanchat.js' && name != 'owner-exec.js' && name != 'owner-exec2.js' && name != 'tool-delete.js' && chat?.isBanned && !isROwner) return 
+if (name != 'owner-unbanchat.js' && name != 'owner-exec.js' && name != 'owner-exec2.js' && name != 'herramientas-delete.js' && chat?.isBanned && !isROwner) return 
 if (m.text && user.banned && !isROwner) {
 if (user.antispam > 2) return
 m.reply(`*🚫 Está baneado(a), no puede usar los comandos de este bot!*\n\n${user.bannedReason ? `\n💌 *Motivo:* 
@@ -476,7 +476,7 @@ global.db.data.users[m.sender].spam = new Date * 1
        }
      function pickRandom(list) { return list[Math.floor(Math.random() * list.length)]}
        }}
-
+/*
 export async function deleteUpdate(message) {
 try {
 const { fromMe, id, participant } = message
@@ -497,7 +497,30 @@ await this.sendMessage(msg.chat, {text: antideleteMessage, mentions: [participan
 this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
 } catch (e) {
 console.error(e)
-}}
+}}*/
+export async function deleteUpdate(message) {
+    try {
+        const { fromMe, id, participant } = message
+        if (fromMe)
+            return
+        let msg = this.serializeM(this.loadMessage(id))
+        if (!msg)
+            return
+        let chat = global.db.data.chats[msg.chat] || {}
+        if (chat.delete)
+            return
+        this.reply(msg.chat, `
+_@${participant.split`@`[0]} eliminó un mensaje._
+*✧ Para desactivar esta función escribe:*
+*.on delete*
+          
+*✧ Para eliminar los mensajes del bot escribe:*
+*.delete*`, msg)
+        this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
+    } catch (e) {
+        console.error(e)
+    }
+}
 
 global.dfail = (type, m, conn) => {
 
