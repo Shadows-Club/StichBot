@@ -10,43 +10,42 @@ const handler = async (m, {conn, usedPrefix, text}) => {
     const str = `*Hola ${taguser} este es el Menú Logos*
 
 ╭──•「 *Logos* 」📑
-ര ׄ 🖼️˚ .balogo *texto*
-ര ׄ 🖼️˚ .logocorazon *texto*
-ര ׄ 🖼️˚ .logochristmas  *texto*
-ര ׄ 🖼️˚ .logopareja *texto*
-ര ׄ 🖼️˚ .logoglitch *texto*
-ര ׄ 🖼️˚ .logosad *texto*
-ര ׄ 🖼️˚ .logogaming *texto*
-ര ׄ 🖼️˚ .logosolitario *texto*
-ര ׄ 🖼️˚ .logodragonball *texto*
-ര ׄ 🖼️˚ .logoneon *texto*
-ര ׄ 🖼️˚ .logogatito *texto*
-ര ׄ 🖼️˚ .logochicagamer *texto*
-ര ׄ 🖼️˚ .logonaruto *texto*
-ര ׄ 🖼️˚ .logofuturista *texto*
-ര ׄ 🖼️˚ .logonube *texto*
-ര ׄ 🖼️˚ .logoangel *texto*
-ര ׄ 🖼️˚ .logomurcielago *texto*
-ര ׄ 🖼️˚ .logocielo *texto*
-ര ׄ 🖼️˚ .logograffiti3d *texto*
-ര ׄ 🖼️˚ .logomatrix *texto*
-ര ׄ 🖼️˚ .logohorror *texto*
-ര ׄ 🖼️˚ .logoalas *texto*
-ര ׄ 🖼️˚ .logoarmy *texto*
-ര ׄ 🖼️˚ .logopubg *texto*
-ര ׄ 🖼️˚ .logopubgfem *texto*
-ര ׄ 🖼️˚ .logolol *texto*
-ര ׄ 🖼️˚ .logoamon *texto*gus
-ര ׄ 🖼️˚ .logovideopubg *texto*
-ര ׄ 🖼️˚ .logovideotiger *texto*
-ര ׄ 🖼️˚ .logovideointro *texto*
-ര ׄ 🖼️˚ .logovideogaming *texto*
-ര ׄ 🖼️˚ .logoguerrero *texto*
-ര ׄ 🖼️˚ .logoportadaplayer *texto*
-ര ׄ 🖼️˚ .logoportadaff *texto*
-ര ׄ 🖼️˚ .logoportadapubg *texto*
-ര ׄ 🖼️˚ .logoportadacounter *texto*
-
+│🖼️ ${usedPrefix}balogo *texto*
+│🖼️ ${usedPrefix}logocorazon *texto*
+│🖼️ ${usedPrefix}logochristmas  *texto*
+│🖼️ ${usedPrefix}logopareja *texto*
+│🖼️ ${usedPrefix}logoglitch *texto*
+│🖼️ ${usedPrefix}logosad *texto*
+│🖼️ ${usedPrefix}logogaming *texto*
+│🖼️ ${usedPrefix}logosolitario *texto*
+│🖼️ ${usedPrefix}logodragonball *texto*
+│🖼️ ${usedPrefix}logoneon *texto*
+│🖼️ ${usedPrefix}logogatito *texto*
+│🖼️ ${usedPrefix}logochicagamer *texto*
+│🖼️ ${usedPrefix}logonaruto *texto*
+│🖼️ ${usedPrefix}logofuturista *texto*
+│🖼️ ${usedPrefix}logonube *texto*
+│🖼️ ${usedPrefix}logoangel *texto*
+│🖼️ ${usedPrefix}logomurcielago *texto*
+│🖼️ ${usedPrefix}logocielo *texto*
+│🖼️ ${usedPrefix}logograffiti3d *texto*
+│🖼️ ${usedPrefix}logomatrix *texto*
+│🖼️ ${usedPrefix}logohorror *texto*
+│🖼️ ${usedPrefix}logoalas *texto*
+│🖼️ ${usedPrefix}logoarmy *texto*
+│🖼️ ${usedPrefix}logopubg *texto*
+│🖼️ ${usedPrefix}logopubgfem *texto*
+│🖼️ ${usedPrefix}logolol *texto*
+│🖼️ ${usedPrefix}logoamon *texto*gus
+│🖼️ ${usedPrefix}logovideopubg *texto*
+│🖼️ ${usedPrefix}logovideotiger *texto*
+│🖼️ ${usedPrefix}logovideointro *texto*
+│🖼️ ${usedPrefix}logovideogaming *texto*
+│🖼️ ${usedPrefix}logoguerrero *texto*
+│🖼️ ${usedPrefix}logoportadaplayer *texto*
+│🖼️ ${usedPrefix}logoportadaff *texto*
+│🖼️ ${usedPrefix}logoportadapubg *texto*
+│🖼️ ${usedPrefix}logoportadacounter *texto*
 ╰──•
 `.trim();
 
