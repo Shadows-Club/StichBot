@@ -70,9 +70,10 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 
       case 'nsfw':
       case 'modohorny':
+      isAll = true
        if (m.isGroup) {
-         if (!(isAdmin || isOwner)) {
-           global.dfail('admin', m, conn)
+         if (!(isOwner)) {
+           global.dfail('rowner', m, conn)
             throw false
            }}
     chat.nsfw = isEnable          
