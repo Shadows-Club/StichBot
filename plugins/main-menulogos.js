@@ -4,7 +4,7 @@ const handler = async (m, {conn, usedPrefix, text}) => {
 
   try {
     await m.react ('🖼️');
-    const videoUrl = ''
+    const videoUrl = 'https://files.catbox.moe/g4yv7k.mp4'
     const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
 
     const str = `*Hola ${taguser} este es el Menú Logos*
