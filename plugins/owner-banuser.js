@@ -52,6 +52,6 @@ var handler = async (m, { conn, text, usedPrefix, command }) => {
 handler.help = ['banuser <@tag> <razón>']
 handler.command = ['banuser']
 //handler.tags = ['mods']
-handler.owner = true
+handler.rowner = true
 
 export default handler
