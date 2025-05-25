@@ -21,7 +21,7 @@ global.mods = ['51990841568', '51965911060', '51906168999']
 global.prems = ['51965911060', '51906168999']
 
 
-global.packname = 'Jota Bot'
+global.packname = 'Jota Bot - MD'
 global.botname = 'Jota Bot - MD'
 global.wm = '⏤͟͟͞͞⋆⬪࣪ꥈ👺 ׄ ꒱ Jota ୭'
 global.author = 'Nᴏᴠʌ Ȿᴘʌʀᴋ Cᴏʍʍᴜɴɪᴛʏ'
