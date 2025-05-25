@@ -10,6 +10,43 @@ const handler = async (m, {conn, usedPrefix, text}) => {
     const str = `*Hola ${taguser} este es el Menú Logos*
 
 ╭──•「 *Logos* 」📑
+ര ׄ 🖼️˚ .balogo *texto*
+ര ׄ 🖼️˚ .logocorazon *texto*
+ര ׄ 🖼️˚ .logochristmas  *texto*
+ര ׄ 🖼️˚ .logopareja *texto*
+ര ׄ 🖼️˚ .logoglitch *texto*
+ര ׄ 🖼️˚ .logosad *texto*
+ര ׄ 🖼️˚ .logogaming *texto*
+ര ׄ 🖼️˚ .logosolitario *texto*
+ര ׄ 🖼️˚ .logodragonball *texto*
+ര ׄ 🖼️˚ .logoneon *texto*
+ര ׄ 🖼️˚ .logogatito *texto*
+ര ׄ 🖼️˚ .logochicagamer *texto*
+ര ׄ 🖼️˚ .logonaruto *texto*
+ര ׄ 🖼️˚ .logofuturista *texto*
+ര ׄ 🖼️˚ .logonube *texto*
+ര ׄ 🖼️˚ .logoangel *texto*
+ര ׄ 🖼️˚ .logomurcielago *texto*
+ര ׄ 🖼️˚ .logocielo *texto*
+ര ׄ 🖼️˚ .logograffiti3d *texto*
+ര ׄ 🖼️˚ .logomatrix *texto*
+ര ׄ 🖼️˚ .logohorror *texto*
+ര ׄ 🖼️˚ .logoalas *texto*
+ര ׄ 🖼️˚ .logoarmy *texto*
+ര ׄ 🖼️˚ .logopubg *texto*
+ര ׄ 🖼️˚ .logopubgfem *texto*
+ര ׄ 🖼️˚ .logolol *texto*
+ര ׄ 🖼️˚ .logoamon *texto*gus
+ര ׄ 🖼️˚ .logovideopubg *texto*
+ര ׄ 🖼️˚ .logovideotiger *texto*
+ര ׄ 🖼️˚ .logovideointro *texto*
+ര ׄ 🖼️˚ .logovideogaming *texto*
+ര ׄ 🖼️˚ .logoguerrero *texto*
+ര ׄ 🖼️˚ .logoportadaplayer *texto*
+ര ׄ 🖼️˚ .logoportadaff *texto*
+ര ׄ 🖼️˚ .logoportadapubg *texto*
+ര ׄ 🖼️˚ .logoportadacounter *texto*
+
 ╰──•
 `.trim();
 
