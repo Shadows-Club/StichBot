@@ -19,9 +19,12 @@ const handler = async (m, { text, conn, args, usedPrefix, command }) => {
     const pais = args[1].toUpperCase();  
 
     const diferenciasHorarias = {  
-        CO: 1,  // UTC-4  
-        PE: 1,  // UTC-3  
-        MX: 0,  // UTC-5  
+        CL: 2,
+        AR: 2,
+        BO: 1,
+        CO: 1,
+        PE: 1,
+        MX: 0,  // uted es gei
     };  
 
     if (!(pais in diferenciasHorarias)) {  
@@ -32,7 +35,7 @@ const handler = async (m, { text, conn, args, usedPrefix, command }) => {
     const diferenciaHoraria = diferenciasHorarias[pais];  
     const formatTime = (date) => date.toLocaleTimeString('es', { hour12: false, hour: '2-digit', minute: '2-digit' });  
 
-    const horasEnPais = { CO: '', PE: '', MX: '' };  
+    const horasEnPais = { CL: '', AR: '', BO: '', CO: '', PE: '', MX: '' };  
 
     for (const key in diferenciasHorarias) {  
         const horaActual = new Date();  
