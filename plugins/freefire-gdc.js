@@ -1,13 +1,5 @@
 let handler = async (m, { conn }) => {
 
-  await conn.sendMessage(m.chat, {
-    react: {
-      text: '⛅',
-      key: m.key
-    }
-  });
-
-  // Que miras causa gaaaa
   let groupName = '';
   if (m.isGroup) {
     try {
@@ -23,13 +15,13 @@ let handler = async (m, { conn }) => {
   });
 
   const gdc = `
-Fecha: ⚘ ${fecha}
+*Fecha:* ${fecha}
 \`\`\`₊ PARTICIPACIÓN EN GUERRA DE CLANES🔥\`\`\`
-Hora:
+*Hora:*
 ⏰🇲🇽: 6 PM
 ⏰🇨🇴: 7 PM
-⚘
-» PARTICIPANTES:
+
+» *PARTICIPANTES:*
 ㅤ
 ┊👑 ➤ 
 ┊⚜️ ➤ 
@@ -80,7 +72,6 @@ Hora:
 ╰─────────────╯
 ✨ *${groupName.toUpperCase()}* ✨`;
 
-  // Enviar el mensaje
   if (m.isGroup) {
     await conn.sendMessage(m.chat, { text: gdc }, { quoted: fkontak });
   }
