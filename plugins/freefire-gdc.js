@@ -1,16 +1,25 @@
-import fetch from 'node-fetch';
 let handler = async (m, { conn }) => {
 
- await m.react('📑');
+  await conn.sendMessage(m.chat, {
+    react: {
+      text: '📑',
+      key: m.key
+    }
+  });
 
+  const fecha = new Date().toLocaleDateString('es-PE', {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+  });
+
+  // Mensaje de guerra de clanes
   const gdc = `
-Fecha: ${fechaHora}
+Fecha: ⚘ ${fecha}
 \`\`\`₊ PARTICIPACIÓN EN GUERRA DE CLANES🔥\`\`\`
 Hora:
 ⏰🇲🇽: 6 PM
 ⏰🇨🇴: 7 PM
-
-» `PARTICIPANTES`:
+⚘
+» PARTICIPANTES:
 ㅤ
 ┊👑 ➤ 
 ┊⚜️ ➤ 
@@ -64,10 +73,10 @@ Hora:
 ┊ 
 ┊ 
 ╰─────────────╯
-                  ✨ *JOTA*✨`;
+✨ *JOTA*✨`;
 
   if (m.isGroup) {
-     conn.sendMessage(m.chat, { text: gdc });
+    await conn.sendMessage(m.chat, { text: gdc, mentions: [] }, { quoted: m });
   }
 };
 
