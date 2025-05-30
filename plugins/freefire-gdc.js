@@ -4,9 +4,9 @@ let handler = async (m, { conn }) => {
   if (m.isGroup) {
     try {
       const metadata = await conn.groupMetadata(m.chat);
-      groupName = metadata.subject || 'GRUPO';
+      groupName = metadata.subject || 'Sunflare';
     } catch (e) {
-      groupName = 'GRUPO';
+      groupName = 'Sunflare';
     }
   }
 
