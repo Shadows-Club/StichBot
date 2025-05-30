@@ -16,14 +16,13 @@ const handler = async (m, {conn, usedPrefix, text}) => {
 │📑 ${usedPrefix}v6masc
 │📑 ${usedPrefix}v4mixto
 │📑 ${usedPrefix}v6mixto
-╰──•
-
-╭──•「 *Mapas* 」🏞️
-│🏞️ ${usedPrefix}bermuda
-│🏞️ ${usedPrefix}purgatorio 
-│🏞️ ${usedPrefix}kalahari
-│🏞️ ${usedPrefix}nexterra
-│🏞️ ${usedPrefix}peruvian
+│📑 ${usedPrefix}inmasc4
+│📑 ${usedPrefix}infem4
+│📑 ${usedPrefix}inmixto4
+│📑 ${usedPrefix}inmasc6
+│📑 ${usedPrefix}infem6
+│📑 ${usedPrefix}inmixto6
+│📑 ${usedPrefix}gdc
 ╰──•
 `.trim();
 
