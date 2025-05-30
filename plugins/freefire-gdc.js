@@ -3,7 +3,7 @@ let handler = async (m, { conn }) => {
   m.react('📑');
 
   const gdc = `
-Fecha: ${hora}
+Fecha: ${fechaHora}
 \`\`\`₊ PARTICIPACIÓN EN GUERRA DE CLANES🔥\`\`\`
 Hora:
 ⏰🇲🇽: 6 PM
