@@ -1,6 +1,6 @@
 let handler = async (m, { conn }) => {
 
-  m.react('📑');
+ await m.react('📑');
 
   const gdc = `
 Fecha: ${fechaHora}
