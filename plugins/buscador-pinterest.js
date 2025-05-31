@@ -1,15 +1,16 @@
 import axios from 'axios';
-const { generateWAMessageContent, generateWAMessageFromContent, proto } = (await import('@adiwajshing/baileys')).default;
+import baileys from '@adiwajshing/baileys';
+const { generateWAMessageContent, generateWAMessageFromContent, proto } = baileys;
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) {
     return m.reply(`¡Ingrese palabras clave de búsqueda!\nEjemplo: ${usedPrefix + command} waguri | 5`);
   }
 
-  await conn.sendMessage(m.chat, { text: '⏳ Ten paciencia, buscando en Pinterest.' }, { quoted: m });
+  await conn.sendMessage(m.chat, { text: '⏳ Ten paciencia, buscando en Pinterest...' }, { quoted: m });
 
   const [query, jumlahStr] = text.split('|').map(v => v.trim());
-  const jumlah = Math.min(parseInt(jumlahStr) || 5, 10);
+  const jumlah = Math.max(1, Math.min(parseInt(jumlahStr) || 5, 10)); // Asegura mínimo 1, máximo 10
 
   async function createImage(url) {
     const { imageMessage } = await generateWAMessageContent({ image: { url } }, {
@@ -28,7 +29,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   try {
     const api = `https://api.vreden.my.id/api/pinterest?query=${encodeURIComponent(query)}`;
     const { data } = await axios.get(api);
-    const hasil = data?.result || [];
+    const hasil = Array.isArray(data?.result) ? data.result : [];
 
     if (!hasil.length) return m.reply('❌ No se encontraron imágenes.');
 
@@ -37,31 +38,37 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const cards = [];
 
     for (let i = 0; i < images.length; i++) {
-      const imageMsg = await createImage(images[i]);
-      cards.push({
-        body: proto.Message.InteractiveMessage.Body.fromObject({
-          text: `✔️ Imagen ${i + 1} de ${images.length}`
-        }),
-        footer: proto.Message.InteractiveMessage.Footer.fromObject({
-          text: 'Pinterest Search By Waguri-Ai'
-        }),
-        header: proto.Message.InteractiveMessage.Header.fromObject({
-          hasMediaAttachment: true,
-          imageMessage: imageMsg
-        }),
-        nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
-          buttons: [
-            {
-              name: "cta_url",
-              buttonParamsJson: JSON.stringify({
-                display_text: "Ver en Pinterest",
-                url: `https://www.pinterest.com/search/pins/?q=${encodeURIComponent(query)}`
-              })
-            }
-          ]
-        })
-      });
+      try {
+        const imageMsg = await createImage(images[i]);
+        cards.push({
+          body: proto.Message.InteractiveMessage.Body.fromObject({
+            text: `✔️ Imagen ${i + 1} de ${images.length}`
+          }),
+          footer: proto.Message.InteractiveMessage.Footer.fromObject({
+            text: 'Pinterest Search By Waguri-Ai'
+          }),
+          header: proto.Message.InteractiveMessage.Header.fromObject({
+            hasMediaAttachment: true,
+            imageMessage: imageMsg
+          }),
+          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage?.fromObject({
+            buttons: [
+              {
+                name: "cta_url",
+                buttonParamsJson: JSON.stringify({
+                  display_text: "Ver en Pinterest",
+                  url: `https://www.pinterest.com/search/pins/?q=${encodeURIComponent(query)}`
+                })
+              }
+            ]
+          }) || undefined
+        });
+      } catch (e) {
+        console.error(`❌ Error al procesar imagen ${i + 1}:`, e.message);
+      }
     }
+
+    if (!cards.length) return m.reply('❌ No se pudieron cargar imágenes.');
 
     const carousel = generateWAMessageFromContent(m.chat, {
       viewOnceMessage: {
@@ -84,7 +91,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       }
     }, {});
 
-    await conn.relayMessage(m.chat, carousel.message, { messageId: carousel.key.id });
+    await conn.relayMessage(m.chat, carousel.message, { messageId: m.key.id });
 
   } catch (err) {
     console.error(err);
