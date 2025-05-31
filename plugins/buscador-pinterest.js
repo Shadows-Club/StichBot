@@ -81,7 +81,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
 handler.help = ['pinterest <consulta> | <número>'];
 handler.tags = ['internet'];
-handler.command = /^pin|pinterest$/i;
+handler.command = /^pin|pinterest|pintes$/i;
 handler.premium = false;
 handler.limit = false;
 
