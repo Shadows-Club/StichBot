@@ -1,76 +1,60 @@
 import axios from 'axios';
-import baileys from '@adiwajshing/baileys';
-const { generateWAMessageContent, generateWAMessageFromContent, proto } = baileys;
+const { proto, generateWAMessageContent, generateWAMessageFromContent } = (await import('@whiskeysockets/baileys')).default;
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) {
-    return m.reply(`¡Ingrese palabras clave de búsqueda!\nEjemplo: ${usedPrefix + command} waguri | 5`);
+    return conn.reply(m.chat, `❗ Ingresa palabras clave para buscar.\nEjemplo: ${usedPrefix + command} anime girl | 5`, m);
   }
 
-  await conn.sendMessage(m.chat, { text: '⏳ Ten paciencia, buscando en Pinterest...' }, { quoted: m });
+  await conn.reply(m.chat, '🔎 Buscando imágenes en Pinterest, por favor espera...', m);
 
-  const [query, jumlahStr] = text.split('|').map(v => v.trim());
-  const jumlah = Math.max(1, Math.min(parseInt(jumlahStr) || 5, 10)); // Asegura mínimo 1, máximo 10
-
-  async function createImage(url) {
-    const { imageMessage } = await generateWAMessageContent({ image: { url } }, {
-      upload: conn.waUploadToServer
-    });
-    return imageMessage;
-  }
-
-  function shuffle(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-  }
+  const [query, cantidadStr] = text.split('|').map(v => v.trim());
+  const cantidad = Math.max(1, Math.min(parseInt(cantidadStr) || 5, 10)); // mínimo 1, máximo 10
 
   try {
-    const api = `https://api.vreden.my.id/api/pinterest?query=${encodeURIComponent(query)}`;
-    const { data } = await axios.get(api);
-    const hasil = Array.isArray(data?.result) ? data.result : [];
+    const { data } = await axios.get(`https://api.vreden.my.id/api/pinterest?query=${encodeURIComponent(query)}`);
+    const resultados = Array.isArray(data?.result) ? data.result : [];
 
-    if (!hasil.length) return m.reply('❌ No se encontraron imágenes.');
+    if (!resultados.length) return conn.reply(m.chat, '❌ No se encontraron imágenes para esa búsqueda.', m);
 
-    shuffle(hasil);
-    const images = hasil.slice(0, jumlah);
-    const cards = [];
+    // Mezclar resultados
+    resultados.sort(() => Math.random() - 0.5);
 
-    for (let i = 0; i < images.length; i++) {
-      try {
-        const imageMsg = await createImage(images[i]);
-        cards.push({
-          body: proto.Message.InteractiveMessage.Body.fromObject({
-            text: `✔️ Imagen ${i + 1} de ${images.length}`
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.fromObject({
-            text: 'Pinterest Search By Waguri-Ai'
-          }),
-          header: proto.Message.InteractiveMessage.Header.fromObject({
-            hasMediaAttachment: true,
-            imageMessage: imageMsg
-          }),
-          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage?.fromObject({
-            buttons: [
-              {
-                name: "cta_url",
-                buttonParamsJson: JSON.stringify({
-                  display_text: "Ver en Pinterest",
-                  url: `https://www.pinterest.com/search/pins/?q=${encodeURIComponent(query)}`
-                })
-              }
-            ]
-          }) || undefined
-        });
-      } catch (e) {
-        console.error(`❌ Error al procesar imagen ${i + 1}:`, e.message);
-      }
+    // Limitar cantidad
+    const seleccionados = resultados.slice(0, cantidad);
+
+    // Crear mensajes de imagen
+    const tarjetas = [];
+
+    for (let i = 0; i < seleccionados.length; i++) {
+      const url = seleccionados[i];
+
+      const { imageMessage } = await generateWAMessageContent({ image: { url } }, {
+        upload: conn.waUploadToServer
+      });
+
+      tarjetas.push({
+        body: proto.Message.InteractiveMessage.Body.fromObject({ text: null }),
+        footer: proto.Message.InteractiveMessage.Footer.fromObject({ text: '🔸 Pinterest Search - Moon Force' }),
+        header: proto.Message.InteractiveMessage.Header.fromObject({
+          hasMediaAttachment: true,
+          imageMessage
+        }),
+        nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
+          buttons: [
+            {
+              name: "cta_url",
+              buttonParamsJson: JSON.stringify({
+                display_text: "Ver en Pinterest",
+                url: `https://www.pinterest.com/search/pins/?q=${encodeURIComponent(query)}`
+              })
+            }
+          ]
+        })
+      });
     }
 
-    if (!cards.length) return m.reply('❌ No se pudieron cargar imágenes.');
-
-    const carousel = generateWAMessageFromContent(m.chat, {
+    const carrusel = generateWAMessageFromContent(m.chat, {
       viewOnceMessage: {
         message: {
           messageContextInfo: {
@@ -78,24 +62,20 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
             deviceListMetadataVersion: 2
           },
           interactiveMessage: proto.Message.InteractiveMessage.fromObject({
-            body: proto.Message.InteractiveMessage.Body.create({
-              text: "*Aquí están los resultados de tu búsqueda en Pinterest:*"
-            }),
+            body: proto.Message.InteractiveMessage.Body.create({ text: `✨ Resultados de búsqueda para: *${query}*` }),
             footer: proto.Message.InteractiveMessage.Footer.create({ text: '' }),
             header: proto.Message.InteractiveMessage.Header.create({ hasMediaAttachment: false }),
-            carouselMessage: proto.Message.InteractiveMessage.CarouselMessage.fromObject({
-              cards: cards
-            })
+            carouselMessage: proto.Message.InteractiveMessage.CarouselMessage.fromObject({ cards: tarjetas })
           })
         }
       }
-    }, {});
+    }, { quoted: m });
 
-    await conn.relayMessage(m.chat, carousel.message, { messageId: m.key.id });
+    await conn.relayMessage(m.chat, carrusel.message, { messageId: carrusel.key.id });
 
-  } catch (err) {
-    console.error(err);
-    m.reply(`❌ Error al obtener los datos\nLogs error: ${err.message}`);
+  } catch (e) {
+    console.error(e);
+    await conn.reply(m.chat, `❌ Ocurrió un error al obtener los datos.\nError: ${e.message}`, m);
   }
 };
 
