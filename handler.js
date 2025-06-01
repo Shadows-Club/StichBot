@@ -64,6 +64,8 @@ export async function handler(chatUpdate) {
                     user.level = 0
                 if (!isNumber(user.bank))
                     user.bank = 0
+                if (!isNumber(user.warn))
+                    user.warn = 0
             } else
                 global.db.data.users[m.sender] = {
                     exp: 0,
