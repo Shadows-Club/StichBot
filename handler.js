@@ -117,6 +117,8 @@ export async function handler(chatUpdate) {
                     chat.delete = false
                 if (!isNumber(chat.expired))
                     chat.expired = 0
+                if (!isNumber(user.warn))
+                    user.warn = 0
             } else
                 global.db.data.chats[m.chat] = {
                     isBanned: false,
