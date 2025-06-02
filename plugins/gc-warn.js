@@ -52,7 +52,7 @@ const handler = async (m, { conn, text, command, usedPrefix }) => {
     who = m.chat;
   }
 
-  const warntext = `${xgc} Etiquete a una persona o responda a un mensaje del grupo para advertir al usuario.`;
+  const warntext = `${emojis} Etiquete a una persona o responda a un mensaje del grupo para advertir al usuario.`;
   if (!who || typeof who !== 'string' || !who.includes('@s.whatsapp.net')) {
     return m.reply(warntext, m.chat, { mentions: conn.parseMention(warntext) });
   }
