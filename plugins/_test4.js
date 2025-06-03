@@ -14,7 +14,7 @@ const oi = `*\`AVISO:\`* ${pesan}`;
   }
   teks += `> ${dev}`;
   conn.sendMessage(m.chat, {text: teks, mentions: participants.map((a) => a.id)},
-{quoted: fkontak});
+{quoted: rcanal});
 };
 handler.help = ['todos *<txt>*'];
 handler.tags = ['gc'];
