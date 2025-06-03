@@ -1,42 +1,24 @@
-import fetch from 'node-fetch';
+const handler = async (m, {isOwner, isAdmin, conn, text, participants, args, command, usedPrefix}) => {
 
-let handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) {
-    return conn.reply(m.chat, `🚩 Por favor, ingrese un nombre de usuario para buscar.\n\nEjemplo:\n> *${usedPrefix + command}* xrljose`, m, rcanal);
+  if (usedPrefix == 'a' || usedPrefix == 'A') return;
+
+  if (!(isAdmin || isOwner)) {
+    global.dfail('admin', m, conn);
+    throw false;
   }
-
-  await m.react('🕓');
-  try {
-    const res = await fetch(`https://delirius-apiofc.vercel.app/tools/igstalk?username=${encodeURIComponent(text)}`);
-    const json = await res.json();
-
-    if (!json.data) {
-      await m.react('✖️');
-      return await conn.reply(m.chat, '❌ No se encontraron resultados para esta búsqueda.', m);
-    }
-
-    const user = json.data;
-    let txt = `📌 *I N S T A G R A M  -  S T A L K*\n\n`;
-    txt += `👤 *Nombre Completo:* ${user.full_name}\n`;
-    txt += `🔖 *Usuario:* ${user.username}\n`;
-    txt += `📜 *Bio:* ${user.biography || 'Sin descripción'}\n`;
-    txt += `👥 *Seguidores:* ${user.followers}\n`;
-    txt += `🔄 *Siguiendo:* ${user.following}\n`;
-    txt += `📝 *Publicaciones:* ${user.posts}\n`;
-    txt += `🔗 *Perfil:* ${user.url}\n\n`;
-
-    await conn.sendMessage(m.chat, { image: { url: user.profile_picture }, caption: txt }, { quoted: m });
-    await m.react('✅');
-  } catch (error) {
-    console.error(error);
-    await m.react('✖️');
-    await conn.reply(m.chat, '⚠️ Hubo un error al procesar la solicitud. Intenta de nuevo más tarde.', m);
+  const pesan = args.join` `;
+const oi = `*\`AVISO:\`* ${pesan}`;
+  let teks = `*INVOQUEISHON* 🫩\n*GAYS:* ${participants.length}\n\n ${oi}\n\nෆ *@LID*\n`;
+  for (const mem of participants) {
+    teks += `🐀 @${mem.id.split('@')[0]}\n`;
   }
+  teks += `> ${dev}`;
+  conn.sendMessage(m.chat, {text: teks, mentions: participants.map((a) => a.id)},
+{quoted: fkontak});
 };
-
-handler.help = ['igstalk *<nombre>*'];
-handler.tags = ['stalk'];
-handler.command = ['igstalk', 'instagramstalk'];
-handler.register = true;
-
+handler.help = ['todos *<txt>*'];
+handler.tags = ['gc'];
+handler.command = /^(tex)$/i;
+handler.admin = true;
+handler.group = true;
 export default handler;
