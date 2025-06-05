@@ -103,20 +103,14 @@ global.chatgpt.chain = lodash.chain(global.chatgpt.data);
 loadChatgptDB();
 
 global.creds = 'creds.json'
-global.authFile = 'JotaSession'
-global.authFileJB  = 'JotaJadiBot'
-/*global.rutaBot = join(__dirname, authFile)
-global.rutaJadiBot = join(__dirname, authFileJB)
+global.authFile = 'GaruSession'
+global.authFileJB  = 'JadiBots2'
 
-if (!fs.existsSync(rutaJadiBot)) {
-fs.mkdirSync(rutaJadiBot)
-}
-*/
-const {state, saveState, saveCreds} = await useMultiFileAuthState(global.authFile)
+const {state, saveState, saveCreds} = await useMultiFileAuthState(authFile)
 const msgRetryCounterMap = (MessageRetryMap) => { }
 const msgRetryCounterCache = new NodeCache()
 const {version} = await fetchLatestBaileysVersion()
-let phoneNumber = global.botNumberCode
+let phoneNumber = global.botNumber
 const methodCodeQR = process.argv.includes("qr")
 const methodCode = !!phoneNumber || process.argv.includes("code")
 const MethodMobile = process.argv.includes("mobile")
@@ -176,7 +170,9 @@ const connectionOptions = {
 logger: pino({ level: 'silent' }),
 printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
 mobile: MethodMobile, 
-browser: opcion == '1' ? ['JotaBot-MD', 'Edge', '20.0.04'] : methodCodeQR ? ['JotaBot-MD', 'Edge', '20.0.04'] : ["Ubuntu", "Chrome", "20.0.04"],
+browser: methodCodeQR 
+  ? [global.nameqr, 'Edge', '20.0.04'] 
+  : ['Ubuntu', 'Chrome', '20.0.04'],
 auth: {
 creds: state.creds,
 keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
@@ -226,7 +222,7 @@ conn.well = false
 if (!opts['test']) {
 if (global.db) setInterval(async () => {
 if (global.db.data) await global.db.write()
-if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp', "JotaJadiBot"], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '2', '-type', 'f', '-delete'])))}, 30 * 1000)}
+if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp', authFileJB], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '2', '-type', 'f', '-delete'])))}, 30 * 1000)}
 if (opts['server']) (await import('./lib/server.js')).default(global.conn, PORT)
 async function getMessage(key) {
 if (store) {
@@ -253,7 +249,7 @@ console.log(chalk.bold.greenBright(`\n❒⸺⸺⸺⸺【• CONECTADO •】⸺�
 let reason = new Boom(lastDisconnect?.error)?.output?.statusCode
 if (connection === 'close') {
 if (reason === DisconnectReason.badSession) {
-console.log(chalk.bold.cyanBright("⚠️ SIN CONEXIÓN, BORRE LA CARPETA ${global.authFile} Y ESCANEA EL CÓDIGO QR ⚠️"))
+console.log(chalk.bold.cyanBright(`⚠️ SIN CONEXIÓN, BORRE LA CARPETA ${authFile} Y ESCANEA EL CÓDIGO QR ⚠️`))
 } else if (reason === DisconnectReason.connectionClosed) {
 console.log(chalk.bold.magentaBright("╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄ ☹\n┆ ⚠️ CONEXION CERRADA, RECONECTANDO....\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄ ☹"))
 await global.reloadHandler(true).catch(console.error)
@@ -263,7 +259,7 @@ await global.reloadHandler(true).catch(console.error)
 } else if (reason === DisconnectReason.connectionReplaced) {
 console.log(chalk.bold.yellowBright("╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄ ✗\n┆ ⚠️ CONEXIÓN REEMPLAZADA, SE HA ABIERTO OTRA NUEVA SESION, POR FAVOR, CIERRA LA SESIÓN ACTUAL PRIMERO.\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄ ✗"))
 } else if (reason === DisconnectReason.loggedOut) {
-console.log(chalk.bold.redBright(`\n⚠️ SIN CONEXIÓN, BORRE LA CARPETA ${global.authFile} Y ESCANEA EL CÓDIGO QR ⚠️`))
+console.log(chalk.bold.redBright(`\n⚠️ SIN CONEXIÓN, BORRE LA CARPETA ${authFile} Y ESCANEA EL CÓDIGO QR ⚠️`))
 await global.reloadHandler(true).catch(console.error)
 } else if (reason === DisconnectReason.restartRequired) {
 console.log(chalk.bold.cyanBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄♡\n┆ 🤍 CONECTANDO AL SERVIDOR...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄♡`))
@@ -278,9 +274,9 @@ console.log(chalk.bold.redBright(`\n⚠️❗ RAZON DE DESCONEXIÓN DESCONOCIDA:
 process.on('uncaughtException', console.error);
 
 async function connectSubBots() {
-const subBotDirectory = './JotaJadiBot';
+const subBotDirectory = authFileJB
 if (!existsSync(subBotDirectory)) {
-console.log('☁️ Jota Bot MD no tiene Sub-Bots vinculados.');
+console.log(`${global.namebot} no tiene Sub-Bots vinculados.`);
 return;
 }
 
@@ -297,17 +293,17 @@ return await connectionUpdate(authFile);
 
 const bots = await Promise.all(botPromises);
 global.conns = bots.filter(Boolean);
-console.log(chalk.bold.greenBright(`🐼 Todos los Sub-Bots se conectaron con éxito.`))
+console.log(chalk.bold.greenBright(`☁️ Todos los Sub-Bots se conectaron con éxito.`))
 }
 
 (async () => {
 global.conns = [];
 
-const mainBotAuthFile = 'JotaSession';
+const mainBotAuthFile = authFile
 try {
 const mainBot = await connectionUpdate(mainBotAuthFile);
 global.conns.push(mainBot);
-console.log(chalk.bold.greenBright(`🐼 Jota Bot MD conectado correctamente.`))
+console.log(chalk.bold.greenBright(`☁️ ${global.namebot} conectado correctamente.`))
 
 await connectSubBots();
 } catch (error) {
@@ -432,13 +428,13 @@ unlinkSync(filePath)})
 }
 function purgeSession() {
 let prekey = []
-let directorio = readdirSync("./JotaSession")
+let directorio = readdirSync(`./${authFile}`)
 let filesFolderPreKeys = directorio.filter(file => {
 return file.startsWith('pre-key-')
 })
 prekey = [...prekey, ...filesFolderPreKeys]
 filesFolderPreKeys.forEach(files => {
-unlinkSync(`./JotaSession/${files}`)
+unlinkSync(`./${authFile}/${files}`)
 })
 } 
 function purgeSessionSB() {
@@ -457,14 +453,14 @@ unlinkSync(`./${authFileJB}/${directorio}/${fileInDir}`)
 }})
 }})
 if (SBprekey.length === 0) {
-console.log(chalk.bold.green(`\n╭» 🟡 JotaJadiBot 🟡\n│→ NADA POR ELIMINAR \n╰― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― 🗑️♻️`))
+console.log(chalk.bold.green(`\n╭» 🟡 ${authFileJB} 🟡\n│→ NADA POR ELIMINAR \n╰― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― 🗑️♻️`))
 } else {
-console.log(chalk.bold.cyanBright(`\n╭» ⚪ JotaJadiBot ⚪\n│→ ARCHIVOS NO ESENCIALES ELIMINADOS\n╰― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― 🗑️♻️`))
+console.log(chalk.bold.cyanBright(`\n╭» ⚪ ${authFileJB} ⚪\n│→ ARCHIVOS NO ESENCIALES ELIMINADOS\n╰― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― 🗑️♻️`))
 }} catch (err) {
-console.log(chalk.bold.red(`\n╭» 🔴 JotaJadiBot 🔴\n│→ OCURRIÓ UN ERROR\n╰― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― 🗑️♻️\n` + err))
+console.log(chalk.bold.red(`\n╭» 🔴 ${authFileJB} 🔴\n│→ OCURRIÓ UN ERROR\n╰― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― 🗑️♻️\n` + err))
 }}
 function purgeOldFiles() {
-const directories = ['./JotaSession/', './JotaJadiBot/']
+const directories = [`./${authFile}/`, `./${authFileJB}/`]
 directories.forEach(dir => {
 readdirSync(dir, (err, files) => {
 if (err) throw err
@@ -499,24 +495,4 @@ console.log(chalk.bold.cyanBright(`\n╭» 🟠 ARCHIVOS 🟠\n│→ ARCHIVOS R
 
 _quickTest().then(() => conn.logger.info(chalk.bold(`🤍  H E C H O\n`.trim()))).catch(console.error)
 
-let file = fileURLToPath(import.meta.url)
-watchFile(file, () => {
-unwatchFile(file)
-console.log(chalk.bold.greenBright("Actualizado"))
-import(`${file}?update=${Date.now()}`)
-})
-
-async function isValidPhoneNumber(number) {
-try {
-number = number.replace(/\s+/g, '')
-// Si el número empieza con '+521' o '+52 1', quitar el '1'
-if (number.startsWith('+521')) {
-number = number.replace('+521', '+52'); // Cambiar +521 a +52
-} else if (number.startsWith('+52') && number[4] === '1') {
-number = number.replace('+52 1', '+52'); // Cambiar +52 1 a +52
-}
-const parsedNumber = phoneUtil.parseAndKeepRawInput(number)
-return phoneUtil.isValidNumber(parsedNumber)
-} catch (error) {
-return false
-}}
+let file = fileURLToPath(import.me
