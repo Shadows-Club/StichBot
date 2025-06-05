@@ -19,7 +19,7 @@ let link = await catbox(media);
 }
 handler.command = handler.help = ['tourl']
 handler.tags = ['herramientas']
-handler.register = true
+//handler.register = true
 export default handler
 
 
