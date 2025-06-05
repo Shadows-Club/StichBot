@@ -26,7 +26,7 @@ const handler = async (m, { conn, usedPrefix, isPrems }) => {
 
 ╭─‌┈‌ׅ┉‌ׁ‌┈┉ׁ‌┈‌ׅ┉‌ׁ‌┈‌ׅ┉‌ׁ‌┈‌ׅ┉‌ׁ‌┈‌ׅ┉‌ׁ‌┈‌ׅ┉‌ׁ‌┈‌ׅ┉‌ׁ‌┈‌ׅ
 │╭╴╴╴╴╴╴
-││ *Cliente* » @${userId.split('@')[0]}
+││ *Cliente* » ${taguser}
 ││ *Librería* » Baileys
 ││ *Diamantes* » ${diamantes}
 ││ *Tiempo* » ${uptime}
