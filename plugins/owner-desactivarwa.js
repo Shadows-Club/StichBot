@@ -1,4 +1,4 @@
-
+/*
 import axios from "axios";
 
 let handler = async (m, { conn, command }) => {
@@ -55,4 +55,4 @@ handler.help = ["precios", "vendedor"];
 handler.tags = ["info"];
 handler.command = /^(precios|vendedor)$/i;
 
-export default handler;
+export default handler;*/
