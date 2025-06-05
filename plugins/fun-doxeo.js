@@ -59,7 +59,7 @@ handler.help = ['doxear'];
 handler.tags = ['fun'];
 handler.command = /^Doxxeo|doxxeo|doxxear|Doxxear|doxeo|doxear|doxxing|doxing/i;
 handler.group = true;
-handler.register = true;
+//handler.register = true;
 
 export default handler;
 
