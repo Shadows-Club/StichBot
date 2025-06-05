@@ -43,7 +43,7 @@ if (!db.data.chats[m.chat].nsfw && m.isGroup) {
 };
 
 handler.command = ['xnxxdl'];
-handler.register = true;
+//handler.register = true;
 export default handler;
 
 async function xnxxdl(URL) {
