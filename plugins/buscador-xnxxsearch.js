@@ -2,7 +2,7 @@ import fetch from "node-fetch"
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!db.data.chats[m.chat].nsfw && m.isGroup) {
-    return m.reply('*🐼 El contenido nsfw está desactivado para este chat.*\n> ᥙsᥱ *enable nsfw* ⍴ᥲrᥲ ᥲᥴ𝗍і᥎ᥲrᥣ᥆.');
+    return m.reply('*🚫 El contenido nsfw está desactivado para este chat.*\n> ᥙsᥱ *enable nsfw* ⍴ᥲrᥲ ᥲᥴ𝗍і᥎ᥲrᥣ᥆.');
     }
 
   if (!text) throw m.reply(`*${emojis} Ingresa el texto de lo que quieres buscar en Xnxx*`)
@@ -25,7 +25,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     contextInfo: {
       externalAdReply: {
         title: `Xnxx Videos`,
-        body: `Jota Bot`,
+        body: botname,
         thumbnailUrl: "https://pomf2.lain.la/f/kro5qrjk.jpg",
         sourceUrl: "https://xxnx.com",
         mediaType: 1,
