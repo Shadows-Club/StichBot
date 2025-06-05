@@ -29,7 +29,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
     }
   } else {
     if (!text) { 
-      return conn.reply(m.chat, `*🫧 Ingrese la pregunta que desea consultar con la IA.*`, m)
+      return conn.reply(m.chat, `*${emojis} Ingrese la pregunta que desea consultar con la IA.*`, m)
     }
     
     await conn.sendPresenceUpdate('composing', m.chat) // Indica que está escribiendo
