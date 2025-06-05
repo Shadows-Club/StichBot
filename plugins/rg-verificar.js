@@ -83,7 +83,7 @@ let chtxt = `👤 *𝚄𝚂𝙴𝚁:* ${m.pushName || 'Anónimo'}
                 body: '🥳 ¡ᥙᥒ ᥙsᥙᥲrі᥆ ᥒᥙᥱ᥎᥆ ᥱᥒ mі ᑲᥲsᥱ ძᥱ ძᥲ𝗍᥆s!',
                 thumbnailUrl: perfil,
                 sourceUrl: redes,
-                mediaType: 1,
+                mediaType: 2,
                 showAdAttribution: true,
                 renderLargerThumbnail: true
             }
