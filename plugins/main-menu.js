@@ -1,293 +1,282 @@
 import fetch from 'node-fetch';
 
-const handler = async (m, {conn, usedPrefix, text, isPrems}) => {
-
+const handler = async (m, { conn, usedPrefix, isPrems }) => {
   try {
-    await m.react (emojis);
+    await m.react('🕷️');
+
+    let img = 'https://files.catbox.moe/ltn86q.jpg';
+    let insta = 'https://instagram.com/dev.criss_vx';
+
     const _uptime = process.uptime() * 1000;
     const uptime = clockString(_uptime);
-    const videoUrl = 'https://files.catbox.moe/js58k4.mp4'
-    const more = String.fromCharCode(8206);
-    const readMore = more.repeat(850);
-    const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
+
+    const user = global.db.data.users[m.sender];
+    const { money, joincount, exp, limit, level, role } = user;
+
     let totalreg = Object.keys(global.db.data.users).length
     let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
 
-    const str = `ㅤㅤ   ꒰꛱ ͜ ꛱|꛱ ꛱͜ |꛱ ꛱͜ |꛱ ͜ ꛱|꛱ ͜ |୨🫧୧꛱|꛱ ꛱͜ |꛱ ꛱͜ |꛱ ͜ ꛱|꛱ ꛱͜ |꛱ ͜ ꒱
-Ꮺ *H𐐫l⍺᳟ ࣪ ᦷᩘ${taguser}*
-*Bienvenido/a*  ࣪  ⿻   al   ࣭  ෨
-࣭   ✿  *menú  de  JotaBot*  𓈒𓏸      ☁︎    
-﹏͜͡ *${saludo}* ﹏͜͡
+    const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
 
-> ꒰꛱ ͜Desarrollado por *Dev.Criss* +51927238856
+    const text = `
+ㅤ𐙚ㅤ    *𝖦𝖺𝗋𝖺*     ﾉㅤㅤㅤ*𝖡𝗈𝗍*  ㅤ🕷️ ㅤׄ
+ᗝ̵ *Hᴏʟᴀ ${taguser}*\n*${saludo}*
 
-*𓈒𓏸🌹 \`Bot Name:\`* ${botname}
-*𓈒𓏸🍮 \`Activo:\`* ${uptime}
-*𓈒𓏸🥞 \`Usuarios:\`* ${totalreg}
-*𓈒𓏸🍟 \`Versión:\`* 1.0.0
+> ꒰꛱ ͜Desarrollado por *Cristian Escobar* +51927238856
 
-> 🍭 Si encuentra un comando con errores no dudes en reportarlo con el Creador
+
+
+> 😸 Si encuentra un comando con errores no dudes en reportarlo con el Creador
 ${readMore}
-ㅤㅤ *乂 ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs 乂*
+↷✦; *\`MENÚS\`* ❞ 🌷︵᷼ 
+⠞🌷੭‎ ${usedPrefix}menunsfw
+⠞🌷੭‎ ${usedPrefix}menuowner
+⠞🌷੭‎ ${usedPrefix}menulogos
 
-╭──•「 *Menús* 」🤍
-│🤍${usedPrefix}menunsfw
-│🤍 ${usedPrefix}menuowner
-│🤍 ${usedPrefix}menulogos
-╰──•
+↷✦; \`INFO BOT\` ❞ 🍄︵᷼  
+⠞🍄੭‎ ${usedPrefix}totalf
+⠞🍄੭‎ ${usedPrefix}grupos
+⠞🍄੭‎ ${usedPrefix}sugerir
+⠞🍄੭‎ ${usedPrefix}report
+⠞🍄੭‎ ${usedPrefix}owner
+⠞🍄੭‎ ${usedPrefix}ping
+⠞🍄੭‎ ${usedPrefix}uptime
+⠞🍄੭‎ ${usedPrefix}horario
+⠞🍄੭‎ ${usedPrefix}precios
 
-╭──•「 *Info* 」☁️
-│☁️ ${usedPrefix}totalf
-│☁️ ${usedPrefix}grupos
-│☁️ ${usedPrefix}sugerir
-│☁️ ${usedPrefix}report
-│☁️ ${usedPrefix}owner
-│☁️ ${usedPrefix}ping
-│☁️ ${usedPrefix}uptime
-│☁️‎ ${usedPrefix}horario
-│☁️‎ ${usedPrefix}precios
-╰──•
+↷✦; \`CONFIG\` ❞ 🪻︵᷼ 
+⠞🪻੭‎ ${usedPrefix}enable *opción*
+⠞🪻੭‎ ${usedPrefix}disable *opción*
+⠞🪻੭‎ ${usedPrefix}on *opción*
+⠞🪻੭‎ ${usedPrefix}off *opción*
+⠞🪻੭‎ ${usedPrefix}manual
 
-╭──•「 *Config* 」⚙️
-│⚙️ ${usedPrefix}enable *opción*
-│⚙️ ${usedPrefix}disable *opción*
-│⚙️ ${usedPrefix}on *opción*
-│⚙️ ${usedPrefix}off *opción*
-│⚙️ ${usedPrefix}manual
-╰──•
+↷✦; \`DOWNLOAD\` ❞ 🪷︵᷼ 
+⠞🪷੭‎ ${usedPrefix}play *texto*
+⠞🪷੭‎ ${usedPrefix}ytmp4doc *texto*
+⠞🪷੭‎ ${usedPrefix}ytmp3doc *texto*
+⠞🪷੭‎ ${usedPrefix}apk *texto*
+⠞🪷੭‎ ${usedPrefix}pinterest *texto*
+⠞🪷੭‎ ${usedPrefix}pinvid *url*
+⠞🪷੭‎ ${usedPrefix}ytv *url*
+⠞🪷੭‎ ${usedPrefix}ytmp3 *url*
+⠞🪷੭‎ ${usedPrefix}tiktok *url*
+⠞🪷੭‎ ${usedPrefix}instagram *url*
+⠞🪷੭‎ ${usedPrefix}facebook *url*
+⠞🪷੭‎ ${usedPrefix}mediafire *url*
+⠞🪷੭‎ ${usedPrefix}mega *url*
+⠞🪷੭‎ ${usedPrefix}playstore *url*
+⠞🪷੭‎ ${usedPrefix}xnxxdl *url*
+⠞🪷੭‎ ${usedPrefix}xvideosdl *url*
 
-╭──•「 *Download* 」🫧
-│🫧 ${usedPrefix}play *texto*
-│🫧 ${usedPrefix}ytmp4doc *texto*
-│🫧 ${usedPrefix}ytmp3doc *texto*
-│🫧 ${usedPrefix}apk *texto*
-│🫧 ${usedPrefix}pinterest *texto*
-│🫧 ${usedPrefix}pinvid *url*
-│🫧 ${usedPrefix}ytv *url*
-│🫧 ${usedPrefix}ytmp3 *url*
-│🫧 ${usedPrefix}tiktok *url*
-│🫧 ${usedPrefix}instagram *url*
-│🫧 ${usedPrefix}facebook *url*
-│🫧 ${usedPrefix}mediafire *url*
-│🫧 ${usedPrefix}mega *url*
-│🫧 ${usedPrefix}playstore *url*
-│🫧 ${usedPrefix}xnxxdl *url*
-│🫧 ${usedPrefix}xvideosdl *url*
-╰──•
+↷✦; \`SEARCH\` ❞ 🍮︵᷼ 
+⠞🍮੭‎ ${usedPrefix}aplaysearch *texto*
+⠞🍮੭‎ ${usedPrefix}ttsearch *texto*
+⠞🍮੭‎ ${usedPrefix}ttsearch2 *texto*
+⠞🍮੭‎ ${usedPrefix}ytsearch *texto*
+⠞🍮੭‎ ${usedPrefix}spotifysearch *texto*
+⠞🍮੭‎ ${usedPrefix}playstoresearch *texto*
+⠞🍮੭‎ ${usedPrefix}xnxxsearch *texto*
+⠞🍮੭‎ ${usedPrefix}xvsearch *texto*
+⠞🍮੭‎ ${usedPrefix}gnula *texto*
+⠞🍮੭‎ ${usedPrefix}mercadolibre *texto*
 
-╭──•「 *Search* 」🍵
-│🍵 ${usedPrefix}aplaysearch *texto*
-│🍵 ${usedPrefix}ttsearch *texto*
-│🍵 ${usedPrefix}ttsearch2 *texto*
-│🍵 ${usedPrefix}ytsearch *texto*
-│🍵 ${usedPrefix}spotifysearch *texto*
-│🍵 ${usedPrefix}playstoresearch *texto*
-│🍵 ${usedPrefix}xnxxsearch *texto*
-│🍵 ${usedPrefix}xvsearch *texto*
-│🍵 ${usedPrefix}gnula *texto*
-│🍵 ${usedPrefix}mercadolibre *texto*
-╰──•
+↷✦; \`LISTAS\` ❞ 📜︵᷼ 
+⠞📜੭‎ ${usedPrefix}v4fem *hr + p*
+⠞📜੭‎ ${usedPrefix}v4masc *hr + p*
+⠞📜੭‎ ${usedPrefix}v4mixto *hr + p*
+⠞📜੭‎ ${usedPrefix}v6fem *hr + p*
+⠞📜੭‎ ${usedPrefix}v6masc *hr + p*
+⠞📜੭‎ ${usedPrefix}v6mixto *hr + p*
 
-╭──•「 *Menús* 」📜
-│📜 ${usedPrefix}v4fem *hr + p*
-│📜 ${usedPrefix}v4masc *hr + p*
-│📜 ${usedPrefix}v4mixto *hr + p*
-│📜 ${usedPrefix}v6fem *hr + p*
-│📜 ${usedPrefix}v6masc *hr + p*
-│📜 ${usedPrefix}v6mixto *hr + p*
-╰──•
+↷✦; \`FRASES\` ❞ 🌻︵᷼ 
+⠞🌻੭‎ ${usedPrefix}piropo
+⠞🌻੭‎ ${usedPrefix}consejo
+⠞🌻੭‎ ${usedPrefix}fraseromantica
 
-╭──•「 *Frases* 」💞
-│💞 ${usedPrefix}piropo
-│💞 ${usedPrefix}consejo
-│💞 ${usedPrefix}fraseromantica
-╰──•
+↷✦; \`CONVERTERS\` ❞ 🧸︵᷼ 
+⠞🧸੭‎ ${usedPrefix}tourl *img*
+⠞🧸੭‎ ${usedPrefix}tourl *aud*
+⠞🧸੭‎ ${usedPrefix}toptt *aud*
+⠞🧸੭‎ ${usedPrefix}toptt *vid*
+⠞🧸੭‎ ${usedPrefix}tourl *vid*
+⠞🧸੭‎ ${usedPrefix}tomp3 *vid*
+⠞🧸੭‎ ${usedPrefix}toimg *sticker*
 
-╭──•「 *Converters* 」🌷
-│🌷 ${usedPrefix}tourl *img*
-│🌷 ${usedPrefix}tourl *aud*
-│🌷 ${usedPrefix}toptt *aud*
-│🌷 ${usedPrefix}toptt *vid*
-│🌷 ${usedPrefix}tourl *vid*
-│🌷 ${usedPrefix}tomp3 *vid*
-│🌷 ${usedPrefix}toimg *sticker*
-╰──•
+↷✦; \`TOOLS\` ❞ 🛠️︵᷼ 
+⠞🛠️੭‎ ${usedPrefix}clima *texto*
+⠞🛠️੭‎ ${usedPrefix}readmore *texto*
+⠞🛠️੭‎ ${usedPrefix}read *texto*
+⠞🛠️੭‎ ${usedPrefix}fake *texto + user + texto*
+⠞🛠️੭‎ ${usedPrefix}traducir *idioma + texto*
+⠞🛠️੭‎ ${usedPrefix}hd *img*
+⠞🛠️੭‎ ${usedPrefix}whatmusic *aud*
+⠞🛠️੭‎ ${usedPrefix}whatmusic *vid*
+⠞🛠️੭‎ ${usedPrefix}flag *país*
+⠞🛠️੭‎ ${usedPrefix}inspect *link*
+⠞🛠️੭‎ ${usedPrefix}inspeccionar *link*
+⠞🛠️੭‎ ${usedPrefix}nuevafotochannel
+⠞🛠️੭‎ ${usedPrefix}nosilenciarcanal
+⠞🛠️੭‎ ${usedPrefix}silenciarcanal
+⠞🛠️੭‎ ${usedPrefix}seguircanal
+⠞🛠️੭‎ ${usedPrefix}avisoschannel
+⠞🛠️੭‎ ${usedPrefix}resiviravisos
+⠞🛠️੭‎ ${usedPrefix}eliminarfotochannel
+⠞🛠️੭‎ ${usedPrefix}reactioneschannel
+⠞🛠️੭‎ ${usedPrefix}reaccioneschannel
+⠞🛠️੭‎ ${usedPrefix}nuevonombrecanal
+⠞🛠️੭‎ ${usedPrefix}nuevadescchannel
 
-╭──•「 *Tools* 」🛠️
-│🛠️ ${usedPrefix}clima *texto*
-│🛠️ ${usedPrefix}readmore *texto*
-│🛠️ ${usedPrefix}read *texto*
-│🛠️ ${usedPrefix}fake *texto + user + texto*
-│🛠️ ${usedPrefix}traducir *idioma + texto*
-│🛠️ ${usedPrefix}hd *img*
-│🛠️ ${usedPrefix}whatmusic *aud*
-│🛠️ ${usedPrefix}whatmusic *vid*
-│🛠️ ${usedPrefix}flag *país*
-│🛠️ ${usedPrefix}inspect *link*
-│🛠️ ${usedPrefix}inspeccionar *link*
-│🛠️ ${usedPrefix}nuevafotochannel
-│🛠️ ${usedPrefix}nosilenciarcanal
-│🛠️ ${usedPrefix}silenciarcanal
-│🛠️ ${usedPrefix}seguircanal
-│🛠️ ${usedPrefix}avisoschannel
-│🛠️ ${usedPrefix}resiviravisos
-│🛠️ ${usedPrefix}eliminarfotochannel
-│🛠️ ${usedPrefix}reactioneschannel
-│🛠️ ${usedPrefix}reaccioneschannel
-│🛠️ ${usedPrefix}nuevonombrecanal
-│🛠️ ${usedPrefix}nuevadescchannel
-╰──•
+↷✦; \`GROUPS\` ❞ 🌿︵᷼ 
+⠞🌿੭‎ ${usedPrefix}add *número*
+⠞🌿੭‎ ${usedPrefix}grupo *abrir / cerrar*
+⠞🌿੭‎ ${usedPrefix}grouptime *tiempo*
+⠞🌿੭‎ ${usedPrefix}notify *texto*
+⠞🌿੭‎ Aviso *texto*
+⠞🌿੭‎ Admins *texto*
+⠞🌿੭‎ ${usedPrefix}todos *texto*
+⠞🌿੭‎ ${usedPrefix}setwelcome *texto*
+⠞🌿੭‎ ${usedPrefix}groupdesc *texto*
+⠞🌿੭‎ ${usedPrefix}setbye *texto*
+⠞🌿੭‎ ${usedPrefix}promote *@tag*
+⠞🌿੭‎ ${usedPrefix}demote *@tag*
+⠞🌿੭‎ ${usedPrefix}kick *@tag*
+⠞🌿੭‎ ${usedPrefix}mute *@tag*
+⠞🌿੭‎ ${usedPrefix}inactivos *opción*
+⠞🌿੭‎ ${usedPrefix}tagnum *prefix*
+⠞🌿੭‎ ${usedPrefix}link
+⠞🌿੭‎ ${usedPrefix}fantasmas
 
-╭──•「 *Groups* 」🌿
-│🌿 ${usedPrefix}add *número*
-│🌿 ${usedPrefix}grupo *abrir / cerrar*
-│🌿 ${usedPrefix}grouptime *tiempo*
-│🌿 ${usedPrefix}notify *texto*
-│🌿 Aviso *texto*
-│🌿 Admins *texto*
-│🌿 ${usedPrefix}todos *texto*
-│🌿 ${usedPrefix}setwelcome *texto*
-│🌿 ${usedPrefix}groupdesc *texto*
-│🌿 ${usedPrefix}setbye *texto*
-│🌿 ${usedPrefix}promote *@tag*
-│🌿 ${usedPrefix}demote *@tag*
-│🌿 ${usedPrefix}kick *@tag*
-│🌿 ${usedPrefix}mute *@tag*
-│🌿 ${usedPrefix}inactivos *opción*
-│🌿 ${usedPrefix}tagnum *prefix*
-│🌿 ${usedPrefix}link
-│🌿 ${usedPrefix}fantasmas
-╰──•
+↷✦; \`EFFECTS\` ❞ 🍃︵᷼ 
+⠞🍃੭‎ ${usedPrefix}bass *vid*
+⠞🍃੭‎ ${usedPrefix}blown *vid*
+⠞🍃੭‎ ${usedPrefix}deep *vid*
+⠞🍃੭‎ ${usedPrefix}earrape *vid*
+⠞🍃੭‎ ${usedPrefix}fast *vid*
+⠞🍃੭‎ ${usedPrefix}smooth *vid*
+⠞🍃੭‎ ${usedPrefix}tupai *vid*
+⠞🍃੭‎ ${usedPrefix}nightcore *vid*
+⠞🍃੭‎ ${usedPrefix}reverse *vid*
+⠞🍃੭‎ ${usedPrefix}robot *vid*
+⠞🍃੭‎ ${usedPrefix}slow *vid*
+⠞🍃੭‎ ${usedPrefix}squirrel *vid*
+⠞🍃੭‎ ${usedPrefix}chipmunk *vid*
+⠞🍃੭‎ ${usedPrefix}reverb *vid*
+⠞🍃੭‎ ${usedPrefix}chorus *vid*
+⠞🍃੭‎ ${usedPrefix}flanger *vid*
+⠞🍃੭‎ ${usedPrefix}distortion *vid*
+⠞🍃੭‎ ${usedPrefix}pitch *vid*
+⠞🍃੭‎ ${usedPrefix}highpass *vid*
+⠞🍃੭‎ ${usedPrefix}lowpass *vid*
+⠞🍃੭‎ ${usedPrefix}underwater *vid*
 
-╭──•「 *Efects* 」🥞
-│🥞 ${usedPrefix}bass *vid*
-│🥞 ${usedPrefix}blown *vid*
-│🥞 ${usedPrefix}deep *vid*
-│🥞 ${usedPrefix}earrape *vid*
-│🥞 ${usedPrefix}fast *vid*
-│🥞 ${usedPrefix}smooth *vid*
-│🥞 ${usedPrefix}tupai *vid*
-│🥞 ${usedPrefix}nightcore *vid*
-│🥞 ${usedPrefix}reverse *vid*
-│🥞 ${usedPrefix}robot *vid*
-│🥞 ${usedPrefix}slow *vid*
-│🥞 ${usedPrefix}squirrel *vid*
-│🥞 ${usedPrefix}chipmunk *vid*
-│🥞 ${usedPrefix}reverb *vid*
-│🥞 ${usedPrefix}chorus *vid*
-│🥞 ${usedPrefix}flanger *vid*
-│🥞 ${usedPrefix}distortion *vid*
-│🥞 ${usedPrefix}pitch *vid*
-│🥞 ${usedPrefix}highpass *vid*
-│🥞 ${usedPrefix}lowpass *vid*
-│🥞 ${usedPrefix}underwater *vid*
-╰──•
+↷✦; \`FUN\` ❞ 🥥︵᷼ 
+⠞🥥੭‎ ${usedPrefix}gay *@tag*
+⠞🥥੭‎ ${usedPrefix}lesbiana *@tag*
+⠞🥥੭‎ ${usedPrefix}pajero *@tag*
+⠞🥥੭‎ ${usedPrefix}pajera *@tag*
+⠞🥥੭‎ ${usedPrefix}puto *@tag*
+⠞🥥੭‎ ${usedPrefix}puta *@tag*
+⠞🥥੭‎ ${usedPrefix}manco *@tag*
+⠞🥥੭‎ ${usedPrefix}manca *@tag*
+⠞🥥੭‎ ${usedPrefix}rata *@tag*
+⠞🥥੭‎ ${usedPrefix}prostituto *@tag*
+⠞🥥੭‎ ${usedPrefix}prostituta *@tag*
+⠞🥥੭‎ ${usedPrefix}doxear *@tag*
+⠞🥥੭‎ ${usedPrefix}jalamela *@tag*
+⠞🥥੭‎ ${usedPrefix}simi *texto*
+⠞🥥੭‎ ${usedPrefix}pregunta *texto*
+⠞🥥੭‎ ${usedPrefix}genio *texto*
+⠞🥥੭‎ ${usedPrefix}top
+⠞🥥੭‎ ${usedPrefix}sorteo
+⠞🥥੭‎ ${usedPrefix}piropo
+⠞🥥੭‎ ${usedPrefix}chiste
+⠞🥥੭‎ ${usedPrefix}facto
+⠞🥥੭‎ ${usedPrefix}verdad
+⠞🥥੭‎ ${usedPrefix}pareja
+⠞🥥੭‎ ${usedPrefix}parejas
+⠞🥥੭‎ ${usedPrefix}love
+⠞🥥੭‎ ${usedPrefix}personalidad
 
-╭──•「 *Fun* 」🍁
-│🍁 ${usedPrefix}gay *@tag*
-│🍁 ${usedPrefix}lesbiana *@tag*
-│🍁 ${usedPrefix}pajero *@tag*
-│🍁 ${usedPrefix}pajera *@tag*
-│🍁 ${usedPrefix}puto *@tag*
-│🍁 ${usedPrefix}puta *@tag*
-│🍁 ${usedPrefix}manco *@tag*
-│🍁 ${usedPrefix}manca *@tag*
-│🍁 ${usedPrefix}rata *@tag*
-│🍁 ${usedPrefix}prostituto *@tag*
-│🍁 ${usedPrefix}prostituta *@tag*
-│🍁 ${usedPrefix}doxear *@tag*
-│🍁 ${usedPrefix}jalamela *@tag*
-│🍁 ${usedPrefix}simi *texto*
-│🍁 ${usedPrefix}pregunta *texto*
-│🍁 ${usedPrefix}genio *texto*
-│🍁 ${usedPrefix}top
-│🍁 ${usedPrefix}sorteo
-│🍁 ${usedPrefix}piropo
-│🍁 ${usedPrefix}chiste
-│🍁 ${usedPrefix}facto
-│🍁 ${usedPrefix}verdad
-│🍁 ${usedPrefix}pareja
-│🍁 ${usedPrefix}parejas
-│🍁 ${usedPrefix}love
-│🍁 ${usedPrefix}personalidad
-╰──•
+↷✦; \`GAME\` ❞ 🎋︵᷼ 
+⠞🎋੭‎ ${usedPrefix}pregunta *texto*
+⠞🎋੭‎ ${usedPrefix}ttt *texto*
+⠞🎋੭‎ ${usedPrefix}ptt *opción*
+⠞🎋੭‎ ${usedPrefix}delttt
+⠞🎋੭‎ ${usedPrefix}acertijo
 
-╭──•「 *Game* 」🕹️
-│🕹️ ${usedPrefix}pregunta *texto*
-│🕹️ ${usedPrefix}ttt *texto*
-│🕹️ ${usedPrefix}ptt *opción*
-│🕹️ ${usedPrefix}delttt
-│🕹️ ${usedPrefix}acertijo
-╰──•
+↷✦; \`ANIME\` ❞ 🌾︵᷼ 
+⠞🌾੭‎ ${usedPrefix}messi
+⠞🌾੭‎ ${usedPrefix}cr7
 
-╭──•「 *Anime* 」💫
-│💫 ${usedPrefix}messi
-│💫 ${usedPrefix}cr7
-╰──•
+↷✦; \`GIFS NSFW\` ❞ 🔥︵᷼ 
+⠞🔥੭‎ ${usedPrefix}violar *@tag*
+⠞🔥੭‎ ${usedPrefix}follar *@tag*
+⠞🔥੭‎ ${usedPrefix}anal *@tag*
+⠞🔥੭‎ ${usedPrefix}coger *@tag*
+⠞🔥੭‎ ${usedPrefix}coger2 *@tag*
+⠞🔥੭‎ ${usedPrefix}penetrar *@tag*
+⠞🔥੭‎ ${usedPrefix}sexo *@tag*
+⠞🔥੭‎ ${usedPrefix}rusa *@tag*
+⠞🔥੭‎ ${usedPrefix}sixnine *@tag*
+⠞🔥੭‎ ${usedPrefix}pies *@tag*
+⠞🔥੭‎ ${usedPrefix}mamada *@tag*
+⠞🔥੭‎ ${usedPrefix}lickpussy *@tag*
+⠞🔥੭‎ ${usedPrefix}grabboobs *@tag*
+⠞🔥੭‎ ${usedPrefix}suckboobs *@tag*
+⠞🔥੭‎ ${usedPrefix}cum *@tag*
+⠞🔥੭‎ ${usedPrefix}fap *@tag*
+⠞🔥੭‎ ${usedPrefix}manosear *@tag*
+⠞🔥੭‎ ${usedPrefix}lesbianas *@tag*
 
-╭──•「 *Nsfw* 」🔥
-│🔥 ${usedPrefix}violar *@tag*
-│🔥 ${usedPrefix}follar *@tag*
-│🔥 ${usedPrefix}anal *@tag*
-│🔥 ${usedPrefix}coger *@tag*
-│🔥 ${usedPrefix}coger2 *@tag*
-│🔥 ${usedPrefix}penetrar *@tag*
-│🔥 ${usedPrefix}sexo *@tag*
-│🔥 ${usedPrefix}rusa *@tag*
-│🔥 ${usedPrefix}sixnine *@tag*
-│🔥 ${usedPrefix}pies *@tag*
-│🔥 ${usedPrefix}mamada *@tag*
-│🔥 ${usedPrefix}lickpussy *@tag*
-│🔥 ${usedPrefix}grabboobs *@tag*
-│🔥 ${usedPrefix}suckboobs *@tag*
-│🔥 ${usedPrefix}cum *@tag*
-│🔥 ${usedPrefix}fap *@tag*
-│🔥 ${usedPrefix}manosear *@tag*
-│🔥 ${usedPrefix}lesbianas *@tag*
-╰──•
+↷✦; \`STICKERS\` ❞ 🦋︵᷼ 
+⠞🦋੭‎ ${usedPrefix}sticker *img*
+⠞🦋੭‎ ${usedPrefix}sticker *vid*
+⠞🦋੭‎ ${usedPrefix}brat *texto*
+⠞🦋੭‎ ${usedPrefix}qc *texto*
+⠞🦋੭‎ ${usedPrefix}dado
 
-╭──•「 *Stickers* 」🍮
-│🍮 ${usedPrefix}sticker *img*
-│🍮 ${usedPrefix}sticker *vid*
-│🍮 ${usedPrefix}brat *texto*
-│🍮 ${usedPrefix}qc *texto*
-│🍮 ${usedPrefix}dado
-╰──•
+↷✦; \`RPG\` ❞ 💸︵᷼ 
+⠞💸੭‎ ${usedPrefix}minar
+⠞💸੭‎ ${usedPrefix}cofre
+⠞💸੭ ${usedPrefix}slut
+⠞💸੭ ${usedPrefix}nivel
+⠞💸੭ ${usedPrefix}ruleta
 
-╭──•「 *Rpg* 」💸
-│💸 ${usedPrefix}minar
-│💸 ${usedPrefix}cofre
-│💸 ${usedPrefix}slut
-│💸 ${usedPrefix}nivel
-│💸 ${usedPrefix}ruleta
-╰──•
+↷✦; \`REGISTRO\` ❞ ☁️︵᷼ 
+⠞☁️੭ ${usedPrefix}perfil
+⠞☁️੭ ${usedPrefix}reg
+⠞☁️੭ ${usedPrefix}unreg
 
-╭──•「 *Registro* 」🐼
-│🐼 ${usedPrefix}perfil
-│🐼 ${usedPrefix}reg
-│🐼 ${usedPrefix}unreg
-╰──•
+↷✦; \`OWNER\` ❞ 👑︵᷼ 
+⠞👑੭ ${usedPrefix}salir
+⠞👑੭ ${usedPrefix}update
+⠞👑੭ ${usedPrefix}blocklist
+⠞👑੭ ${usedPrefix}grouplist
+⠞👑੭ ${usedPrefix}restart
+⠞👑੭ ${usedPrefix}join
+⠞👑੭ ${usedPrefix}chetar
+`.trim();
 
-╭──•「 *Owner* 」👑
-│👑 ${usedPrefix}salir
-│👑 ${usedPrefix}update
-│👑 ${usedPrefix}blocklist
-│👑 ${usedPrefix}grouplist
-│👑 ${usedPrefix}restart
-│👑 ${usedPrefix}join
-│👑 ${usedPrefix}chetar
-│👑 ${usedPrefix}unbanuser
-╰──•`.trim();
-
-      await conn.sendMessage(m.chat, {
-            video: { url: videoUrl },
-            caption: str,
-            mentions: [m.sender],
-            gifPlayback: true
-        }, { quoted: fkontak })
+    conn.sendMessage(m.chat, {
+      text: text,
+      contextInfo: {
+        mentionedJid: conn.parseMention(text),
+        isForwarded: true,
+        forwardingScore: 999,
+        externalAdReply: {
+          title: `${await conn.getName(m.sender)}, Thank for using Morchiyara, you can follow me on Instagram by clicking here`,
+          body: 'Im Dev Criss',
+          thumbnail: await (await fetch(img)).buffer(),
+          sourceUrl: insta,
+          mediaType: 1,
+          renderLargerThumbnail: true
+        }
+      }
+    }, { quoted: fkontak });
 
   } catch (e) {
-    conn.reply(m.chat,`*❌ Error al enviar el menú.*\n${e}`, m);
+    conn.reply(m.chat, '❎ Error en el comando. Inténtalo más tarde.', m);
   }
 };
 
@@ -296,6 +285,8 @@ handler.fail = null;
 
 export default handler;
 
+const more = String.fromCharCode(8206)
+const readMore = more.repeat(4001)
 function clockString(ms) {
   const h = isNaN(ms) ? '--' : Math.floor(ms / 3600000);
   const m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
