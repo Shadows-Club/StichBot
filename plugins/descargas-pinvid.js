@@ -15,6 +15,6 @@ handler.help = ['pinvid *<link>*']
 handler.tags = ['descargas']
 handler.command = ['pinvideo', 'pinvid']
 handler.premium = false
-handler.register = true
+//handler.register = true
 
 export default handler
