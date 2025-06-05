@@ -53,6 +53,6 @@ let handler = async (m, { conn, command, args, usedPrefix }) => {
 handler.help = ['google', 'googlef'].map(v => v + ' <pencarian>');
 handler.tags = ['buscador'];
 handler.command = ['google'];
-handler.register = true;
+//handler.register = true;
 
 export default handler;
