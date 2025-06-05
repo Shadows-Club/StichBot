@@ -84,8 +84,8 @@ let chtxt = `👤 *𝚄𝚂𝙴𝚁:* ${m.pushName || 'Anónimo'}
                 thumbnailUrl: perfil,
                 sourceUrl: redes,
                 mediaType: 1,
-                showAdAttribution: false,
-                renderLargerThumbnail: false
+                showAdAttribution: true,
+                renderLargerThumbnail: true
             }
         }
     }, { quoted: null });
