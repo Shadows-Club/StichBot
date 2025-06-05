@@ -16,7 +16,7 @@ const { name, description, author, version } = require(join(__dirname, './packag
 const { say } = cfonts;
 const rl = createInterface(process.stdin, process.stdout);
 
-say('Jota Bot', {
+say('Garu Bot', {
   font: 'chrome',
   align: 'center',
   gradient: ['red', 'magenta']
