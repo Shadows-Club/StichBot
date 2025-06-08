@@ -104,7 +104,7 @@ loadChatgptDB();
 
 global.creds = 'creds.json'
 global.authFile = 'GaruSession'
-global.authFileJB  = 'JadiBots2'
+global.authFileJB  = 'JadiBots'
 
 const {state, saveState, saveCreds} = await useMultiFileAuthState(authFile)
 const msgRetryCounterMap = (MessageRetryMap) => { }
