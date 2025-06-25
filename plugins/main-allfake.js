@@ -133,7 +133,7 @@ global.readMore = more.repeat(850)
 
 global.authsticker = `𝖲𝗁𝖺𝖽𝗈𝗐′𝗌  𝖢𝗅𝗎𝖻  彡`;
 
-global.packsticker = `ꘓꘓ  𝖦𝖺𝗋𝗎 𝖡𝗈𝗍 - 𝖬𝖣`
+global.packsticker = `ꘓꘓ  Shinazugawa Bot - MD`
 
 //FAKES
 global.fkontak = { key: { participants:"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
@@ -144,7 +144,7 @@ global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo
 //ID CANALES
 global.idchannel = '120363357231409846@newsletter'
 global.canalIdM = ["120363357231409846@newsletter", "120363357231409846@newsletter", "120363357231409846@newsletter"]
-global.canalNombreM = ["⏤͟͟͞͞GaruBot", "Garuu", "⏤͟͟͞͞☆ GARU BOT MD"]
+global.canalNombreM = ["⏤͟͟͞͞ShinazugawaBot", "Shinazugawa", "⏤͟͟͞͞☆ SHINAZUGAWA BOT MD"]
 global.channelRD = await getRandomChannel()
 // global.estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "3876577197-120363302285079181@g.us" } : {}) }, message: { orderMessage: { itemCount : -999999, status: 1, surface : 1, message: `${packname}`, orderTitle: 'Bang', thumbnail: icons, sellerJid: '0@s.whatsapp.net'}}}
 
