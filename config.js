@@ -22,14 +22,14 @@ global.mods = ['51990841568', '51965911060', '51906168999']
 global.prems = ['51965911060', '51906168999']
 
 
-global.packname = 'Garu Bot - MD'
-global.botname = 'Garu Bot - MD'
-global.wm = 'Garu Bot - MD'
+global.packname = 'Shinazugawa Bot - MD'
+global.botname = 'Shinazugawa Bot - MD'
+global.wm = 'Shinazugawa Bot - MD'
 global.author = '𝖲𝗁⍺𝖽ᦅ𝗐′𝗌 𝖢𝗅𝗎𝖻'
 global.dev = '𝖯𑄜𝗐𝖾𝗋𝖾𝖽 𝖻𝗒 𝖲𝗁⍺𝖽ᦅ𝗐′𝗌 𝖢𝗅𝗎𝖻'
 global.errorm = 'Error: ${error.message}'
-global.nombrebot = 'Garu Bot - MD'
-global.textbot = `GARU BOT MD`
+global.nombrebot = 'Shinazugawa Bot - MD'
+global.textbot = `SHINAZUGAWA BOT MD`
 global.vs = '1.0.0'
 
 
