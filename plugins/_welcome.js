@@ -1,24 +1,30 @@
-import {WAMessageStubType} from '@whiskeysockets/baileys'
+import { WAMessageStubType } from '@whiskeysockets/baileys'
 import fetch from 'node-fetch'
 
-export async function before(m, {conn, participants, groupMetadata}) {
-  if (!m.messageStubType || !m.isGroup) return !0;
-  let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://files.catbox.moe/hmyrqs.jpg')
-  let img = await (await fetch(`${pp}`)).buffer()
-  let chat = global.db.data.chats[m.chat]
+export async function before(m, { conn, participants, groupMetadata }) {
+  if (!m.messageStubType || !m.isGroup) return true
 
-  if (chat.bienvenida && m.messageStubType == 27) {
-    let bienvenida = `┌─★ *${botname}* \n│「 Bienvenido 」\n└┬★ 「 @${m.messageStubParameters[0].split`@`[0]} 」\n   │✑  Bienvenido a\n   │✑  ${groupMetadata.subject}\n   └───────────────┈ ⳹\n\n${club}`
+  const chat = global.db.data.chats[m.chat]
+  const jid = m.messageStubParameters?.[0]
+  if (!chat?.bienvenida || !jid) return
 
-await conn.sendLuffy(m.chat, botname, textbot, bienvenida, img, img, canal, estilo)
+  let pp = 'https://files.catbox.moe/hmyrqs.jpg'
+  try {
+    pp = await conn.profilePictureUrl(jid, 'image')
+  } catch {}
+  const img = await (await fetch(pp)).buffer()
+
+  const userTag = '@' + jid.split('@')[0]
+  const group = groupMetadata?.subject || 'este grupo'
+
+  const bienvenida = `┌─★ *${global.botname}* \n│「 Bienvenido 」\n└┬★ 「 ${userTag} 」\n   │✑  Bienvenido a\n   │✑  ${group}\n   └───────────────┈ ⳹\n\n${global.club}`
+  const bye = `┌─★ *${global.botname}* \n│「 ADIOS 👋 」\n└┬★ 「 ${userTag} 」\n   │✑  Se fue\n   │✑ Jamás te quisimos aquí\n   └───────────────┈ ⳹`
+
+  if (m.messageStubType === WAMessageStubType.ADD) {
+    await conn.sendLuffy(m.chat, global.botname, global.textbot, bienvenida, img, img, global.canal, global.estilo)
   }
 
-  if (chat.bienvenida && m.messageStubType == 28) {
-    let bye = `┌─★ *${botname}* \n│「 ADIOS 👋 」\n└┬★ 「 @${m.messageStubParameters[0].split`@`[0]} 」\n   │✑  Se fue\n   │✑ Jamás te quisimos aquí\n   └───────────────┈ ⳹\n\n${club}`
-await conn.sendLuffy(m.chat, botname, textbot, bye, img, img, canal, estilo)
+  if ([WAMessageStubType.REMOVE, WAMessageStubType.LEAVE].includes(m.messageStubType)) {
+    await conn.sendLuffy(m.chat, global.botname, global.textbot, bye, img, img, global.canal, global.estilo)
   }
-
-  if (chat.bienvenida && m.messageStubType == 32) {
-    let kick = `┌─★ *${botname}* \n│「 ADIOS 👋 」\n└┬★ 「 @${m.messageStubParameters[0].split`@`[0]} 」\n   │✑  Se fue\n   │✑ Jamás te quisimos aquí\n   └───────────────┈ ⳹`
-await conn.sendLuffy(m.chat, botname, textbot, kick, img, img, canal, estilo)
-}}
+}
