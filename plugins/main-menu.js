@@ -390,7 +390,7 @@ const handler = async (m, { conn, usedPrefix, isPrems }) => {
         isForwarded: true,
         forwardingScore: 999,
         externalAdReply: {
-          title: `${await conn.getName(m.sender)}, Thank for using Garu, you can follow me on Instagram by clicking here`,
+          title: `${await conn.getName(m.sender)}, Thank for using Shinazugawa Bot - MD, you can follow me on Instagram by clicking here`,
           body: 'Im Dev Criss 💋',
           thumbnail: await (await fetch(img)).buffer(),
           sourceUrl: insta,
