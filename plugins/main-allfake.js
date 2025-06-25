@@ -36,11 +36,11 @@ global.creador = 'Wa.me/51927238856'
 global.botreal = `${(conn.user.jid == global.conn.user.jid ? 'Oficial' : 'Sub-Bot')}`
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
 global.asistencia = 'Wa.me/56964656014'
-global.namech = 'Garu Bot'
+global.namech = 'Shinazugawa Bot'
 global.namechannel2 = 'ꘓꘓ   ໒☀️ؑ   𝖲ᥙᥒ𝖿͟ᥣ͟ᥲ𝗋ᥱࣲ  𝖳ᥱᥲ𝗆 彡'
-global.namegrupo = 'GaruBot'
+global.namegrupo = 'ShinazugawaBot'
 global.namecomu = 'Shadow′s Club'
-global.namecomu2 = 'Garu'
+global.namecomu2 = 'Shinazugawa'
 
 //REACCIONES 
 global.rwait = '🕒'
