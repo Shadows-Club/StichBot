@@ -19,7 +19,7 @@ const handler = async (m, { conn, usedPrefix, isPrems }) => {
     const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
 
     const text = `
-ㅤ𐙚ㅤ   *𝖦𝖺𝗋𝗎*    ﾉㅤㅤ *𝖡𝗈𝗍*  ㅤ🕷️ ㅤׄ
+ㅤ𐙚ㅤ   *Shinazugawa*    ﾉㅤㅤ *𝖡𝗈𝗍*  ㅤ🕷️ ㅤׄ
 ᗝ̵ *Hᴏʟᴀ ${taguser}*\nㅤ *✰⃕${saludo}*
 
 > ꒰꛱ ͜Desarrollado por *Cristian Escobar* +51927238856
