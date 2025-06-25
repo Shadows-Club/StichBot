@@ -10,7 +10,7 @@ export async function before(m, {conn, participants, groupMetadata}) {
   if (chat.bienvenida && m.messageStubType == 27) {
     let bienvenida = `┌─★ *${botname}* \n│「 Bienvenido 」\n└┬★ 「 @${m.messageStubParameters[0].split`@`[0]} 」\n   │✑  Bienvenido a\n   │✑  ${groupMetadata.subject}\n   └───────────────┈ ⳹\n\n${club}`
 
-await conn.sendAi(m.chat, botname, textbot, bienvenida, img, img, canal, estilo)
+await conn.sendLuffy(m.chat, botname, textbot, bienvenida, img, img, canal, estilo)
   }
 
   if (chat.bienvenida && m.messageStubType == 28) {
