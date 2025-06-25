@@ -1,4 +1,4 @@
-<h1 align="center">Garu Bot MD</h1>
+<h1 align="center">Shinazugawa Bot MD</h1>
  <p align="center">Dev.Criss 🇦🇱</p>
 </p>
 
