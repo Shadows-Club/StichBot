@@ -36,11 +36,11 @@ global.creador = 'Wa.me/51927238856'
 global.botreal = `${(conn.user.jid == global.conn.user.jid ? 'Oficial' : 'Sub-Bot')}`
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
 global.asistencia = 'Wa.me/56964656014'
-global.namech = 'Shinazugawa Bot'
+global.namech = 'Stich Bot'
 global.namechannel2 = 'ꘓꘓ   ໒☀️ؑ   𝖲ᥙᥒ𝖿͟ᥣ͟ᥲ𝗋ᥱࣲ  𝖳ᥱᥲ𝗆 彡'
-global.namegrupo = 'ShinazugawaBot'
+global.namegrupo = 'StichBot'
 global.namecomu = 'Shadow′s Club'
-global.namecomu2 = 'Shinazugawa'
+global.namecomu2 = 'Stich'
 
 //REACCIONES 
 global.rwait = '🕒'
@@ -65,7 +65,7 @@ global.wait = '*⏳ Aguarde un momento...*';
 
 //ENLACES
 var grupo = 'https://chat.whatsapp.com/Caj518FwPjHLVmGn48GvhW'  
-var github = 'https://github.com/Shadows-Club/GaruBot' 
+var github = 'https://github/chupamelavrg'
 var web = 'https://garu-bot.vercel.app/' 
 let instagram = 'https://www.instagram.com/dev.criss_vx'
 
@@ -133,7 +133,7 @@ global.readMore = more.repeat(850)
 
 global.authsticker = `𝖲𝗁𝖺𝖽𝗈𝗐′𝗌  𝖢𝗅𝗎𝖻  彡`;
 
-global.packsticker = `ꘓꘓ  Shinazugawa Bot - MD`
+global.packsticker = `ꘓꘓ  Stich Bot - MD`
 
 //FAKES
 global.fkontak = { key: { participants:"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
@@ -144,7 +144,7 @@ global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo
 //ID CANALES
 global.idchannel = '120363357231409846@newsletter'
 global.canalIdM = ["120363357231409846@newsletter", "120363357231409846@newsletter", "120363357231409846@newsletter"]
-global.canalNombreM = ["⏤͟͟͞͞ShinazugawaBot", "Shinazugawa", "⏤͟͟͞͞☆ SHINAZUGAWA BOT MD"]
+global.canalNombreM = ["⏤͟͟͞͞StichBot", "Sigue el canal", "⏤͟͟͞͞☆ STICH BOT MD"]
 global.channelRD = await getRandomChannel()
 // global.estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "3876577197-120363302285079181@g.us" } : {}) }, message: { orderMessage: { itemCount : -999999, status: 1, surface : 1, message: `${packname}`, orderTitle: 'Bang', thumbnail: icons, sellerJid: '0@s.whatsapp.net'}}}
 
