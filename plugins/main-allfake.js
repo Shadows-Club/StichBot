@@ -35,7 +35,7 @@ let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? c
 global.creador = 'Wa.me/51927238856'
 global.botreal = `${(conn.user.jid == global.conn.user.jid ? 'Oficial' : 'Sub-Bot')}`
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
-global.asistencia = 'Wa.me/56964656014'
+global.asistencia = 'Wa.me/56927238856'
 global.namech = 'Stich Bot'
 global.namechannel2 = 'ꘓꘓ   ໒☀️ؑ   𝖲ᥙᥒ𝖿͟ᥣ͟ᥲ𝗋ᥱࣲ  𝖳ᥱᥲ𝗆 彡'
 global.namegrupo = 'StichBot'
@@ -48,11 +48,11 @@ global.done = '✅'
 global.error = '✖️'
 
 //EMOJIS PREDETERMINADOS
-global.emoji = '🕷️'
-global.emoji2 = '🚫'
-global.emoji3 = '👻'
-global.emoji4 = '👽'
-global.emoji5 = '🫦'
+global.emoji = '🤖'
+global.emoji2 = '⚡'
+global.emoji3 = '🐻'
+global.emoji4 = '🗣️'
+global.emoji5 = '🌱'
 global.emojis = [emoji, emoji2, emoji3, emoji4, emoji5].getRandom()
 
 //EMOJIS INFORMATIVOS
@@ -66,7 +66,7 @@ global.wait = '*⏳ Aguarde un momento...*';
 //ENLACES
 var grupo = 'https://chat.whatsapp.com/Caj518FwPjHLVmGn48GvhW'  
 var github = 'https://github/chupamelavrg'
-var web = 'https://garu-bot.vercel.app/' 
+var web = 'https://stich-bot.vercel.app/' 
 let instagram = 'https://www.instagram.com/dev.criss_vx'
 
 global.redes = [grupo, github, web, instagram].getRandom()
