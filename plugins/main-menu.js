@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 const handler = async (m, { conn, usedPrefix, isPrems }) => {
   try {
-    await m.react('🕷️');
+    await m.react('🪷');
 
     let img = 'https://files.catbox.moe/ltn86q.jpg';
     let insta = 'https://instagram.com/dev.criss_vx';
@@ -19,7 +19,7 @@ const handler = async (m, { conn, usedPrefix, isPrems }) => {
     const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
 
     const text = `
-ㅤ𐙚ㅤ   *Shinazugawa*    ﾉㅤㅤ *𝖡𝗈𝗍*  ㅤ🕷️ ㅤׄ
+ㅤ𐙚ㅤ   *Stich*    ﾉㅤㅤ *𝖡𝗈𝗍*  ㅤ🕷️ ㅤׄ
 ᗝ̵ *Hᴏʟᴀ ${taguser}*\nㅤ *✰⃕${saludo}*
 
 > ꒰꛱ ͜Desarrollado por *Cristian Escobar* +51927238856
